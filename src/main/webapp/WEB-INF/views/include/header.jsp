@@ -24,7 +24,7 @@
           <li><a href="#services">Services</a></li>
           <li><a href="#team">Team</a></li>
      <c:choose>
-     	<c:when test="${not empty userinfo}">
+     	<c:when test="${not empty member}">
           <li><a id="logout-nav" href="<%=root%>/main.do?action=logout" class="logout-nav font-weight-bold">Logout</a></li>
           <li><a id="mypage-nav" href="<%=root%>/main.do?action=mvMyPage" class="mypage-nav font-weight-bold">MyPage</a></li>
           	<c:if test="${not empty admininfo}">
