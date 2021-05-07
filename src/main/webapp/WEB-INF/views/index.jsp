@@ -12,23 +12,23 @@
 <title>HappyHouse</title>
 <!-- push  -->
 <!-- Favicons -->
-<link href="assets/img/favicon.png" rel="icon">
-<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+<link href="img/favicon.png" rel="icon">
+<link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
 <!-- Vendor CSS Files -->
-<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-<link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-<link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-<link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
-<link href="assets/vendor/aos/aos.css" rel="stylesheet">
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="vendor/icofont/icofont.min.css" rel="stylesheet">
+<link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+<link href="vendor/owl.carousel/owl.carousel.min.css" rel="stylesheet">
+<link href="vendor/venobox/venobox.css" rel="stylesheet">
+<link href="vendor/aos/aos.css" rel="stylesheet">
 
 <!-- Template Main CSS File -->
-<link href="assets/css/style.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
 	function listHouseDeal() {
@@ -76,7 +76,7 @@
 
 <body>
 	<!-- ======= Header ======= -->
-	<jsp:include page="/WEB-INF/views/include/header.jsp" />
+	<jsp:include page="include/header.jsp" />
 	<!-- End Header -->
 
 	<!-- ======= Hero Section ======= -->
@@ -226,7 +226,7 @@
 
 			<div class="row">
 				<div class="col-xl-6 col-lg-7" data-aos="fade-right">
-					<img src="assets/img/about-bg.jpeg" class="img-fluid" alt="">
+					<img src="img/about-bg.jpeg" class="img-fluid" alt="">
 				</div>
 				<div class="col-xl-6 col-lg-5 pt-5 pt-lg-0">
 					<h3 data-aos="fade-up">About Happy House</h3>
@@ -260,7 +260,7 @@
 
 				<div class="col" data-aos="fade-up">
 					<div class="member">
-						<img src="assets/img/team/박재준.jpg" class="img-fluid" alt="">
+						<img src="img/team/박재준.jpg" class="img-fluid" alt="">
 						<div class="member-info">
 							<div class="member-info-content">
 								<h4>박재준</h4>
@@ -274,7 +274,7 @@
 
 				<div class="col" data-aos="fade-up" data-aos-delay="100">
 					<div class="member">
-						<img src="assets/img/team/김민지.jpg" class="img-fluid" alt="">
+						<img src="img/team/김민지.jpg" class="img-fluid" alt="">
 						<div class="member-info">
 							<div class="member-info-content">
 								<h4>김민지</h4>
@@ -288,7 +288,7 @@
 
 				<div class="col" data-aos="fade-up" data-aos-delay="100">
 					<div class="member">
-						<img src="assets/img/team/진미령.jpg" class="img-fluid" alt="">
+						<img src="img/team/진미령.jpg" class="img-fluid" alt="">
 						<div class="member-info">
 							<div class="member-info-content">
 								<h4>진미령</h4>
@@ -532,20 +532,20 @@
 		</div>
 	</div>
 	<!-- Vendor JS Files -->
-	<script src="assets/vendor/jquery/jquery.min.js"></script>
-	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-	<script src="assets/vendor/php-email-form/validate.js"></script>
-	<script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-	<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-	<script src="assets/vendor/venobox/venobox.min.js"></script>
-	<script src="assets/vendor/aos/aos.js"></script>
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="vendor/jquery.easing/jquery.easing.min.js"></script>
+	<script src="vendor/php-email-form/validate.js"></script>
+	<script src="vendor/owl.carousel/owl.carousel.min.js"></script>
+	<script src="vendor/isotope-layout/isotope.pkgd.min.js"></script>
+	<script src="vendor/venobox/venobox.min.js"></script>
+	<script src="vendor/aos/aos.js"></script>
 
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 	<!-- Template Main JS File -->
-	<script src="assets/js/main.js"></script>
-	<script src="assets/js/user.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/user.js"></script>
 
 </body>
 
