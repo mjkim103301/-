@@ -26,4 +26,16 @@
 		        address = #{address}
 		where	userid = #{userid}
 	</update>
+	
+	<insert id="registerMember" parameterType="memberDto">
+		insert 
+		into member 
+		values(	#{userid}
+				, #{username}
+                , #{userpwd}
+                , #{email}
+                , #{address}
+                , now()
+                , false);
+	</insert>
 </mapper>

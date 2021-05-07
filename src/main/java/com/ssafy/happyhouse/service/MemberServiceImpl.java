@@ -42,6 +42,23 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		memberDao.updateMember(member);
 	}
+
+	@Override
+	@Transactional
+	public void registerMember(MemberDto member) {
+		// TODO Auto-generated method stub
+		memberDao.registerMember(member);
+	}
+
+	@Override
+	public boolean duplicatedIdCheck(String userId) {
+		// TODO Auto-generated method stub
+		MemberDto memberDto = memberDao.getMember(userId);
+		if(memberDto != null) {
+			return false;
+		}
+		return true;
+	}
 	
 
 }

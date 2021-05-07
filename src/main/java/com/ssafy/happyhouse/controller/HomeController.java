@@ -34,4 +34,9 @@ public class HomeController {
 		return "member/my_page";
 	}
 	
+	@GetMapping("register")
+	public String register() {
+		return "member/register";
+	}
+	
 }

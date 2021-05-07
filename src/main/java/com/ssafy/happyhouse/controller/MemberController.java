@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -72,6 +73,22 @@ public class MemberController {
 		System.out.println(member);
 		memberService.updateMember(member);
 		session.setAttribute("member", member);
+		return new ResponseEntity(HttpStatus.OK);
+	}
+	
+	@GetMapping("/idcheck/{userid}")
+	public ResponseEntity duplicatedIdCheck(@PathVariable(value = "userid") String userid) {
+		System.out.println(userid);
+		if(!memberService.duplicatedIdCheck(userid)) {
+			System.out.println("fail");
+			return new ResponseEntity(HttpStatus.BAD_REQUEST);
+		}
+		return new ResponseEntity(HttpStatus.OK);
+	}
+	
+	@PostMapping("/registerMember")
+	public ResponseEntity registerMember(@RequestBody MemberDto member) {
+		memberService.registerMember(member);
 		return new ResponseEntity(HttpStatus.OK);
 	}
 	
