@@ -7,7 +7,5 @@ import com.ssafy.happyhouse.dto.PageBean;
 
 
 public interface HouseDealService {
-	public HouseDealDto getHouseDeal(long no);
-
-	public List<HouseDealDto> searchAll(PageBean bean);
+	public List<HouseDealDto> houseDealList(List<HouseDealDto> houseDealDto);
 }
