@@ -10,11 +10,20 @@
 		where	userid = #{userid}
 	</select>
 	
-	<select id="getUserpwd" parameterType="memberDto" resultType="string">
+	<select id="getMemberPwd" parameterType="memberDto" resultType="string">
 		select 	*
 		from	member
 		where	userid = #{userid}
 		and		username = #{username}
 		and		email = #{email}
 	</select>
+	
+	<update id="updateMember" parameterType="memberDto" >
+		update	member 
+		set 	username = #{username},
+				userpwd = #{userpwd},
+		        email = #{email},
+		        address = #{address}
+		where	userid = #{userid}
+	</update>
 </mapper>

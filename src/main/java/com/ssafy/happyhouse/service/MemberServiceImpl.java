@@ -3,6 +3,7 @@ package com.ssafy.happyhouse.service;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ssafy.happyhouse.dao.MemberDao;
 import com.ssafy.happyhouse.dto.MemberDto;
@@ -25,14 +26,22 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public String findUserpwd(MemberDto member) {
+	public String findMemberPwd(MemberDto member) {
 		// TODO Auto-generated method stub
-		String userPwd = memberDao.getUserpwd(member);
+		String userPwd = memberDao.getMemberPwd(member);
 		
 		if(userPwd == null || userPwd.equals("")) {
 			return null;
 		}
 		return userPwd;
 	}
+
+	@Transactional
+	@Override
+	public void updateMember(MemberDto member) {
+		// TODO Auto-generated method stub
+		memberDao.updateMember(member);
+	}
+	
 
 }
