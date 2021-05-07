@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%
-	String root = request.getContextPath();
-	System.out.println(root + "regist.jsp");
-%>
+<c:set var="root" value="${pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html>
 
@@ -12,28 +9,28 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>회원 등록</title>
 <!-- Favicons -->
-<link href="assets/img/favicon.png" rel="icon">
-<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+<link href="img/favicon.png" rel="icon">
+<link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
 <!-- Vendor CSS Files -->
-<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-<link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-<link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-<link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
-<link href="assets/vendor/aos/aos.css" rel="stylesheet">
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="vendor/icofont/icofont.min.css" rel="stylesheet">
+<link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+<link href="vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+<link href="vendor/venobox/venobox.css" rel="stylesheet">
+<link href="vendor/aos/aos.css" rel="stylesheet">
 
 <!-- Template Main CSS File -->
-<link href="assets/css/style.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
 </head>
 <script type="text/javascript">
 				function register() {
 					//TODO:  아이디 중복검사 했는지 
-					if(document.getElementById("hiddenidcheck").value=="idUncheck"){
+					if(document.getElementById("idcheck").value!="사용 가능"){
 						alert("아이디 중복검사 하세요!")
 						return
 					}else if(document.getElementById("userpwd")==""){
@@ -52,28 +49,43 @@
 						alert("비밀번호가 일치하지 않습니다!")
 						return
 					}else{
-						document.getElementById("insertform").action = "<%=root%>/main.do"
-						document.getElementById("insertform").submit()
+						<%--  document.getElementById("insertform").action = "<%=root%>/main.do" --%>
+						// document.getElementById("insertform").submit()
 					}
 					
 					
 				}
 				
 				function idValid() {
-					window.name="parentForm"
-					window.open("id-check-form.jsp", "checkForm", "width=700, height=300, resizable=no, scorollbars=no") 
+					console.log('${root}');
+					let userid = document.getElementById("userid").value;
+					$.ajax({
+						url : '${root}/idcheck/'+userid 
+						, type : 'GET'
+						, success: 	function (status) {
+							document.getElementById("idcheck").setAttribute("disabled", true);
+							document.getElementById("idcheck").value ="사용 가능";
+							document.getElementById("userid").readOnly = true;
+							alert("사용가능한 아이디에요");
+						}
+						, error:	function(request,status,error){
+							console.log(error + status);
+							
+							alert("사용중인 아이디에요");	 
+						}
+					});
 				}
 				
-				//아이디 입력값 변경했을 때
-				function idChange(){
-					document.insertform.hiddenidcheck.value="idUncheck"
-				}
+				// 아이디 입력값 변경했을 때
+				// function idChange(){
+				// 	document.insertform.hiddenidcheck.value="idUncheck"
+				// }
 			</script>
 
 <body>
 	<jsp:include page="/WEB-INF/views/include/header.jsp" />
 	<div class="jumbotron jumbotron-fluid">
-		<picture> <img src="assets/img/bg-index.jpg" class="jumbotron__background"> </picture>
+		<picture> <img src="img/bg-index.jpg" class="jumbotron__background"> </picture>
 		<div class="container text-white text-center">
 			<h1 class="display-4">회원 가입</h1>
 			<p class="lead"></p>
@@ -88,8 +100,9 @@
 
 				<div class="row ml-0">
 					<!-- <input type="hidden" name="action idValid" value="idUncheck"> -->
-					<input type="hidden" id="hiddenidcheck" name="hiddenidcheck" value="idUncheck"> <input type="text" class="form-control col-sm-8 mr-3" id="userid" placeholder="아이디 입력" name="userid" onkeydown="idChange()">
-					<button type="button" class="btn btn-primary col-sm-3" onclick="javascript:idValid();">중복 검사</button>
+					<!-- <input type="text" class="form-control col-sm-8 mr-3" id="userid" placeholder="아이디 입력" name="userid" onkeydown="idChange()"> -->
+					<input type="text" class="form-control col-sm-8 mr-3" id="userid" placeholder="아이디 입력" name="userid">
+					<button type="button" id="idcheck" class="btn btn-primary col-sm-3" onclick="javascript:idValid();">중복 검사</button>
 				</div>
 
 				<div class="valid-feedback">Valid.</div>

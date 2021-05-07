@@ -30,14 +30,14 @@
      	<c:when test="${not empty member}">
           <li><a id="logout-nav" href="javascript:void(0);" onclick="javascript:logout();" class="logout-nav font-weight-bold">Logout</a></li>
           <li><a id="mypage-nav" href="<%=root%>${root}/mypage" class="mypage-nav font-weight-bold">MyPage</a></li>
-          	<c:if test="${not empty admininfo}">
+          	<c:if test="${not empty member.isAdmin && member.isAdmin eq true}">
           <!-- 관리자가 로그인했을 때만 -->
           <li><a id="admin-nav" href="<%=root%>/main.do?action=mvUserAdmin" class="admin-nav font-weight-bold">Admin</a></li> 
           	</c:if>
         </c:when>
         <c:otherwise>
           <li><a id="login-nav" href="" class="login-nav font-weight-bold" data-toggle="modal" data-target="#loginModal">Login</a></li>
-          <li><a id="signup-nav" href="<%=root%>/main.do?action=mvSignUp" class="signup-nav font-weight-bold" >SignUp</a></li>
+          <li><a id="signup-nav" href="<%=root%>/register" class="signup-nav font-weight-bold" >SignUp</a></li>
         </c:otherwise>
 	</c:choose>
 

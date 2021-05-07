@@ -39,7 +39,7 @@
 		        , success: 	function (status) {
 					location.href="${root}";
 		        }
-		       , error:		function(request,status,error){
+				, error:	function(request,status,error){
 					$("#failModal").modal("show");
 		            console.log("로그인 실패" +  status);		 
 		        }
