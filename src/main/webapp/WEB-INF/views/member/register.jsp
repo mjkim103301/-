@@ -49,8 +49,33 @@
 						alert("비밀번호가 일치하지 않습니다!")
 						return
 					}else{
-						<%--  document.getElementById("insertform").action = "<%=root%>/main.do" --%>
-						// document.getElementById("insertform").submit()
+						let userid = document.getElementById("userid").value;
+						let username = document.getElementById("name").value;
+						let email = document.getElementById("email").value;
+						let userpwd = document.getElementById("userpwd").value;
+						let address = document.getElementById("address").value;
+						console.log(userpwd + email + address + username);
+						let data = ({
+							userid		: 	userid,
+							username	:	username,
+							userpwd		:	userpwd,
+							email		:	email,
+							address 	:	address
+						});
+						$.ajax({
+							url : '${root}/registerMember' 
+							, type : 'POST' 
+							, data : JSON.stringify(data)
+							, contentType : "application/json; charset=UTF-8"
+							, success: 	function (status) {
+								alert("가입 성공 !");
+								location.href="${root}";
+							}
+							, error:	function(request,status,error){
+								$("#failModal").modal("show");
+								console.log("가입 실패" +  status);		 
+							}
+						});
 					}
 					
 					

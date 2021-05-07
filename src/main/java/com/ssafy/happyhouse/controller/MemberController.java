@@ -86,4 +86,10 @@ public class MemberController {
 		return new ResponseEntity(HttpStatus.OK);
 	}
 	
+	@PostMapping("/registerMember")
+	public ResponseEntity registerMember(@RequestBody MemberDto member) {
+		memberService.registerMember(member);
+		return new ResponseEntity(HttpStatus.OK);
+	}
+	
 }
