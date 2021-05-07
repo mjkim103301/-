@@ -22,12 +22,12 @@ public class SwaggerConfig {
 	public Docket api() {
 		logger.debug("swagger ready........{}", "준비중");
 		return new Docket(DocumentationType.SWAGGER_2)
-				   .groupName("book") 		//service할 project 이름 
+				   .groupName("happyhouse") 		//service할 project 이름 
 				   .apiInfo(info())
 				   .select()
-				   .apis(RequestHandlerSelectors.basePackage("com.ssafy.product.controller"))
+				   .apis(RequestHandlerSelectors.basePackage("com.ssafy.happyhouse.controller"))
 				    // 서비스할 경로 phone으로 통일  서비스 구분은 요청 method로 구분  
-				   .paths(PathSelectors.ant("/product/**")) 
+				   .paths(PathSelectors.ant("/happyhouse/**")) 
 //				    //서비스할 경로를 통일하지 않고 경로명으로 구분해서 사용 
 //				   .paths(PathSelectors.any()) 	 		  
 				   .build();
