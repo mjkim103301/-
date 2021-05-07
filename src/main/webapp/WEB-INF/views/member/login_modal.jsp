@@ -35,15 +35,13 @@
 		        url : '${root}/login' 
 		        , type : 'POST' 
 		        , data : JSON.stringify(data)
-		        , dataType : 'json' 
 		        , contentType : "application/json; charset=UTF-8" 
-		        , success: 	function (result) {
-					alert("로그인 성공");
+		        , success: 	function (status) {
 					location.href="${root}";
 		        }
 		       , error:		function(request,status,error){
-					alert("로그인 실패" +  status);
-		            console.log("error");		 
+					$("#failModal").modal("show");
+		            console.log("로그인 실패" +  status);		 
 		        }
 		    });
 			//document.getElementById("loginform").action = "${root}/main.do";
@@ -155,7 +153,7 @@
 			<div class="modal-content">
 				<div class="modal-body">
 					<article class="card-body mx-auto" style="max-width: 400px;">
-						<h4 class="card-title text-center mt-3">${msg}</h4>
+						<h4 class="card-title text-center mt-3">아이디나 비밀번호를 확인하세요!</h4>
 					</article>
 					<div class="form-group" align="center">
 						<button type="submit" class="btn btn-primary" data-dismiss="modal">확인</button>

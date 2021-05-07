@@ -8,6 +8,9 @@
 
 <html lang="ko">
 <body>
+  <!-- ======= login modal ======= --> 
+  <jsp:include page="../member/login_modal.jsp" />
+
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     <div class="container d-flex">
