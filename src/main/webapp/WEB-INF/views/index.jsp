@@ -30,13 +30,6 @@
 <!-- Template Main CSS File -->
 <link href="css/style.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript">
-	function listHouseDeal() {
-		document.getElementById("search-using-word").action = "${root}/main.do";
-		document.getElementById("search-using-word").submit();
-	}
-
-</script>
 </head>
 
 <body>
