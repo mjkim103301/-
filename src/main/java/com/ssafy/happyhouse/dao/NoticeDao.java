@@ -4,10 +4,12 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
+
 import com.ssafy.model.dto.NoticeDto;
 import com.ssafy.model.dto.PageBean;
 
-
+@Mapper
 public interface NoticeDao {
 //	글작성
 	void registerArticle(Connection conn, NoticeDto noticeDto) throws SQLException;

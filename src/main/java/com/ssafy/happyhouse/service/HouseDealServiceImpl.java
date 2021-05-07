@@ -3,6 +3,10 @@ package com.ssafy.happyhouse.service;
 import java.sql.Connection;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.ssafy.model.dao.HouseDealDao;
 import com.ssafy.model.dao.HouseDealDaoImpl;
 import com.ssafy.model.dto.HouseDealDto;
@@ -11,9 +15,13 @@ import com.ssafy.model.dto.ProductException;
 import com.ssafy.util.DBUtil;
 import com.ssafy.util.PageUtility;
 
-
+@Service
 public class HouseDealServiceImpl implements HouseDealService {
-	private HouseDealDao dao=HouseDealDaoImpl.getHouseDealDao();
+	
+	@Autowired
+	private HouseDealDao dao;
+	
+	@Transactional
 	@Override
 	public List<HouseDealDto> searchAll(PageBean bean) {
 		Connection conn=null;
@@ -37,7 +45,9 @@ public class HouseDealServiceImpl implements HouseDealService {
 			DBUtil.close(conn);
 		}
 	}
-
+	
+	
+	@Transactional
 	@Override
 	public HouseDealDto getHouseDeal(long no) {
 		// TODO Auto-generated method stub

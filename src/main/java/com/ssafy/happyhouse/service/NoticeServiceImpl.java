@@ -4,13 +4,22 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.ssafy.model.dao.NoticeDao;
 import com.ssafy.model.dao.NoticeDaoImpl;
 import com.ssafy.model.dto.NoticeDto;
 import com.ssafy.util.DBUtil;
 
+@Service
 public class NoticeServiceImpl implements NoticeService {
-	NoticeDao noticeDao=new NoticeDaoImpl();
+	
+	@Autowired
+	NoticeDao noticeDao;
+	
+	@Transactional
 	@Override
 	public void registerArticle(NoticeDto noticeDto) throws Exception {
 		Connection conn=null;
@@ -30,6 +39,7 @@ public class NoticeServiceImpl implements NoticeService {
 		}
 	}
 
+	@Transactional
 	@Override
 	public List<NoticeDto> listArticle(String key, String word) throws Exception {
 		Connection conn=null;
@@ -47,6 +57,7 @@ public class NoticeServiceImpl implements NoticeService {
 		}
 	}
 
+	@Transactional
 	@Override
 	public NoticeDto getArticle(int articleNo) throws Exception {
 		try {
@@ -57,12 +68,14 @@ public class NoticeServiceImpl implements NoticeService {
 		}
 	}
 
+	@Transactional
 	@Override
 	public void modifyArticle(NoticeDto noticeDto) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
+	@Transactional
 	@Override
 	public void deleteArticle(int articleNo) throws Exception {
 		try {
