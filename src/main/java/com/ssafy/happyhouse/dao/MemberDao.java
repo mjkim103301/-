@@ -11,5 +11,6 @@ public interface MemberDao {
 	
 	
 	public MemberDto getMember(String userId);
+	public String getUserpwd(MemberDto member);
 	
 }

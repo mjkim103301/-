@@ -21,8 +21,18 @@ public class MemberServiceImpl implements MemberService {
 		if(memberDto == null || !memberDto.getUserpwd().equals(userPwd)) {
 			return null;
 		}
-		
 		return memberDto;
+	}
+
+	@Override
+	public String findUserpwd(MemberDto member) {
+		// TODO Auto-generated method stub
+		String userPwd = memberDao.getUserpwd(member);
+		
+		if(userPwd == null || userPwd.equals("")) {
+			return null;
+		}
+		return userPwd;
 	}
 
 }

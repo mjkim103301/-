@@ -35,21 +35,20 @@
 		        url : '${root}/login' 
 		        , type : 'POST' 
 		        , data : JSON.stringify(data)
-		        , dataType : 'json' 
-		        , contentType : "application/json; charset=UTF-8" 
-		        , success: 	function (result) {
-					alert("로그인 성공");
+
+		        , success: 	function (status) {
 					location.href="${root}";
 		        }
 		       , error:		function(request,status,error){
-					alert("로그인 실패" +  status);
-		            console.log("error");		 
+					$("#failModal").modal("show");
+		            console.log("로그인 실패" +  status);		 
 		        }
 		    });
 			//document.getElementById("loginform").action = "${root}/main.do";
 			//document.getElementById("loginform").submit();
 		}
 	}
+
 	function findpw() {
 		if (document.getElementById("checkid").value == "") {
 			alert("아이디를 입력해주세요");
@@ -61,9 +60,45 @@
 			alert("이메일을 입력해주세요");
 			return;
 		} else {
-			document.getElementById("findpwform").action = "${root}/main.do";
-			document.getElementById("findpwform").submit();
+			
+			let userid = document.getElementById("checkid").value;
+			let username = document.getElementById("checkname").value;
+			let email = document.getElementById("checkemail").value;
+			let data = ({
+				userid		: 	userid,
+				username	:	username,
+				email		:	email,
+			});
+			$.ajax({
+		        url : '${root}/findpassword' 
+		        , type : 'POST' 
+		        , data : JSON.stringify(data)
+				, dataType : 'text'
+		         , contentType : "application/x-www-from-urlencoded; charset=UTF-8"
+		        , success: 	function (result, status) {
+					$("showPassword").val = "비밀번호는 " + result + " 입니다";
+					$("#showPWModal").modal("show");
+		        }
+		       , error:		function(request,status,error){
+					alert("findpass");
+					$("#failModal").modal("show");
+					console.log("비밀번호 찾기 실패" +  status);	
+		        }
+		    });
 		}
+	}
+
+	function logout() {
+		$.ajax({
+			url : '${root}/logout'
+			, type : 'GET'
+			, success : function(){
+				location.href="${root}";
+			}
+			, error : function(status,error){
+				console.log(error + status);
+			}
+		})
 	}
 </script>
 
@@ -76,7 +111,6 @@
 					<article class="card-body mx-auto" style="max-width: 400px;">
 						<h4 class="card-title text-center mt-3">Login</h4>
 						<form id="loginform" method="post" action="">
-							<input type="hidden" name="action" id="action" value="login">
 							<div class="form-group input-group">
 								<div class="input-group-prepend">
 									<span class="input-group-text"> <i class="fa fa-user"></i>
@@ -113,8 +147,7 @@
 				<div class="modal-body">
 					<article class="card-body mx-auto" style="max-width: 400px;">
 						<h4 class="card-title text-center mt-3">비밀번호 찾기</h4>
-						<form id="findpwform" method="post" action="">
-							<input type="hidden" name="action" id="action" value="findpw">
+						<form id="findpwform" method="post" action="${root}/findpassword">
 							<div class="form-group input-group">
 								<div class="input-group-prepend">
 									<span class="input-group-text"> <i class="fa fa-user"></i>
@@ -155,7 +188,7 @@
 			<div class="modal-content">
 				<div class="modal-body">
 					<article class="card-body mx-auto" style="max-width: 400px;">
-						<h4 class="card-title text-center mt-3">${msg}</h4>
+						<h4 class="card-title text-center mt-3">입력 정보를 확인하세요!</h4>
 					</article>
 					<div class="form-group" align="center">
 						<button type="submit" class="btn btn-primary" data-dismiss="modal">확인</button>
@@ -170,7 +203,7 @@
 			<div class="modal-content">
 				<div class="modal-body">
 					<article class="card-body mx-auto" style="max-width: 400px;">
-						<h4 class="card-title text-center mt-3">비밀번호는 ${pass} 입니다.</h4>
+						<h4 class="card-title text-center mt-3" id="showPassword">비밀번호는 ${pass} 입니다.</h4>
 					</article>
 					<div class="form-group" align="center">
 						<button type="submit" class="btn btn-primary" data-dismiss="modal">확인</button>

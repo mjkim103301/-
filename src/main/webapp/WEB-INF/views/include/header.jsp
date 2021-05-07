@@ -8,6 +8,9 @@
 
 <html lang="ko">
 <body>
+  <!-- ======= login modal ======= --> 
+  <jsp:include page="../member/login_modal.jsp" />
+
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     <div class="container d-flex">
@@ -25,7 +28,7 @@
           <li><a href="#team">Team</a></li>
      <c:choose>
      	<c:when test="${not empty member}">
-          <li><a id="logout-nav" href="<%=root%>/main.do?action=logout" class="logout-nav font-weight-bold">Logout</a></li>
+          <li><a id="logout-nav" href="javascript:void(0);" onclick="javascript:logout();" class="logout-nav font-weight-bold">Logout</a></li>
           <li><a id="mypage-nav" href="<%=root%>/main.do?action=mvMyPage" class="mypage-nav font-weight-bold">MyPage</a></li>
           	<c:if test="${not empty admininfo}">
           <!-- 관리자가 로그인했을 때만 -->

@@ -90,5 +90,11 @@ public class MemberDaoImpl implements MemberDao {
 		return null;
 	}
 
+	@Override
+	public String getUserpwd(MemberDto member) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 }

@@ -42,7 +42,6 @@
 <body>
 	<!-- ======= Header ======= -->
 	<jsp:include page="include/header.jsp" />
-	<jsp:include page="member/login_modal.jsp" />
 	<!-- End Header -->
 
 	<!-- ======= Hero Section ======= -->
@@ -384,82 +383,8 @@
 				</div>
 			</div>
 		</div>
-	</div>
-
-
-	<!-- Find Password Modal -->
-	<div class="modal" id="findPWModal">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-body">
-					<article class="card-body mx-auto" style="max-width: 400px;">
-						<h4 class="card-title text-center mt-3">비밀번호 찾기</h4>
-						<form id="findpwform" method="post" action="">
-							<input type="hidden" name="action" id="action" value="findpw">
-							<div class="form-group input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"> <i class="fa fa-user"></i>
-									</span>
-								</div>
-								<input name="checkid" id="checkid" class="form-control" placeholder="ID" type="text">
-							</div>
-							<!-- form-group// -->
-							<div class="form-group input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="far fa-smile"></i></span>
-								</div>
-								<input name="checkname" id="checkname" class="form-control" placeholder="Name" type="text">
-							</div>
-							<!-- form-group// -->
-							<div class="form-group input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"> <i class="fa fa-envelope"></i>
-									</span>
-								</div>
-								<input name="checkemail" id="checkemail" class="form-control" placeholder="Email address" type="email">
-							</div>
-							<!-- form-group// -->
-							<div class="form-group">
-								<button type="submit" class="btn btn-primary btn-block" onclick="javascript:findpw();">회원정보 확인</button>
-							</div>
-							<!-- form-group// -->
-							<p class="text-center">회원정보 일치 시 비밀번호가 출력됩니다.</p>
-						</form>
-					</article>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Fail Login Modal -->
-	<div class="modal" id="failModal">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-body">
-					<article class="card-body mx-auto" style="max-width: 400px;">
-						<h4 class="card-title text-center mt-3">${msg}</h4>
-					</article>
-					<div class="form-group" align="center">
-						<button type="submit" class="btn btn-primary" data-dismiss="modal">확인</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Show PW Modal -->
-	<div class="modal" id="showPWModal">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-body">
-					<article class="card-body mx-auto" style="max-width: 400px;">
-						<h4 class="card-title text-center mt-3">비밀번호는 ${pass} 입니다.</h4>
-					</article>
-					<div class="form-group" align="center">
-						<button type="submit" class="btn btn-primary" data-dismiss="modal">확인</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	</div>			
+	
 	<!-- Vendor JS Files -->
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
