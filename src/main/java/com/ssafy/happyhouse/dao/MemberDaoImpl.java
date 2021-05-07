@@ -5,8 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.ssafy.model.dto.MemberDto;
-import com.ssafy.util.DBUtil;
+import com.ssafy.happyhouse.dto.MemberDto;
+
+import ch.qos.logback.core.db.dialect.DBUtil;
+
 
 public class MemberDaoImpl implements MemberDao {
 
@@ -27,7 +29,7 @@ public class MemberDaoImpl implements MemberDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
-			conn = DBUtil.getConnection();
+			//conn = DBUtil.getConnection();
 			//String sql = "INSERT INTO members (id, password, name, address, phone) VALUES (?, ?, ?, ?, ?)";
 			String sql = "INSERT INTO ssafymember (userid, userpwd, name, address, email) VALUES (?, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
@@ -42,7 +44,7 @@ public class MemberDaoImpl implements MemberDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			DBUtil.close(rs, pstmt, conn);
+			//DBUtil.close(rs, pstmt, conn);
 		}
 		
 	}
@@ -56,7 +58,7 @@ public class MemberDaoImpl implements MemberDao {
 	
 		try {
 			 StringBuilder sql = new StringBuilder();
-			conn = DBUtil.getConnection();
+			//conn = DBUtil.getConnection();
 			
 			sql.append("UPDATE member SET userpwd = ?, username = ? , address = ? , email = ? WHERE userid = ? ;");
 			pstmt = conn.prepareStatement(sql.toString());
@@ -76,7 +78,7 @@ public class MemberDaoImpl implements MemberDao {
 			e.printStackTrace();
 		
 		} finally {
-			DBUtil.close(pstmt, conn);
+			//DBUtil.close(pstmt, conn);
 		}
 		
 		return memberDto;

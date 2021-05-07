@@ -2,9 +2,10 @@ package com.ssafy.happyhouse.service;
 
 import java.sql.SQLException;
 
-import com.ssafy.model.dao.LoginDao;
-import com.ssafy.model.dao.LoginDaoImpl;
-import com.ssafy.model.dto.MemberDto;
+import com.ssafy.happyhouse.dao.LoginDao;
+import com.ssafy.happyhouse.dao.LoginDaoImpl;
+import com.ssafy.happyhouse.dto.MemberDto;
+
 
 public class LoginServiceImpl implements LoginService {
 	LoginDao loginDao=new LoginDaoImpl();

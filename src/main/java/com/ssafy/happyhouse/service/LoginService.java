@@ -2,7 +2,9 @@ package com.ssafy.happyhouse.service;
 
 import java.sql.SQLException;
 
-import com.ssafy.model.dto.MemberDto;
+import com.ssafy.happyhouse.dto.MemberDto;
+
+
 
 public interface LoginService {
 	public MemberDto login(String userid, String userpwd) throws Exception;

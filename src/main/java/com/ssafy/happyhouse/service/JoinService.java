@@ -3,8 +3,8 @@ package com.ssafy.happyhouse.service;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.ssafy.model.dto.JoinDto;
-import com.ssafy.model.dto.MemberDto;
+import com.ssafy.happyhouse.dto.JoinDto;
+import com.ssafy.happyhouse.dto.MemberDto;
 
 public interface JoinService {
 	public JoinDto getUser(String name) throws SQLException;

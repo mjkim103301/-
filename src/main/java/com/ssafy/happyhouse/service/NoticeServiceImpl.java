@@ -8,10 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ssafy.model.dao.NoticeDao;
-import com.ssafy.model.dao.NoticeDaoImpl;
-import com.ssafy.model.dto.NoticeDto;
-import com.ssafy.util.DBUtil;
+import com.ssafy.happyhouse.dao.NoticeDao;
+import com.ssafy.happyhouse.dto.NoticeDto;
+
+import ch.qos.logback.core.db.dialect.DBUtil;
 
 @Service
 public class NoticeServiceImpl implements NoticeService {
@@ -24,18 +24,18 @@ public class NoticeServiceImpl implements NoticeService {
 	public void registerArticle(NoticeDto noticeDto) throws Exception {
 		Connection conn=null;
 		try {
-			conn=DBUtil.getConnection();
+			//conn=DBUtil.getConnection();
 			conn.setAutoCommit(false);
 			noticeDao.registerArticle(conn, noticeDto);
 		}catch (SQLException e) {
 			e.printStackTrace();
-			DBUtil.rollback(conn);
+		//	DBUtil.rollback(conn);
 			throw new Exception("게시글 등록 중 오류 발생");
 		}finally {
 			try {
 				conn.commit();
 			}catch (Exception e) {}
-			DBUtil.close(conn);
+			//DBUtil.close(conn);
 		}
 	}
 
@@ -47,13 +47,13 @@ public class NoticeServiceImpl implements NoticeService {
 		word=word==null?"":word;
 		
 		try {
-			conn=DBUtil.getConnection();
+		//	conn=DBUtil.getConnection();
 			return noticeDao.listArticle(conn,key, word);
 		}catch (Exception e) {
 			e.printStackTrace();
 			throw new Exception("게시글 목록 조회 중 오류 발생");
 		}finally {
-			DBUtil.close(conn);
+		//	DBUtil.close(conn);
 		}
 	}
 

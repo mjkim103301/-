@@ -4,7 +4,8 @@ import java.sql.SQLException;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.ssafy.model.dto.MemberDto;
+import com.ssafy.happyhouse.dto.MemberDto;
+
 @Mapper
 public interface LoginDao {
 	public MemberDto login(String userid, String userpwd) throws SQLException;

@@ -76,7 +76,7 @@
 
 	<!-- ======= Header ======= -->
 
-	<jsp:include page="/header.jsp" />
+	<jsp:include page="/WEB-INF/views/include/header.jsp" />
 
 	<!-- End Header start-->
 

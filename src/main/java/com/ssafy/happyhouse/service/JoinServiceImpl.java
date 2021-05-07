@@ -3,10 +3,11 @@ package com.ssafy.happyhouse.service;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.ssafy.model.dao.JoinDao;
-import com.ssafy.model.dao.JoinDaoImpl;
-import com.ssafy.model.dto.JoinDto;
-import com.ssafy.model.dto.MemberDto;
+import com.ssafy.happyhouse.dao.JoinDao;
+import com.ssafy.happyhouse.dao.JoinDaoImpl;
+import com.ssafy.happyhouse.dto.JoinDto;
+import com.ssafy.happyhouse.dto.MemberDto;
+
 
 public class JoinServiceImpl implements JoinService {
 	JoinDao dao = new JoinDaoImpl();

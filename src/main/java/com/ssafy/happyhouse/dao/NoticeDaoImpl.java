@@ -7,9 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ssafy.model.dto.NoticeDto;
-import com.ssafy.model.dto.PageBean;
-import com.ssafy.util.DBUtil;
+import com.ssafy.happyhouse.dto.NoticeDto;
+import com.ssafy.happyhouse.dto.PageBean;
+
+import ch.qos.logback.core.db.dialect.DBUtil;
+
 
 public class NoticeDaoImpl implements NoticeDao {
 
@@ -26,7 +28,7 @@ public class NoticeDaoImpl implements NoticeDao {
 			pstmt.setString(3, noticeDto.getContent());
 			pstmt.executeUpdate();
 		} finally {
-			DBUtil.close(pstmt, conn);
+			//DBUtil.close(pstmt, conn);
 		}
 
 	}
@@ -68,7 +70,7 @@ public class NoticeDaoImpl implements NoticeDao {
 				list.add(dto);
 			}
 		} finally {
-			DBUtil.close(rs,pstmt,conn);
+			//DBUtil.close(rs,pstmt,conn);
 		}
 		return list;
 	}
@@ -81,7 +83,7 @@ public class NoticeDaoImpl implements NoticeDao {
 		NoticeDto noticeDto=null;
 		
 		try {
-			conn = DBUtil.getConnection();
+			//conn = DBUtil.getConnection();
 			StringBuilder sql = new StringBuilder();
 			
 			sql.append(" select * \n");
@@ -100,9 +102,9 @@ public class NoticeDaoImpl implements NoticeDao {
 				noticeDto.setRegtime((rs.getString("regtime")));
 			}
 		} finally {
-			DBUtil.close(rs);
-			DBUtil.close(pstmt);
-			DBUtil.close(conn);
+//			DBUtil.close(rs);
+//			DBUtil.close(pstmt);
+//			DBUtil.close(conn);
 		}
 		return noticeDto;
 	}
@@ -119,14 +121,14 @@ public class NoticeDaoImpl implements NoticeDao {
 		PreparedStatement pstmt = null;
 		
 		try {
-			conn = DBUtil.getConnection();
+			//conn = DBUtil.getConnection();
 			String sql = " delete from notice where articleNo = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, articleNo);
 			pstmt.executeUpdate();
 		} finally {
-			DBUtil.close(pstmt);
-			DBUtil.close(conn);
+//			DBUtil.close(pstmt);
+//			DBUtil.close(conn);
 		}
 	}
 

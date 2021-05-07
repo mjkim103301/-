@@ -8,9 +8,11 @@ import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.ssafy.model.dto.JoinDto;
-import com.ssafy.model.dto.MemberDto;
-import com.ssafy.util.DBUtil;
+import com.ssafy.happyhouse.dto.JoinDto;
+import com.ssafy.happyhouse.dto.MemberDto;
+
+import ch.qos.logback.core.db.dialect.DBUtil;
+
 
 public class JoinDaoImpl implements JoinDao {
 
@@ -28,7 +30,7 @@ public class JoinDaoImpl implements JoinDao {
 		try {
 			StringBuilder sql = new StringBuilder();
 			sql.append("insert into member values(?,?,?,?,?,?); \n");
-			conn = DBUtil.getConnection();
+		//	conn = DBUtil.getConnection();
 			pstmt = conn.prepareStatement(sql.toString());
 			// pstmt.setString(1, no);
 			pstmt.setString(1, userId);
@@ -40,7 +42,7 @@ public class JoinDaoImpl implements JoinDao {
 			int result = pstmt.executeUpdate();
 			System.out.println("insert result>> " + result);
 		} finally {
-			DBUtil.close(pstmt, conn);
+			//DBUtil.close(pstmt, conn);
 		}
 
 	}
@@ -53,7 +55,7 @@ public class JoinDaoImpl implements JoinDao {
 		ResultSet rs = null;
 
 		try {
-			conn = DBUtil.getConnection();
+			//conn = DBUtil.getConnection();
 			StringBuilder sql = new StringBuilder();
 
 			sql.append(" select * \n");
@@ -73,9 +75,9 @@ public class JoinDaoImpl implements JoinDao {
 			}
 
 		} finally {
-			DBUtil.close(rs);
-			DBUtil.close(pstmt);
-			DBUtil.close(conn);
+//			DBUtil.close(rs);
+//			DBUtil.close(pstmt);
+//			DBUtil.close(conn);
 		}
 		return joinDto;
 	}
@@ -88,7 +90,7 @@ public class JoinDaoImpl implements JoinDao {
 		List<JoinDto> list = new LinkedList<JoinDto>();
 
 		try {
-			conn = DBUtil.getConnection();
+			//conn = DBUtil.getConnection();
 			StringBuilder sql = new StringBuilder(50);
 			sql.append("select userid, username, email, address\n");
 			sql.append("from member                                   \n");
@@ -114,7 +116,7 @@ public class JoinDaoImpl implements JoinDao {
 				System.out.println(rs.getString("userid"));
 			}
 		} finally {
-			DBUtil.close(rs, pstmt, conn);
+			//DBUtil.close(rs, pstmt, conn);
 		}
 		return list;
 	}
@@ -125,14 +127,14 @@ public class JoinDaoImpl implements JoinDao {
 		PreparedStatement pstmt = null;
 
 		try {
-			conn = DBUtil.getConnection();
+			//conn = DBUtil.getConnection();
 			String sql = " delete from member where userId = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, userId);
 			pstmt.executeUpdate();
 		} finally {
-			DBUtil.close(pstmt);
-			DBUtil.close(conn);
+//			DBUtil.close(pstmt);
+//			DBUtil.close(conn);
 		}
 	}
 
@@ -144,7 +146,7 @@ public class JoinDaoImpl implements JoinDao {
 		boolean result = false;
 
 		try {
-			conn = DBUtil.getConnection();
+		//	conn = DBUtil.getConnection();
 			StringBuilder sql = new StringBuilder();
 			sql.append("SELECT userid FROM member WHERE userid=?");
 
@@ -159,7 +161,7 @@ public class JoinDaoImpl implements JoinDao {
 			
 
 		} finally {
-			DBUtil.close(conn, pstmt, rs);
+		//	DBUtil.close(conn, pstmt, rs);
 		}
 
 		return result;

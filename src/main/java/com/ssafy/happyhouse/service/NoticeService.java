@@ -2,7 +2,8 @@ package com.ssafy.happyhouse.service;
 
 import java.util.List;
 
-import com.ssafy.model.dto.NoticeDto;
+import com.ssafy.happyhouse.dto.NoticeDto;
+
 
 public interface NoticeService {
 //	글작성

@@ -6,8 +6,9 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.ssafy.model.dto.NoticeDto;
-import com.ssafy.model.dto.PageBean;
+import com.ssafy.happyhouse.dto.NoticeDto;
+import com.ssafy.happyhouse.dto.PageBean;
+
 
 @Mapper
 public interface NoticeDao {

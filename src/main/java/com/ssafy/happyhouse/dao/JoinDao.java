@@ -5,8 +5,10 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.ssafy.model.dto.JoinDto;
-import com.ssafy.model.dto.MemberDto;
+import com.ssafy.happyhouse.dto.JoinDto;
+import com.ssafy.happyhouse.dto.MemberDto;
+
+
 @Mapper
 public interface JoinDao {
 	

@@ -71,7 +71,7 @@
 			</script>
 
 <body>
-	<jsp:include page="/header.jsp" />
+	<jsp:include page="/WEB-INF/views/include/header.jsp" />
 	<div class="jumbotron jumbotron-fluid">
 		<picture> <img src="assets/img/bg-index.jpg" class="jumbotron__background"> </picture>
 		<div class="container text-white text-center">

@@ -6,8 +6,9 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.ssafy.model.dto.HouseDealDto;
-import com.ssafy.model.dto.PageBean;
+import com.ssafy.happyhouse.dto.HouseDealDto;
+import com.ssafy.happyhouse.dto.PageBean;
+
 @Mapper
 public interface HouseDealDao {
 	public HouseDealDto getHouseDeal(long no) throws SQLException;

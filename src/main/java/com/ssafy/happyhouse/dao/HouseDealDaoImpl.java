@@ -7,9 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ssafy.model.dto.HouseDealDto;
-import com.ssafy.model.dto.PageBean;
-import com.ssafy.util.DBUtil;
+import com.ssafy.happyhouse.dto.HouseDealDto;
+import com.ssafy.happyhouse.dto.PageBean;
+
+import ch.qos.logback.core.db.dialect.DBUtil;
+
 
 public class HouseDealDaoImpl implements HouseDealDao {
 
@@ -112,7 +114,7 @@ public class HouseDealDaoImpl implements HouseDealDao {
 				list.add(houseDealDto);
 			}
 		} finally {
-			DBUtil.close(rs, pstmt);
+			//DBUtil.close(rs, pstmt);
 		}
 		return list;
 	}

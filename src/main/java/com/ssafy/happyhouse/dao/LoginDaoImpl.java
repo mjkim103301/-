@@ -1,13 +1,14 @@
 package com.ssafy.happyhouse.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.ssafy.model.dto.MemberDto;
-import com.ssafy.util.DBUtil;
+import com.ssafy.happyhouse.dto.MemberDto;
+
+import ch.qos.logback.core.db.dialect.DBUtil;
+
 
 public class LoginDaoImpl implements LoginDao {
 	@Override
@@ -17,7 +18,7 @@ public class LoginDaoImpl implements LoginDao {
 		ResultSet rs=null;
 		MemberDto memberDto=null;
 		try {
-			conn=DBUtil.getConnection();
+			//conn=DBUtil.getConnection();
 			String sql="select * \n";
 			sql+="from member \n";
 			sql+="where userid=? and userpwd=?";
@@ -38,9 +39,9 @@ public class LoginDaoImpl implements LoginDao {
 			}
 			
 		}finally {
-				DBUtil.close(rs);
-				DBUtil.close(pstmt);
-				DBUtil.close(conn);
+//				DBUtil.close(rs);
+//				DBUtil.close(pstmt);
+//				DBUtil.close(conn);
 		
 		}
 		return memberDto;
@@ -54,7 +55,7 @@ public class LoginDaoImpl implements LoginDao {
 		ResultSet rs=null;
 		
 		try {
-			conn=DBUtil.getConnection();
+		//	conn=DBUtil.getConnection();
 			StringBuilder sql=new StringBuilder();
 			
 			sql.append(" select * \n");
@@ -70,9 +71,9 @@ public class LoginDaoImpl implements LoginDao {
 				memberDto.setUserpwd(rs.getString("userpwd"));
 			}
 		} finally {
-			DBUtil.close(rs);
-			DBUtil.close(pstmt);
-			DBUtil.close(conn);
+//			DBUtil.close(rs);
+//			DBUtil.close(pstmt);
+//			DBUtil.close(conn);
 		}
 		return memberDto;
 	}
