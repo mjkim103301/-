@@ -23,7 +23,7 @@
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="vendor/icofont/icofont.min.css" rel="stylesheet">
 <link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-<link href="vendor/owl.carousel/owl.carousel.min.css" rel="stylesheet">
+<link href="vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
 <link href="vendor/venobox/venobox.css" rel="stylesheet">
 <link href="vendor/aos/aos.css" rel="stylesheet">
 
@@ -49,7 +49,7 @@
 		<div class="container text-center text-md-left" data-aos="fade-up">
 			<h1>Welcome to HappyHouse</h1>
 			<h2>HappyHouse에서 주택 실거래가를 검색하고 상권 정보와 환경 정보를 볼 수 있어요!</h2>
-			<a href="${root }/main.do?action=mvActualPrice" class="btn-get-started scrollto">실거래가 검색하러 가기</a>
+			<a href="housedeal" class="btn-get-started scrollto">실거래가 검색하러 가기</a>
 		</div>
 		<div class="container text-center text-md-left" data-aos="fade-up" style="padding-top:10%">
 			<div class="NewsTables row text-white">
@@ -127,7 +127,7 @@
 				<div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
 
 					<div class="icon-box icon-box-pink">
-						<a href="${root }/main.do?action=mvActualPrice" class="text-dark">
+						<a href="housedeal" class="text-dark">
 							<div class="icon">
 								<i class="bx bx-tachometer"></i>
 							</div>
