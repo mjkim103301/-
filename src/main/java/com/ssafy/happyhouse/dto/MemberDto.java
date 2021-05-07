@@ -9,8 +9,10 @@ public class MemberDto {
 	private String address;
 	private String joindate;
 	private boolean canUseId;
+	private boolean isAdmin;
 	
 	public MemberDto() {}
+
 	public MemberDto(String userid, String username, String userpwd, String email, String address) {
 		super();
 		this.userid = userid;
@@ -18,6 +20,23 @@ public class MemberDto {
 		this.userpwd = userpwd;
 		this.email = email;
 		this.address = address;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("MemberDto [userid=").append(userid).append(", username=").append(username).append(", userpwd=")
+				.append(userpwd).append(", email=").append(email).append(", address=").append(address)
+				.append(", joindate=").append(joindate).append(", canUseId=").append(canUseId).append(", isAdmin=")
+				.append(isAdmin).append("]");
+		return builder.toString();
+	}
+
+	public boolean getIsAdmin() {
+		return isAdmin;
+	}
+	public void setAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
 	}
 
 	public MemberDto(String userid) {

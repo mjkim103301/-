@@ -21,4 +21,22 @@ public class HomeController {
 		logger.debug("index init");
 		return "index";
 	}
+	
+	@GetMapping("housedeal")
+	public String housedeal() {
+		logger.debug("move housedeal");
+		System.out.println(">>>move housedeal HomeControllder");
+		return "housedeal/actual_price";
+	}
+	
+	@GetMapping("mypage")
+	public String mypage() {
+		return "member/my_page";
+	}
+	
+	@GetMapping("register")
+	public String register() {
+		return "member/register";
+	}
+	
 }

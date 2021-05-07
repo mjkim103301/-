@@ -11,7 +11,5 @@ import com.ssafy.happyhouse.dto.PageBean;
 
 @Mapper
 public interface HouseDealDao {
-	public HouseDealDto getHouseDeal(long no) throws SQLException;
-	public int totalCount(Connection conn, PageBean bean) throws SQLException;
-	public List<HouseDealDto> searchAll(Connection conn, PageBean bean) throws SQLException;
+	public List<HouseDealDto> houseDealList(List<HouseDealDto> houseDealDto);
 }

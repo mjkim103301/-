@@ -23,55 +23,13 @@
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="vendor/icofont/icofont.min.css" rel="stylesheet">
 <link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-<link href="vendor/owl.carousel/owl.carousel.min.css" rel="stylesheet">
+<link href="vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
 <link href="vendor/venobox/venobox.css" rel="stylesheet">
 <link href="vendor/aos/aos.css" rel="stylesheet">
 
 <!-- Template Main CSS File -->
 <link href="css/style.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript">
-	function listHouseDeal() {
-		document.getElementById("search-using-word").action = "${root}/main.do";
-		document.getElementById("search-using-word").submit();
-	}
-	$(document).ready(function() {
-		// Show the Modal on load
-		<c:if test='${not empty msg}'>
-		$("#failModal").modal("show");
-		</c:if>
-		<c:if test='${not empty pass}'>
-		$("#showPWModal").modal("show");
-		</c:if>
-	});
-	function login() {
-		if (document.getElementById("id-input").value == "") {
-			alert("아이디를 입력해주세요");
-			return;
-		} else if (document.getElementById("pw-input").value == "") {
-			alert("비밀번호를 입력해주세요");
-			return;
-		} else {
-			document.getElementById("loginform").action = "${root}/main.do";
-			document.getElementById("loginform").submit();
-		}
-	}
-	function findpw() {
-		if (document.getElementById("checkid").value == "") {
-			alert("아이디를 입력해주세요");
-			return;
-		} else if (document.getElementById("checkname").value == "") {
-			alert("이름을 입력해주세요");
-			return;
-		} else if (document.getElementById("checkemail").value == "") {
-			alert("이메일을 입력해주세요");
-			return;
-		} else {
-			document.getElementById("findpwform").action = "${root}/main.do";
-			document.getElementById("findpwform").submit();
-		}
-	}
-</script>
 </head>
 
 <body>
@@ -84,7 +42,7 @@
 		<div class="container text-center text-md-left" data-aos="fade-up">
 			<h1>Welcome to HappyHouse</h1>
 			<h2>HappyHouse에서 주택 실거래가를 검색하고 상권 정보와 환경 정보를 볼 수 있어요!</h2>
-			<a href="${root }/main.do?action=mvActualPrice" class="btn-get-started scrollto">실거래가 검색하러 가기</a>
+			<a href="housedeal" class="btn-get-started scrollto">실거래가 검색하러 가기</a>
 		</div>
 		<div class="container text-center text-md-left" data-aos="fade-up" style="padding-top:10%">
 			<div class="NewsTables row text-white">
@@ -162,7 +120,7 @@
 				<div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
 
 					<div class="icon-box icon-box-pink">
-						<a href="${root }/main.do?action=mvActualPrice" class="text-dark">
+						<a href="housedeal" class="text-dark">
 							<div class="icon">
 								<i class="bx bx-tachometer"></i>
 							</div>
@@ -418,119 +376,8 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- Login Modal -->
-	<div class="modal" id="loginModal">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-body">
-					<article class="card-body mx-auto" style="max-width: 400px;">
-						<h4 class="card-title text-center mt-3">Login</h4>
-						<form id="loginform" method="post" action="">
-							<input type="hidden" name="action" id="action" value="login">
-							<div class="form-group input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"> <i class="fa fa-user"></i>
-									</span>
-								</div>
-								<input name="userid" id="id-input" class="form-control" placeholder="ID" type="text">
-							</div>
-							<!-- form-group// -->
-							<div class="form-group input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"> <i class="fa fa-lock"></i>
-									</span>
-								</div>
-								<input name="userpwd" id="pw-input" class="form-control" placeholder="Password" type="password">
-							</div>
-							<!-- form-group// -->
-							<div class="form-group">
-								<button type="submit" id="login-btn" class="btn btn-primary btn-block" onclick="javascript:login();" data-dismiss="modal">로그인</button>
-							</div>
-							<!-- form-group// -->
-							<p class="text-center">
-								비밀번호를 잊어버리셨나요? <a data-dismiss="modal" data-toggle="modal" href="#findPWModal">비밀번호 찾기</a>
-							</p>
-						</form>
-					</article>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Find Password Modal -->
-	<div class="modal" id="findPWModal">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-body">
-					<article class="card-body mx-auto" style="max-width: 400px;">
-						<h4 class="card-title text-center mt-3">비밀번호 찾기</h4>
-						<form id="findpwform" method="post" action="">
-							<input type="hidden" name="action" id="action" value="findpw">
-							<div class="form-group input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"> <i class="fa fa-user"></i>
-									</span>
-								</div>
-								<input name="checkid" id="checkid" class="form-control" placeholder="ID" type="text">
-							</div>
-							<!-- form-group// -->
-							<div class="form-group input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="far fa-smile"></i></span>
-								</div>
-								<input name="checkname" id="checkname" class="form-control" placeholder="Name" type="text">
-							</div>
-							<!-- form-group// -->
-							<div class="form-group input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"> <i class="fa fa-envelope"></i>
-									</span>
-								</div>
-								<input name="checkemail" id="checkemail" class="form-control" placeholder="Email address" type="email">
-							</div>
-							<!-- form-group// -->
-							<div class="form-group">
-								<button type="submit" class="btn btn-primary btn-block" onclick="javascript:findpw();">회원정보 확인</button>
-							</div>
-							<!-- form-group// -->
-							<p class="text-center">회원정보 일치 시 비밀번호가 출력됩니다.</p>
-						</form>
-					</article>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Fail Login Modal -->
-	<div class="modal" id="failModal">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-body">
-					<article class="card-body mx-auto" style="max-width: 400px;">
-						<h4 class="card-title text-center mt-3">${msg}</h4>
-					</article>
-					<div class="form-group" align="center">
-						<button type="submit" class="btn btn-primary" data-dismiss="modal">확인</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Show PW Modal -->
-	<div class="modal" id="showPWModal">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-body">
-					<article class="card-body mx-auto" style="max-width: 400px;">
-						<h4 class="card-title text-center mt-3">비밀번호는 ${pass} 입니다.</h4>
-					</article>
-					<div class="form-group" align="center">
-						<button type="submit" class="btn btn-primary" data-dismiss="modal">확인</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	</div>			
+	
 	<!-- Vendor JS Files -->
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

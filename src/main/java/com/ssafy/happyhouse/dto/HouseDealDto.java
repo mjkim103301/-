@@ -3,8 +3,9 @@ package com.ssafy.happyhouse.dto;
 public class HouseDealDto {
 	private long no;
 	private String dong;
-	private String AptName;
-	private int guguncode;
+	private String aptName;
+	private long dongcode;
+	private long guguncode;
 	private long dealAmount;
 	private int buildYear;
 	private int dealYear;
@@ -15,30 +16,25 @@ public class HouseDealDto {
 	private String jibun;
 	private int type;
 	private long rentMoney;
+	private String img;
+	private String lat;
+	private String lng;
     
 	public HouseDealDto() {
 
 	}
+	
+	
 
-	public HouseDealDto(long no, String aptName, long dealAmount, int dealYear, int dealMonth, int dealDay,
-			double area) {
-		super();
-		this.no = no;
-		this.AptName = aptName;
-		this.dealAmount = dealAmount;
-		this.dealYear = dealYear;
-		this.dealMonth = dealMonth;
-		this.dealDay = dealDay;
-		this.area = area;
-	}
-
-	public HouseDealDto(long no, String dong, String aptName, int code, long dealAmount, int buildYear, int dealYear,
-			int dealMonth, int dealDay, double area, double floor, String jibun, int type, long rentMoney) {
+	public HouseDealDto(long no, String dong, String aptName, long dongcode, long guguncode, long dealAmount,
+			int buildYear, int dealYear, int dealMonth, int dealDay, double area, double floor, String jibun, int type,
+			long rentMoney, String img, String lat, String lng) {
 		super();
 		this.no = no;
 		this.dong = dong;
-		this.AptName = aptName;
-		this.guguncode = code;
+		this.aptName = aptName;
+		this.dongcode = dongcode;
+		this.guguncode = guguncode;
 		this.dealAmount = dealAmount;
 		this.buildYear = buildYear;
 		this.dealYear = dealYear;
@@ -49,6 +45,9 @@ public class HouseDealDto {
 		this.jibun = jibun;
 		this.type = type;
 		this.rentMoney = rentMoney;
+		this.img = img;
+		this.lat = lat;
+		this.lng = lng;
 	}
 
 	public long getNo() {
@@ -68,19 +67,27 @@ public class HouseDealDto {
 	}
 
 	public String getAptName() {
-		return AptName;
+		return aptName;
 	}
 
 	public void setAptName(String aptName) {
-		AptName = aptName;
+		this.aptName = aptName;
 	}
 
-	public int getGugunCode() {
+	public long getDongcode() {
+		return dongcode;
+	}
+
+	public void setDongcode(long dongcode) {
+		this.dongcode = dongcode;
+	}
+
+	public long getGuguncode() {
 		return guguncode;
 	}
 
-	public void setGugunCode(int code) {
-		this.guguncode = code;
+	public void setGuguncode(long guguncode) {
+		this.guguncode = guguncode;
 	}
 
 	public long getDealAmount() {
@@ -162,5 +169,33 @@ public class HouseDealDto {
 	public void setRentMoney(long rentMoney) {
 		this.rentMoney = rentMoney;
 	}
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
+	public String getLat() {
+		return lat;
+	}
+
+	public void setLat(String lat) {
+		this.lat = lat;
+	}
+
+	public String getLng() {
+		return lng;
+	}
+
+	public void setLng(String lng) {
+		this.lng = lng;
+	}
+
+
+
+	
 
 }
