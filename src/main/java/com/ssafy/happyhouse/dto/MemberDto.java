@@ -9,8 +9,10 @@ public class MemberDto {
 	private String address;
 	private String joindate;
 	private boolean canUseId;
+	private boolean isAdmin;
 	
 	public MemberDto() {}
+
 	public MemberDto(String userid, String username, String userpwd, String email, String address) {
 		super();
 		this.userid = userid;
@@ -18,6 +20,13 @@ public class MemberDto {
 		this.userpwd = userpwd;
 		this.email = email;
 		this.address = address;
+	}
+	
+	public boolean isAdmin() {
+		return isAdmin;
+	}
+	public void setAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
 	}
 
 	public MemberDto(String userid) {

@@ -35,49 +35,14 @@
 		document.getElementById("search-using-word").action = "${root}/main.do";
 		document.getElementById("search-using-word").submit();
 	}
-	
- 	$(document).ready(function() {
-		// Show the Modal on load
-		<c:if test='${not empty msg}'>
-		$("#failModal").modal("show");
-		</c:if>
-		<c:if test='${not empty pass}'>
-		$("#showPWModal").modal("show");
-		</c:if>
-	}); 
-	function login() {
-		if (document.getElementById("id-input").value == "") {
-			alert("아이디를 입력해주세요");
-			return;
-		} else if (document.getElementById("pw-input").value == "") {
-			alert("비밀번호를 입력해주세요");
-			return;
-		} else {
-			document.getElementById("loginform").action = "${root}/main.do";
-			document.getElementById("loginform").submit();
-		}
-	}
-	function findpw() {
-		if (document.getElementById("checkid").value == "") {
-			alert("아이디를 입력해주세요");
-			return;
-		} else if (document.getElementById("checkname").value == "") {
-			alert("이름을 입력해주세요");
-			return;
-		} else if (document.getElementById("checkemail").value == "") {
-			alert("이메일을 입력해주세요");
-			return;
-		} else {
-			document.getElementById("findpwform").action = "${root}/main.do";
-			document.getElementById("findpwform").submit();
-		}
-	}
+
 </script>
 </head>
 
 <body>
 	<!-- ======= Header ======= -->
 	<jsp:include page="include/header.jsp" />
+	<jsp:include page="member/login_modal.jsp" />
 	<!-- End Header -->
 
 	<!-- ======= Hero Section ======= -->
@@ -420,44 +385,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- Login Modal -->
-	<div class="modal" id="loginModal">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-body">
-					<article class="card-body mx-auto" style="max-width: 400px;">
-						<h4 class="card-title text-center mt-3">Login</h4>
-						<form id="loginform" method="post" action="">
-							<input type="hidden" name="action" id="action" value="login">
-							<div class="form-group input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"> <i class="fa fa-user"></i>
-									</span>
-								</div>
-								<input name="userid" id="id-input" class="form-control" placeholder="ID" type="text">
-							</div>
-							<!-- form-group// -->
-							<div class="form-group input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"> <i class="fa fa-lock"></i>
-									</span>
-								</div>
-								<input name="userpwd" id="pw-input" class="form-control" placeholder="Password" type="password">
-							</div>
-							<!-- form-group// -->
-							<div class="form-group">
-								<button type="submit" id="login-btn" class="btn btn-primary btn-block" onclick="javascript:login();" data-dismiss="modal">로그인</button>
-							</div>
-							<!-- form-group// -->
-							<p class="text-center">
-								비밀번호를 잊어버리셨나요? <a data-dismiss="modal" data-toggle="modal" href="#findPWModal">비밀번호 찾기</a>
-							</p>
-						</form>
-					</article>
-				</div>
-			</div>
-		</div>
-	</div>
+
 
 	<!-- Find Password Modal -->
 	<div class="modal" id="findPWModal">

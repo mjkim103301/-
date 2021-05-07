@@ -9,4 +9,7 @@ public interface MemberDao {
 	public void registerMember(MemberDto memberDto);
 	public MemberDto modifyMember(MemberDto memberDto);
 	
+	
+	public MemberDto getMember(String userId);
+	
 }

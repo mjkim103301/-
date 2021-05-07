@@ -84,4 +84,11 @@ public class MemberDaoImpl implements MemberDao {
 		return memberDto;
 	}
 
+	@Override
+	public MemberDto getMember(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 }
