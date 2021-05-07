@@ -5,8 +5,16 @@
 <mapper namespace="com.ssafy.happyhouse.dao.MemberDao">
 
 	<select id="getMember"	parameterType="string"	resultType="memberDto">
-		select *
-		from member
-		where userid = #{userid}
+		select	*
+		from	member
+		where	userid = #{userid}
+	</select>
+	
+	<select id="getUserpwd" parameterType="memberDto" resultType="string">
+		select 	*
+		from	member
+		where	userid = #{userid}
+		and		username = #{username}
+		and		email = #{email}
 	</select>
 </mapper>

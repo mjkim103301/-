@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,11 +39,30 @@ public class MemberController {
 		MemberDto memberDto = memberService.login(member.getUserid(), member.getUserpwd());
 		
 		if(memberDto == null) {
-			System.out.println("fail");
 			return new ResponseEntity<MemberDto>(HttpStatus.NOT_FOUND);
 		}
+		
+		System.out.println(memberDto);
 		session.setAttribute("member", memberDto);
-		System.out.println(HttpStatus.OK);
-		return new ResponseEntity<MemberDto>(member, HttpStatus.OK);
+		return new ResponseEntity<MemberDto>(HttpStatus.OK);
+	}
+	
+	@PostMapping("/findpassword")
+	public ResponseEntity<String> findPassword(@RequestBody MemberDto member){
+		System.out.println("init");
+		String userPwd = memberService.findUserpwd(member);
+		
+		if(userPwd == null) {
+			System.out.println("errro");
+			return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
+		}
+		System.out.println(userPwd);
+		return new ResponseEntity<String>(userPwd, HttpStatus.OK);
+	}
+	
+	@GetMapping("/logout")
+	public ResponseEntity logOut(HttpSession session) {
+		session.invalidate();
+		return new ResponseEntity(HttpStatus.OK);
 	}
 }
