@@ -29,5 +29,9 @@ public class HomeController {
 		return "housedeal/actual_price";
 	}
 	
+	@GetMapping("mypage")
+	public String mypage() {
+		return "member/my_page";
+	}
 	
 }

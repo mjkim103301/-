@@ -13,23 +13,23 @@
 					<title>HappyHouse</title>
 
 					<!-- Favicons -->
-					<link href="assets/img/favicon.png" rel="icon">
-					<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+					<link href="img/favicon.png" rel="icon">
+					<link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 					<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
 					<!-- Google Fonts -->
 					<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
 					<!-- Vendor CSS Files -->
-					<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-					<link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-					<link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-					<link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-					<link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
-					<link href="assets/vendor/aos/aos.css" rel="stylesheet">
+					<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+					<link href="vendor/icofont/icofont.min.css" rel="stylesheet">
+					<link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+					<link href="vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+					<link href="vendor/venobox/venobox.css" rel="stylesheet">
+					<link href="vendor/aos/aos.css" rel="stylesheet">
 
 					<!-- Template Main CSS File -->
-					<link href="assets/css/style.css" rel="stylesheet">
+					<link href="css/style.css" rel="stylesheet">
 				</head>
 				<script type="text/javascript">
 					function updateMember() {
@@ -41,9 +41,38 @@
 							alert("변경할 이메일을 입력하세요!")
 						} else if (document.getElementById("useraddress").value == "") {
 							alert("변경할 주소를 입력하세요!")
+						} else{
+							let userid = document.getElementById("userid").value;
+							let username = document.getElementById("username").value;
+							let email = document.getElementById("useremail").value;
+							let userpwd = document.getElementById("userpwd").value;
+							let address = document.getElementById("useraddress").value;
+							console.log(userpwd + email + address + username);
+							let data = ({
+								userid		: 	userid,
+								username	:	username,
+								userpwd		:	userpwd,
+								email		:	email,
+								address 	:	address
+							});
+
+							$.ajax({
+								url : '${root}/updateuser' 
+								, type : 'PUT' 
+								, data : JSON.stringify(data)
+								, contentType : "application/json; charset=UTF-8"
+								, success: 	function (status) {
+									console.log("수정 성공 !" +  status);	
+									$("#updateModal").modal("hide");
+									location.href="${root}/mypage"
+								}
+								, error:	function(request,status,error){
+									$("#updateModal").modal("hide");
+									$("#failModal").modal("show");
+									console.log("수정 실패 !" +  status);	
+								}
+							});
 						}
-						document.getElementById("updateform").action = "${root}/main.do";
-						document.getElementById("updateform").submit();
 					}
 				</script>
 
@@ -52,7 +81,7 @@
 					<jsp:include page="/WEB-INF/views/include/header.jsp" />
 					<!-- End Header -->
 					<div class="jumbotron jumbotron-fluid">
-						<picture> <img src="assets/img/house.jpeg" class="jumbotron__background"> </picture>
+						<picture> <img src="img/house.jpeg" class="jumbotron__background"> </picture>
 						<div class="container text-white text-center">
 							<h1 class="display-4">My Page</h1>
 							<p class="lead"></p>
@@ -68,7 +97,7 @@
 									<tbody>
 										<tr>
 											<th>아이디</th>
-											<td>${userinfo.userid}</td>
+											<td>${member.userid}</td>
 										</tr>
 										<tr>
 											<th>비밀번호</th>
@@ -76,15 +105,15 @@
 										</tr>
 										<tr>
 											<th>이름</th>
-											<td>${userinfo.username}</td>
+											<td>${member.username}</td>
 										</tr>
 										<tr>
 											<th>이메일</th>
-											<td>${userinfo.email}</td>
+											<td>${member.email}</td>
 										</tr>
 										<tr>
 											<th>주소</th>
-											<td>${userinfo.address}</td>
+											<td>${member.address}</td>
 										</tr>
 									</tbody>
 								</table>
@@ -151,7 +180,7 @@
 													</span>
 												</div>
 
-												<input id="userid" name="userid" class="form-control" value="${userinfo.userid}" type="text">
+												<input id="userid" name="userid" class="form-control" value="${member.userid}" type="text" readonly>
 											</div>
 											<!-- form-group// -->
 											<div class="form-group input-group">
@@ -159,7 +188,7 @@
 													<span class="input-group-text"> <i class="fa fa-lock"></i>
 													</span>
 												</div>
-												<input id="userpwd" name="userpwd" class="form-control" value="${userinfo.userpwd}" type="text">
+												<input id="userpwd" name="userpwd" class="form-control" value="" type="text">
 
 											</div>
 											<!-- form-group// -->
@@ -167,7 +196,7 @@
 												<div class="input-group-prepend">
 													<span class="input-group-text"><i class="far fa-smile"></i></span>
 												</div>
-												<input id="username" name="username" class="form-control" value="${userinfo.username }" type="text">
+												<input id="username" name="username" class="form-control" value="${member.username }" type="text">
 											</div>
 											<!-- form-group// -->
 											<div class="form-group input-group">
@@ -175,14 +204,14 @@
 													<span class="input-group-text"> <i class="fa fa-envelope"></i>
 													</span>
 												</div>
-												<input id="useremail" name="useremail" class="form-control" value="${userinfo.email }" type="email">
+												<input id="useremail" name="useremail" class="form-control" value="${member.email }" type="email">
 											</div>
 											<!-- form-group// -->
 											<div class="form-group input-group">
 												<div class="input-group-prepend">
 													<span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
 												</div>
-												<input id="useraddress" name="useraddress" class="form-control" value="${userinfo.address }" type="address2">
+												<input id="useraddress" name="useraddress" class="form-control" value="${member.address }" type="address2">
 											</div>
 											<!-- form-group// -->
 											<div class="form-group">
@@ -214,20 +243,20 @@
 					<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
 					<!-- Vendor JS Files -->
-					<script src="assets/vendor/jquery/jquery.min.js"></script>
-					<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-					<script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-					<script src="assets/vendor/php-email-form/validate.js"></script>
-					<script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-					<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-					<script src="assets/vendor/venobox/venobox.min.js"></script>
-					<script src="assets/vendor/aos/aos.js"></script>
+					<script src="vendor/jquery/jquery.min.js"></script>
+					<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+					<script src="vendor/jquery.easing/jquery.easing.min.js"></script>
+					<script src="vendor/php-email-form/validate.js"></script>
+					<script src="vendor/owl.carousel/owl.carousel.min.js"></script>
+					<script src="vendor/isotope-layout/isotope.pkgd.min.js"></script>
+					<script src="vendor/venobox/venobox.min.js"></script>
+					<script src="vendor/aos/aos.js"></script>
 
 					<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 					<!-- Template Main JS File -->
-					<script src="assets/js/main.js"></script>
-					<script src="assets/js/user.js"></script>
+					<script src="js/main.js"></script>
+					<script src="js/user.js"></script>
 
 				</body>
 

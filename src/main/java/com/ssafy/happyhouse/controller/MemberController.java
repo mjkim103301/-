@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -50,7 +51,7 @@ public class MemberController {
 	@PostMapping("/findpassword")
 	public ResponseEntity<String> findPassword(@RequestBody MemberDto member){
 		System.out.println("init");
-		String userPwd = memberService.findUserpwd(member);
+		String userPwd = memberService.findMemberPwd(member);
 		
 		if(userPwd == null) {
 			System.out.println("errro");
@@ -61,8 +62,17 @@ public class MemberController {
 	}
 	
 	@GetMapping("/logout")
-	public ResponseEntity logOut(HttpSession session) {
+	public ResponseEntity logout(HttpSession session) {
 		session.invalidate();
 		return new ResponseEntity(HttpStatus.OK);
 	}
+	
+	@PutMapping("/updateuser")
+	public ResponseEntity updateMember(@RequestBody MemberDto member, HttpSession session) {
+		System.out.println(member);
+		memberService.updateMember(member);
+		session.setAttribute("member", member);
+		return new ResponseEntity(HttpStatus.OK);
+	}
+	
 }

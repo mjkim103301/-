@@ -11,6 +11,7 @@ public interface MemberDao {
 	
 	
 	public MemberDto getMember(String userId);
-	public String getUserpwd(MemberDto member);
+	public String getMemberPwd(MemberDto member);
+	public void updateMember(MemberDto member);
 	
 }

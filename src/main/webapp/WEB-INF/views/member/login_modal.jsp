@@ -35,7 +35,7 @@
 		        url : '${root}/login' 
 		        , type : 'POST' 
 		        , data : JSON.stringify(data)
-
+				, contentType : "application/json; charset=UTF-8"
 		        , success: 	function (status) {
 					location.href="${root}";
 		        }
@@ -74,7 +74,7 @@
 		        , type : 'POST' 
 		        , data : JSON.stringify(data)
 				, dataType : 'text'
-		         , contentType : "application/x-www-from-urlencoded; charset=UTF-8"
+		        , contentType : "application/json; charset=UTF-8"
 		        , success: 	function (result, status) {
 					$("showPassword").val = "비밀번호는 " + result + " 입니다";
 					$("#showPWModal").modal("show");

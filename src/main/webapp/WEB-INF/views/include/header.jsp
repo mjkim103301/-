@@ -29,7 +29,7 @@
      <c:choose>
      	<c:when test="${not empty member}">
           <li><a id="logout-nav" href="javascript:void(0);" onclick="javascript:logout();" class="logout-nav font-weight-bold">Logout</a></li>
-          <li><a id="mypage-nav" href="<%=root%>/main.do?action=mvMyPage" class="mypage-nav font-weight-bold">MyPage</a></li>
+          <li><a id="mypage-nav" href="<%=root%>${root}/mypage" class="mypage-nav font-weight-bold">MyPage</a></li>
           	<c:if test="${not empty admininfo}">
           <!-- 관리자가 로그인했을 때만 -->
           <li><a id="admin-nav" href="<%=root%>/main.do?action=mvUserAdmin" class="admin-nav font-weight-bold">Admin</a></li> 

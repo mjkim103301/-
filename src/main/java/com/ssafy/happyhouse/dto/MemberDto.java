@@ -22,6 +22,16 @@ public class MemberDto {
 		this.address = address;
 	}
 	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("MemberDto [userid=").append(userid).append(", username=").append(username).append(", userpwd=")
+				.append(userpwd).append(", email=").append(email).append(", address=").append(address)
+				.append(", joindate=").append(joindate).append(", canUseId=").append(canUseId).append(", isAdmin=")
+				.append(isAdmin).append("]");
+		return builder.toString();
+	}
+
 	public boolean isAdmin() {
 		return isAdmin;
 	}
