@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-	
+
 <mapper namespace="com.ssafy.happyhouse.dao.HouseDealDao">
+	<select id="houseDealList"
+		parameterType="com.ssafy.happyhouse.dto.HouseDealDto">
+		select deal.dong, deal.AptName, deal.guguncode, deal.dealAmount, deal.buildYear, deal.dealYear, deal.dealMonth, deal.dealDay, deal.area, deal.floor, deal.jibun, deal.type, deal.rentMoney, info.img, info.lat, info.lng
+		from housedeal deal join (
+								select dong, AptName, guguncode, buildYear, jibun, lat, lng, img
+								from houseinfo
+								where dong=#{dong} and guguncode=#{guguncode}
+		) info
+		where deal.dong=info.dong and deal.AptName=info.AptName and deal.guguncode=info.guguncode
+		order by dealYear desc, dealMonth desc, dealDay desc
+	</select>
+
 </mapper>
