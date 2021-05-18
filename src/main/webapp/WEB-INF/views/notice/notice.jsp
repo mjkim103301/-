@@ -30,8 +30,11 @@
   <link href="css/style.css" rel="stylesheet">
   
   <!-- Vue JS -->
-  <link href="./js/vuejs/notice/app.5adc7e31.js" rel="preload" as="script" >
-  <link href="./js/vuejs/notice/chunk-vendors.8baa2699.js" rel="preload" as="script" >
+  <link href="js/vuejs/notice/app.064233d7.js" rel="preload" as="script" >
+  <link href="js/vuejs/notice/chunk-vendors.8baa2699.js" rel="preload" as="script" >
+  
+  <link href="js/app.064233d7.js" rel="preload" as="script" >
+  <link href="js/chunk-vendors.8baa2699.js" rel="preload" as="script" >
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!--   <script type="text/javascript">
@@ -68,9 +71,11 @@
   <main id="main">
   
   <noscript><strong>We're sorry but notice doesn't work properly without Javascript enabled.</strong></noscript>
-  <div id=app></div>
-  <script src="./js/vuejs/notice/app.5adc7e31.js"></script>
-  <script src="./js/vuejs/notice/chunk-vendors.8baa2699.js"></script>
+  <div id=app>  
+  </div>
+  <script src="js/vuejs/notice/chunk-vendors.8baa2699.js"></script>
+  <script src="js/vuejs/notice/app.f5db41d1.js"></script>
+
    <!--  <section id="" class="p-1">
       <div class="container">
         <div class="mb-2">
