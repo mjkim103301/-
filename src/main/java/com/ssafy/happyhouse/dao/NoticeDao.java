@@ -1,5 +1,6 @@
 package com.ssafy.happyhouse.dao;
 
+import com.ssafy.happyhouse.dto.ReplyDto;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
@@ -34,4 +35,8 @@ public interface NoticeDao {
 	void writeArticle(NoticeDto noticeDto);
 	void removeArticle(int articleNo);
 	void updateArticle(NoticeDto noticeDto);
+
+	void writeReply(ReplyDto replyDto);
+	List<ReplyDto> listReply(int articleNo);
+	void removeReply(int id);
 }

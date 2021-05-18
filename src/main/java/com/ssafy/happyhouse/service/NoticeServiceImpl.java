@@ -1,5 +1,6 @@
 package com.ssafy.happyhouse.service;
 
+import com.ssafy.happyhouse.dto.ReplyDto;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -77,6 +78,21 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public void removeArticle(int articleNo) {
 		noticeDao.removeArticle(articleNo);
+	}
+
+	@Override
+	public void writeReply(ReplyDto replyDto) {
+		noticeDao.writeReply(replyDto);
+	}
+
+	@Override
+	public List<ReplyDto> listReply(int articleNo) {
+		return noticeDao.listReply(articleNo);
+	}
+
+	@Override
+	public void removeReply(int id) {
+		noticeDao.removeReply(id);
 	}
 
 }

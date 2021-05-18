@@ -1,5 +1,6 @@
 package com.ssafy.happyhouse.service;
 
+import com.ssafy.happyhouse.dto.ReplyDto;
 import java.util.List;
 
 import com.ssafy.happyhouse.dto.NoticeDto;
@@ -17,5 +18,9 @@ public interface NoticeService {
 //	글삭제
 	void removeArticle(int articleNo);
 
+	void writeReply(ReplyDto replyDto);
 
+	List<ReplyDto> listReply(int articleNo);
+
+	void removeReply(int id);
 }

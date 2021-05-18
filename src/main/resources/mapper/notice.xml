@@ -48,4 +48,26 @@
 		where	articleno = #{articleNo}
 	</update>
 
+	<insert id="writeReply"	parameterType="replyDto">
+		insert	
+		into	reply
+		values	(	null
+					,#{userId}
+					,#{articleNo}
+					,#{content})
+	</insert>
+
+	<select id="listReply"		parameterType="int"		resultType="replyDto">
+		select 	*
+		from 	reply
+		where 	articleno = #{articleNo}
+		order 	by	id
+	</select>
+
+	<delete id="removeReply"	parameterType="int">
+		delete
+		from	reply
+		where	id = #{id}
+	</delete>
+
 </mapper>
