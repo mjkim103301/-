@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
+ 
   <title>HappyHouse</title>
 
   <!-- Favicons -->
@@ -28,8 +28,13 @@
 
   <!-- Template Main CSS File -->
   <link href="css/style.css" rel="stylesheet">
+  
+  <!-- Vue JS -->
+  <link href="./js/vuejs/notice/app.5adc7e31.js" rel="preload" as="script" >
+  <link href="./js/vuejs/notice/chunk-vendors.8baa2699.js" rel="preload" as="script" >
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script type="text/javascript">
+<!--   <script type="text/javascript">
 	function registArticle() {
 		if (document.getElementById("title").value == "") {
 			alert("제목을 입력해주세요");
@@ -42,7 +47,7 @@
 			document.getElementById("articleform").submit();
 		}
 	}
-	</script>
+	</script> -->
 </head>
 
 <body>
@@ -61,7 +66,12 @@
 <jsp:include page="/WEB-INF/views/include/header.jsp"/>
 <!-- End Header -->
   <main id="main">
-    <section id="" class="p-1">
+  
+  <noscript><strong>We're sorry but notice doesn't work properly without Javascript enabled.</strong></noscript>
+  <div id=app></div>
+  <script src="./js/vuejs/notice/app.5adc7e31.js"></script>
+  <script src="./js/vuejs/notice/chunk-vendors.8baa2699.js"></script>
+   <!--  <section id="" class="p-1">
       <div class="container">
         <div class="mb-2">
           <button type="button" id="write-notice" class="btn btn-primary" data-toggle="modal" data-target="#postModal" >글쓰기</button>
@@ -127,7 +137,7 @@
             </ul>
         </div>
     </div>
-    </section><!-- End About Section -->
+    </section>End About Section -->
     
   </main><!-- End #main -->
 
