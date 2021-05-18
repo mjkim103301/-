@@ -6,6 +6,15 @@ public class NoticeDto {
 	private String subject;
 	private String content;
 	private String regtime;
+	private int hits;
+
+	public int getHits() {
+		return hits;
+	}
+
+	public void setHits(int hits) {
+		this.hits = hits;
+	}
 
 	public int getArticleNo() {
 		return articleNo;

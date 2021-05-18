@@ -27,9 +27,9 @@ public class SwaggerConfig {
 				   .select()
 				   .apis(RequestHandlerSelectors.basePackage("com.ssafy.happyhouse.controller"))
 				    // 서비스할 경로 phone으로 통일  서비스 구분은 요청 method로 구분  
-				   .paths(PathSelectors.ant("/happyhouse/**")) 
+//				   .paths(PathSelectors.ant("/happyhouse/**"))
 //				    //서비스할 경로를 통일하지 않고 경로명으로 구분해서 사용 
-//				   .paths(PathSelectors.any()) 	 		  
+				   .paths(PathSelectors.any())
 				   .build();
 	}
 
@@ -37,7 +37,7 @@ public class SwaggerConfig {
 	private ApiInfo info() {
 		return new ApiInfoBuilder().title("HappyHouse Management API")
 				.description("해피하우스 관리를 위한 <b>CRUD</b>")
-				.license("그냥 쓰세요!!! ")
+				.license("그냥 쓰세요!!~! ")
 				.version("3.0")
 				.build();
 	}
