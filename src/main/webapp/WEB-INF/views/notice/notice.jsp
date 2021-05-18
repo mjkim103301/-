@@ -30,11 +30,8 @@
   <link href="css/style.css" rel="stylesheet">
   
   <!-- Vue JS -->
-  <link href="js/vuejs/notice/app.064233d7.js" rel="preload" as="script" >
+  <link href="js/vuejs/notice/app.a4c6182d.js" rel="preload" as="script" >
   <link href="js/vuejs/notice/chunk-vendors.8baa2699.js" rel="preload" as="script" >
-  
-  <link href="js/app.064233d7.js" rel="preload" as="script" >
-  <link href="js/chunk-vendors.8baa2699.js" rel="preload" as="script" >
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!--   <script type="text/javascript">
@@ -74,7 +71,7 @@
   <div id=app>  
   </div>
   <script src="js/vuejs/notice/chunk-vendors.8baa2699.js"></script>
-  <script src="js/vuejs/notice/app.f5db41d1.js"></script>
+  <script src="js/vuejs/notice/app.a4c6182d.js"></script>
 
    <!--  <section id="" class="p-1">
       <div class="container">

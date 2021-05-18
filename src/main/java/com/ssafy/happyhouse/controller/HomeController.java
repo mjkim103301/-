@@ -39,7 +39,7 @@ public class HomeController {
 		return "member/register";
 	}
 	
-	@GetMapping("board")
+	@GetMapping("article")
 	public String board() {
 		return "notice/notice";
 	}
