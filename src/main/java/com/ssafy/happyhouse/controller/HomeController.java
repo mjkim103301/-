@@ -41,6 +41,7 @@ public class HomeController {
 	
 	@GetMapping("article")
 	public String board() {
+		System.out.println("mvarticle");
 		return "notice/notice";
 	}
 	

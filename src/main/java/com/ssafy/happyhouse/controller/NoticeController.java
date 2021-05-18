@@ -30,7 +30,7 @@ import io.swagger.annotations.Api;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/article")
+@RequestMapping("/art")
 @Api(value="HappyHouse" , description="게시글 관련 컨트롤러")
 public class NoticeController {
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
@@ -44,7 +44,7 @@ public class NoticeController {
 		@ApiImplicitParam(name = "word", value = "검색어", dataType = "string", paramType = "query"),
 		@ApiImplicitParam(name = "page", value = "페이지", dataType = "string", paramType = "query")
 	})
-	@GetMapping("/")
+	@GetMapping("")
 	public ResponseEntity<List<NoticeDto>> listArticle(@RequestParam(required = false) Map<String, String> paramMap){
 		PageBean pageBean = new PageBean(paramMap.get("key"), paramMap.get("word"), paramMap.get("page"));
 
