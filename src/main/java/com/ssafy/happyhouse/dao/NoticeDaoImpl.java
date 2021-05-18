@@ -11,6 +11,7 @@ import com.ssafy.happyhouse.dto.NoticeDto;
 import com.ssafy.happyhouse.dto.PageBean;
 
 import ch.qos.logback.core.db.dialect.DBUtil;
+import java.util.Map;
 
 
 public class NoticeDaoImpl implements NoticeDao {
@@ -33,7 +34,7 @@ public class NoticeDaoImpl implements NoticeDao {
 
 	}
 
-	@Override
+
 	public List<NoticeDto> listArticle(Connection conn, String key, String word) throws SQLException {
 		List<NoticeDto> list = new ArrayList<NoticeDto>();
 		PreparedStatement pstmt = null;
@@ -136,5 +137,10 @@ public class NoticeDaoImpl implements NoticeDao {
 	public int totalCount(Connection conn, PageBean bean) throws SQLException {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public List<NoticeDto> listArticle(Map<String, String> map) {
+		return null;
 	}
 }

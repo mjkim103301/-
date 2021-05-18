@@ -2,8 +2,10 @@ package com.ssafy.happyhouse.service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -41,20 +43,17 @@ public class NoticeServiceImpl implements NoticeService {
 
 	@Transactional
 	@Override
-	public List<NoticeDto> listArticle(String key, String word) throws Exception {
-		Connection conn=null;
-		key=key==null?"":key;
-		word=word==null?"":word;
-		
-		try {
-		//	conn=DBUtil.getConnection();
-			return noticeDao.listArticle(conn,key, word);
-		}catch (Exception e) {
-			e.printStackTrace();
-			throw new Exception("게시글 목록 조회 중 오류 발생");
-		}finally {
-		//	DBUtil.close(conn);
+	public List<NoticeDto> listArticle(String key, String word) {
+		Map<String, String> map = new HashMap<>();
+		System.out.println("service Key , val  : " + key + " " + word);
+		if(key != null){
+			map.put("key", key);
 		}
+		if(word != null){
+			map.put("word", word);
+		}
+
+		return noticeDao.listArticle(map);
 	}
 
 	@Transactional

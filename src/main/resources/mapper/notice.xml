@@ -3,4 +3,12 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 <mapper namespace="com.ssafy.happyhouse.dao.NoticeDao">
+	<select id="listArticle"	parameterType="map"		resultType="noticeDto">
+		select 	*
+		from 	notice
+		<if test = "key != null and word != null">
+			where 	${key} like CONCAT('%', #{word}, '%')
+		</if>
+		order 	by	articleno	desc;
+	</select>
 </mapper>
