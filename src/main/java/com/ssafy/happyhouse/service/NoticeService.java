@@ -13,7 +13,9 @@ public interface NoticeService {
 //	글수정을 위한 글얻기
 	NoticeDto getArticle(int articleNo);
 //	글수정
-	void modifyArticle(NoticeDto noticeDto);
+	void updateArticle(NoticeDto noticeDto);
 //	글삭제
 	void removeArticle(int articleNo);
+
+
 }

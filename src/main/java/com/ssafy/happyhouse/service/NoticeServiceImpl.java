@@ -68,9 +68,9 @@ public class NoticeServiceImpl implements NoticeService {
 
 	@Transactional
 	@Override
-	public void modifyArticle(NoticeDto noticeDto){
+	public void updateArticle(NoticeDto noticeDto){
 		// TODO Auto-generated method stub
-
+		noticeDao.updateArticle(noticeDto);
 	}
 
 	@Transactional

@@ -33,4 +33,5 @@ public interface NoticeDao {
 	void hitArticle(int articleNo);
 	void writeArticle(NoticeDto noticeDto);
 	void removeArticle(int articleNo);
+	void updateArticle(NoticeDto noticeDto);
 }
