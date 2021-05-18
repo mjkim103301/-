@@ -1,5 +1,6 @@
 package com.ssafy.happyhouse.service;
 
+import com.ssafy.happyhouse.dto.PageBean;
 import com.ssafy.happyhouse.dto.ReplyDto;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -34,7 +35,7 @@ public class NoticeServiceImpl implements NoticeService {
 //		//	DBUtil.rollback(conn);
 //			throw new Exception("게시글 등록 중 오류 발생");
 //		}finally {
-//			try {
+//			try {g
 //				conn.commit();
 //			}catch (Exception e) {}
 //			//DBUtil.close(conn);
@@ -47,18 +48,23 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 
 	@Override
-	public List<NoticeDto> listArticle(String key, String word) {
-		Map<String, String> map = new HashMap<>();
-		System.out.println("service Key , val  : " + key + " " + word);
-		if(key != null){
-			map.put("key", key);
-		}
-		if(word != null){
-			map.put("word", word);
-		}
-
-		return noticeDao.listArticle(map);
+	public List<NoticeDto> listArticle(PageBean pageBean) {
+		return noticeDao.listArticle(pageBean);
 	}
+
+//	@Override
+//	public List<NoticeDto> listArticle(PageBean pageBean) {
+//		Map<String, String> map = new HashMap<>();
+//		System.out.println("service Key , val  : " + key + " " + word);
+//		if(key != null){
+//			map.put("key", key);
+//		}
+//		if(word != null){
+//			map.put("word", word);
+//		}
+//
+//		return noticeDao.listArticle(map);
+//	}
 
 	@Transactional
 	@Override

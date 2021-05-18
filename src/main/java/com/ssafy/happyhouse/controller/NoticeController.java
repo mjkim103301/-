@@ -1,6 +1,7 @@
 package com.ssafy.happyhouse.controller;
 
 import com.ssafy.happyhouse.dto.NoticeDto;
+import com.ssafy.happyhouse.dto.PageBean;
 import com.ssafy.happyhouse.dto.ReplyDto;
 import com.ssafy.happyhouse.service.NoticeService;
 import io.swagger.annotations.ApiImplicitParam;
@@ -40,14 +41,21 @@ public class NoticeController {
 	@ApiOperation(value = "검색하기")
 	@ApiImplicitParams({
 		@ApiImplicitParam(name = "key", value = "검색조건", dataType = "string", paramType = "query"),
-		@ApiImplicitParam(name = "word", value = "검색어", dataType = "string", paramType = "query")
+		@ApiImplicitParam(name = "word", value = "검색어", dataType = "string", paramType = "query"),
+		@ApiImplicitParam(name = "page", value = "페이지", dataType = "string", paramType = "query")
 	})
 	@GetMapping("/")
 	public ResponseEntity<List<NoticeDto>> listArticle(@RequestParam(required = false) Map<String, String> paramMap){
+		PageBean pageBean = new PageBean(paramMap.get("key"), paramMap.get("word"), paramMap.get("page"));
 
-		List<NoticeDto> result = noticeService.listArticle(paramMap.get("key"), paramMap.get("word"));
+		List<NoticeDto> result = noticeService.listArticle(pageBean);
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
+
+//	public ResponseEntity<List<NoticeDto>> listArticle(@RequestParam(required = false) Map<String, String> paramMap){
+//		List<NoticeDto> result = noticeService.listArticle(paramMap.get("key"), paramMap.get("word"));
+//		return new ResponseEntity<>(result, HttpStatus.OK);
+//	}
 
 	@ApiOperation(value = "글 상세보기")
 	@GetMapping("/{articleNo}")

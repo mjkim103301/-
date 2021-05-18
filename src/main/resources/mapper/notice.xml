@@ -3,13 +3,22 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 <mapper namespace="com.ssafy.happyhouse.dao.NoticeDao">
-	<select id="listArticle"	parameterType="map"		resultType="noticeDto">
+	<select id="listArticle"	parameterType="pageBean"		resultType="noticeDto">
 		select 	*
 		from 	notice
 		<if test = "key != null and word != null">
 			where 	${key} like CONCAT('%', #{word}, '%')
 		</if>
-		order 	by	articleno	desc;
+		order 	by	articleno	desc
+		limit	#{startNo},	#{interval}
+	</select>
+
+	<select id="totalCount"		parameterType="map"		resultType="int">
+		select 	count(*)
+		from 	notice
+		<if test = "key != null and word != null">
+			where 	${key} like CONCAT('%', #{word}, '%')
+		</if>
 	</select>
 
 	<select id="getArticle"		parameterType="int"		resultType="noticeDto">

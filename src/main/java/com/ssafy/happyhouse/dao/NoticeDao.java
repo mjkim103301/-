@@ -24,17 +24,20 @@ public interface NoticeDao {
 	void modifyArticle(NoticeDto noticeDto) throws SQLException;
 //	글삭제
 //	void deleteArticle(int articleNo) throws SQLException;
-
 	int totalCount(Connection conn, PageBean bean) throws SQLException;
 
 
 
-	List<NoticeDto> listArticle(Map<String, String> map);
+//	List<NoticeDto> listArticle(Map<String, String> map);
+	List<NoticeDto> listArticle(PageBean pageBean);
+	int totalCount(PageBean bean);
+
 	NoticeDto getArticle(int articleNo);
 	void hitArticle(int articleNo);
 	void writeArticle(NoticeDto noticeDto);
 	void removeArticle(int articleNo);
 	void updateArticle(NoticeDto noticeDto);
+
 
 	void writeReply(ReplyDto replyDto);
 	List<ReplyDto> listReply(int articleNo);

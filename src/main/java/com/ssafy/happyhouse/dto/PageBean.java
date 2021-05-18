@@ -9,7 +9,7 @@ public class PageBean {
 	/** 현재 페이지 번호 */
 	private int pageNo;
 	/** 한 페이지에 보여주 content 개수 */
-	private int interval = 5;
+	private int interval = 10;
 	
 	private int startNo=1;
 	private String pageLink;
