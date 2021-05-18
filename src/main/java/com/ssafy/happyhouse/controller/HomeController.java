@@ -39,4 +39,9 @@ public class HomeController {
 		return "member/register";
 	}
 	
+	@GetMapping("article")
+	public String board() {
+		return "notice/notice";
+	}
+	
 }
