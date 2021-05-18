@@ -21,27 +21,30 @@ public class NoticeServiceImpl implements NoticeService {
 	@Autowired
 	NoticeDao noticeDao;
 	
+
+//	public void registerArticle(NoticeDto noticeDto) throws Exception {
+//		Connection conn=null;
+//		try {
+//			//conn=DBUtil.getConnection();
+//			conn.setAutoCommit(false);
+//			noticeDao.registerArticle(conn, noticeDto);
+//		}catch (SQLException e) {
+//			e.printStackTrace();
+//		//	DBUtil.rollback(conn);
+//			throw new Exception("게시글 등록 중 오류 발생");
+//		}finally {
+//			try {
+//				conn.commit();
+//			}catch (Exception e) {}
+//			//DBUtil.close(conn);
+//		}
+//	}
 	@Transactional
 	@Override
-	public void registerArticle(NoticeDto noticeDto) throws Exception {
-		Connection conn=null;
-		try {
-			//conn=DBUtil.getConnection();
-			conn.setAutoCommit(false);
-			noticeDao.registerArticle(conn, noticeDto);
-		}catch (SQLException e) {
-			e.printStackTrace();
-		//	DBUtil.rollback(conn);
-			throw new Exception("게시글 등록 중 오류 발생");
-		}finally {
-			try {
-				conn.commit();
-			}catch (Exception e) {}
-			//DBUtil.close(conn);
-		}
+	public void writeArticle(NoticeDto noticeDto) {
+		noticeDao.writeArticle(noticeDto);
 	}
 
-	@Transactional
 	@Override
 	public List<NoticeDto> listArticle(String key, String word) {
 		Map<String, String> map = new HashMap<>();
@@ -58,31 +61,22 @@ public class NoticeServiceImpl implements NoticeService {
 
 	@Transactional
 	@Override
-	public NoticeDto getArticle(int articleNo) throws Exception {
-		try {
-			return noticeDao.getArticle(articleNo);
-		}catch (Exception e) {
-			e.printStackTrace();
-			throw new Exception("게시글 조회 중 오류 발생");
-		}
+	public NoticeDto getArticle(int articleNo) {
+		noticeDao.hitArticle(articleNo);
+		return noticeDao.getArticle(articleNo);
 	}
 
 	@Transactional
 	@Override
-	public void modifyArticle(NoticeDto noticeDto) throws Exception {
+	public void modifyArticle(NoticeDto noticeDto){
 		// TODO Auto-generated method stub
 
 	}
 
 	@Transactional
 	@Override
-	public void deleteArticle(int articleNo) throws Exception {
-		try {
-			noticeDao.deleteArticle(articleNo);
-		}catch (Exception e) {
-			e.printStackTrace();
-			throw new Exception("게시글 삭제 중 오류 발생");
-		}
+	public void removeArticle(int articleNo) {
+		noticeDao.removeArticle(articleNo);
 	}
 
 }
