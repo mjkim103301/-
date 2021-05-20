@@ -52,6 +52,20 @@ public class NoticeController {
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 
+	@ApiOperation(value = "페이지 네비게이션 크기 받기")
+	@ApiImplicitParams({
+		@ApiImplicitParam(name = "key", value = "검색조건", dataType = "string", paramType = "query"),
+		@ApiImplicitParam(name = "word", value = "검색어", dataType = "string", paramType = "query"),
+		@ApiImplicitParam(name = "page", value = "페이지", dataType = "string", paramType = "query")
+	})
+	@GetMapping("/pageCount")
+	public ResponseEntity<Integer> getTotalPageCount(@RequestParam(required = false) Map<String, String> paramMap){
+		PageBean pageBean = new PageBean(paramMap.get("key"), paramMap.get("word"), paramMap.get("page"));
+
+		int totalPageCount = noticeService.getTotalPageCount(pageBean);
+		return new ResponseEntity<>(totalPageCount, HttpStatus.OK);
+	}
+
 //	public ResponseEntity<List<NoticeDto>> listArticle(@RequestParam(required = false) Map<String, String> paramMap){
 //		List<NoticeDto> result = noticeService.listArticle(paramMap.get("key"), paramMap.get("word"));
 //		return new ResponseEntity<>(result, HttpStatus.OK);

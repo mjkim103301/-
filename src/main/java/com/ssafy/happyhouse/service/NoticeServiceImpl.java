@@ -2,20 +2,14 @@ package com.ssafy.happyhouse.service;
 
 import com.ssafy.happyhouse.dto.PageBean;
 import com.ssafy.happyhouse.dto.ReplyDto;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.List;
 
-import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ssafy.happyhouse.dao.NoticeDao;
 import com.ssafy.happyhouse.dto.NoticeDto;
-
-import ch.qos.logback.core.db.dialect.DBUtil;
 
 @Service
 public class NoticeServiceImpl implements NoticeService {
@@ -32,6 +26,11 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public List<NoticeDto> listArticle(PageBean pageBean) {
 		return noticeDao.listArticle(pageBean);
+	}
+
+	@Override
+	public int getTotalPageCount(PageBean pageBean){
+		return noticeDao.getTotalPageCount(pageBean)/pageBean.getInterval() + 1;
 	}
 
 	@Transactional

@@ -13,6 +13,8 @@ public interface NoticeService {
 //	글목록
 	List<NoticeDto> listArticle(PageBean pageBean); //검색을 위한 key -> 제목, 작성자 등 분류 word->제목
 //	글수정을 위한 글얻기
+	int getTotalPageCount(PageBean pageBean);
+
 	NoticeDto getArticle(int articleNo);
 //	글수정
 	void updateArticle(NoticeDto noticeDto);

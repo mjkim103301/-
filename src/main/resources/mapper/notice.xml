@@ -13,7 +13,7 @@
 		limit	#{startNo},	#{interval}
 	</select>
 
-	<select id="totalCount"		parameterType="map"		resultType="int">
+	<select id="getTotalPageCount"		parameterType="pageBean"		resultType="int">
 		select 	count(*)
 		from 	notice
 		<if test = "key != null and word != null">

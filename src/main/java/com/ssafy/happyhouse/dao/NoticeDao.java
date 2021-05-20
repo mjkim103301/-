@@ -30,7 +30,7 @@ public interface NoticeDao {
 
 //	List<NoticeDto> listArticle(Map<String, String> map);
 	List<NoticeDto> listArticle(PageBean pageBean);
-	int totalCount(PageBean bean);
+	int getTotalPageCount(PageBean bean);
 
 	NoticeDto getArticle(int articleNo);
 	void hitArticle(int articleNo);
