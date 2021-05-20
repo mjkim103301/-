@@ -32,7 +32,7 @@ import io.swagger.annotations.Api;
 @RequestMapping("/art")
 @Api(value="HappyHouse" , description="게시글 관련 컨트롤러")
 public class ArticleController {
-	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
+	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
 	@Autowired
 	private ArticleService articleService;

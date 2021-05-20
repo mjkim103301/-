@@ -2,15 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
-<mapper namespace="com.ssafy.happyhouse.dao.MemberDao">
+<mapper namespace="com.ssafy.happyhouse.dao.UserDao">
 
-	<select id="getMember"	parameterType="string"	resultType="memberDto">
+	<select id="getMember"	parameterType="string"	resultType="userDto">
 		select	*
 		from	member
 		where	userid = #{userid}
 	</select>
 	
-	<select id="getMemberPwd" parameterType="memberDto" resultType="string">
+	<select id="getMemberPwd" parameterType="userDto" resultType="string">
 		select 	*
 		from	member
 		where	userid = #{userid}
@@ -18,7 +18,7 @@
 		and		email = #{email}
 	</select>
 	
-	<update id="updateMember" parameterType="memberDto" >
+	<update id="updateMember" parameterType="userDto" >
 		update	member 
 		set 	username = #{username},
 				userpwd = #{userpwd},
@@ -27,7 +27,7 @@
 		where	userid = #{userid}
 	</update>
 	
-	<insert id="registerMember" parameterType="memberDto">
+	<insert id="registerMember" parameterType="userDto">
 		insert 
 		into member 
 		values(	#{userid}
