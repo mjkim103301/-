@@ -1,7 +1,7 @@
 package com.ssafy.happyhouse.dto;
 
 /** UI 화면 페이지에 대한 정보를 표시하는 클래스 */
-public class PageBean {
+public class ArticlePageBean {
 	/** 검색 조건 */
 	private String key;
 	/** 검색 단어 */
@@ -9,17 +9,18 @@ public class PageBean {
 	/** 현재 페이지 번호 */
 	private int pageNo;
 	/** 한 페이지에 보여주 content 개수 */
-	private int interval = 10;
-	
-	private int startNo=1;
-	private String pageLink;
-	public PageBean() {	}
-	public PageBean(String key, String word, int pageNo) {
+	private int articleInterval = 10;
+	/** 페이지의 시작 게시글 번호 **/
+	private int startArticleNo = 1;
+
+//	private String pageLink;
+	public ArticlePageBean() {	}
+	public ArticlePageBean(String key, String word, int pageNo) {
 		setKey(key);
 		setWord(word);
 		setPageNo(pageNo);
 	}
-	public PageBean(String key, String word, String pageNo) {
+	public ArticlePageBean(String key, String word, String pageNo) {
 		setKey(key);
 		setWord(word);
 		setPageNo(pageNo);
@@ -27,11 +28,11 @@ public class PageBean {
 	
 	//스프링에서는 1 빼야함-0번부터 시작
 	//1번부터 시작하게 함
-	public int getStartNo() {
-		return (pageNo - 1) * interval;
+	public int getStartArticleNo() {
+		return (pageNo - 1) * articleInterval;
 	}
-	public void setStartNo(int startNo) {
-		this.startNo = startNo;
+	public void setStartArticleNo(int startArticleNo) {
+		this.startArticleNo = startArticleNo;
 	}
 	private void setPageNo(String pageNo) {
 		try {
@@ -72,21 +73,22 @@ public class PageBean {
 		this.pageNo = pageNo;
 	}
 
-	public int getInterval() {
-		return interval;
+	public int getArticleInterval() {
+		return articleInterval;
 	}
 
-	public void setInterval(int interval) {
-		this.interval = interval;
+	public void setArticleInterval(int articleInterval) {
+		this.articleInterval = articleInterval;
 	}
 	@Override
 	public String toString() {
-		return "PageBean [key=" + key + ", word=" + word + ", pageNo=" + pageNo + ", interval=" + interval + "]";
+		return "PageBean [key=" + key + ", word=" + word + ", pageNo=" + pageNo + ", interval=" + articleInterval
+			+ "]";
 	}
-	public void setPageLink(String pageLink) {
-		this.pageLink = pageLink;
-	}
-	public String getPageLink() {
-		return pageLink;
-	}
+//	public void setPageLink(String pageLink) {
+//		this.pageLink = pageLink;
+//	}
+//	public String getPageLink() {
+//		return pageLink;
+//	}
 }

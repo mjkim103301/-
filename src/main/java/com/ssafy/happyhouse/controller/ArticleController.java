@@ -1,15 +1,14 @@
 package com.ssafy.happyhouse.controller;
 
-import com.ssafy.happyhouse.dto.NoticeDto;
-import com.ssafy.happyhouse.dto.PageBean;
+import com.ssafy.happyhouse.dto.ArticlePageBean;
+import com.ssafy.happyhouse.dto.ArticleDto;
 import com.ssafy.happyhouse.dto.ReplyDto;
-import com.ssafy.happyhouse.service.NoticeService;
+import com.ssafy.happyhouse.service.ArticleService;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import java.util.List;
 import java.util.Map;
-import org.apache.ibatis.annotations.Delete;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,13 +29,13 @@ import io.swagger.annotations.Api;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/article")
+@RequestMapping("/art")
 @Api(value="HappyHouse" , description="게시글 관련 컨트롤러")
-public class NoticeController {
+public class ArticleController {
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 
 	@Autowired
-	private NoticeService noticeService;
+	private ArticleService articleService;
 
 	@ApiOperation(value = "검색하기")
 	@ApiImplicitParams({
@@ -45,10 +44,10 @@ public class NoticeController {
 		@ApiImplicitParam(name = "page", value = "페이지", dataType = "string", paramType = "query")
 	})
 	@GetMapping("/")
-	public ResponseEntity<List<NoticeDto>> listArticle(@RequestParam(required = false) Map<String, String> paramMap){
-		PageBean pageBean = new PageBean(paramMap.get("key"), paramMap.get("word"), paramMap.get("page"));
+	public ResponseEntity<List<ArticleDto>> listArticle(@RequestParam(required = false) Map<String, String> paramMap){
+		ArticlePageBean articlePageBean = new ArticlePageBean(paramMap.get("key"), paramMap.get("word"), paramMap.get("page"));
 
-		List<NoticeDto> result = noticeService.listArticle(pageBean);
+		List<ArticleDto> result = articleService.listArticle(articlePageBean);
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 
@@ -60,9 +59,9 @@ public class NoticeController {
 	})
 	@GetMapping("/pageCount")
 	public ResponseEntity<Integer> getTotalPageCount(@RequestParam(required = false) Map<String, String> paramMap){
-		PageBean pageBean = new PageBean(paramMap.get("key"), paramMap.get("word"), paramMap.get("page"));
+		ArticlePageBean articlePageBean = new ArticlePageBean(paramMap.get("key"), paramMap.get("word"), paramMap.get("page"));
 
-		int totalPageCount = noticeService.getTotalPageCount(pageBean);
+		int totalPageCount = articleService.getTotalPageCount(articlePageBean);
 		return new ResponseEntity<>(totalPageCount, HttpStatus.OK);
 	}
 
@@ -73,18 +72,18 @@ public class NoticeController {
 
 	@ApiOperation(value = "글 상세보기")
 	@GetMapping("/{articleNo}")
-	public ResponseEntity<NoticeDto> getArticle(@PathVariable int articleNo){
-		NoticeDto noticeDto = noticeService.getArticle(articleNo);
-		if(noticeDto == null)   {
+	public ResponseEntity<ArticleDto> getArticle(@PathVariable int articleNo){
+		ArticleDto articleDto = articleService.getArticle(articleNo);
+		if(articleDto == null)   {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity<>(noticeDto, HttpStatus.OK);
+		return new ResponseEntity<>(articleDto, HttpStatus.OK);
 	}
 
 	@ApiOperation(value = "글 작성")
 	@PostMapping("/write")
-	public ResponseEntity<Void> writeArticle(@RequestBody NoticeDto noticeDto){
-		noticeService.writeArticle(noticeDto);
+	public ResponseEntity<Void> writeArticle(@RequestBody ArticleDto articleDto){
+		articleService.writeArticle(articleDto);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
@@ -92,33 +91,34 @@ public class NoticeController {
 	@ApiOperation(value = "글 삭제")
 	@DeleteMapping("/{articleNo}")
 	public ResponseEntity<Void> removeArticle(@PathVariable int articleNo) {
-		noticeService.removeArticle(articleNo);
+		articleService.removeArticle(articleNo);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	@ApiOperation(value = "글 수정")
 	@PutMapping("/update")
-	public ResponseEntity<Void> updateArticle(@RequestBody NoticeDto noticeDto) {
-		noticeService.updateArticle(noticeDto);
+	public ResponseEntity<Void> updateArticle(@RequestBody ArticleDto articleDto) {
+		articleService.updateArticle(articleDto);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
+
 	@ApiOperation(value = "댓글 쓰기")
 	@PostMapping("/{articleNo}/reply")
 	public ResponseEntity<Void> writeReply(@RequestBody ReplyDto replyDto){
-		noticeService.writeReply(replyDto);
+		articleService.writeReply(replyDto);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	@ApiOperation(value = "댓글 불러오기")
 	@GetMapping("/{articleNo}/reply")
 	public ResponseEntity<List<ReplyDto>> listReply(@PathVariable int articleNo){
-		return new ResponseEntity<>(noticeService.listReply(articleNo), HttpStatus.OK);
+		return new ResponseEntity<>(articleService.listReply(articleNo), HttpStatus.OK);
 	}
 
 	@ApiOperation(value = "댓글 삭제")
 	@DeleteMapping("/{articleNo}/{id}")
 	public ResponseEntity<Void> removeReply(@PathVariable int id){
-		noticeService.removeReply(id);
+		articleService.removeReply(id);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }

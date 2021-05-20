@@ -2,28 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
-<mapper namespace="com.ssafy.happyhouse.dao.NoticeDao">
-	<select id="listArticle"	parameterType="pageBean"		resultType="noticeDto">
+<mapper namespace="com.ssafy.happyhouse.dao.ArticleDao">
+	<select id="listArticle"	parameterType="articlePageBean"		resultType="articleDto">
 		select 	*
-		from 	notice
+		from 	article
 		<if test = "key != null and word != null">
 			where 	${key} like CONCAT('%', #{word}, '%')
 		</if>
 		order 	by	articleno	desc
-		limit	#{startNo},	#{interval}
+		limit	#{startArticleNo},	#{articleInterval}
 	</select>
 
-	<select id="getTotalPageCount"		parameterType="pageBean"		resultType="int">
+	<select id="getTotalPageCount"		parameterType="articlePageBean"		resultType="int">
 		select 	count(*)
-		from 	notice
+		from 	article
 		<if test = "key != null and word != null">
 			where 	${key} like CONCAT('%', #{word}, '%')
 		</if>
 	</select>
 
-	<select id="getArticle"		parameterType="int"		resultType="noticeDto">
+	<select id="getArticle"		parameterType="int"		resultType="articleDto">
 		select 	*
-		from 	notice
+		from 	article
 		where 	articleno = #{articleNo}
 	</select>
 
@@ -33,9 +33,9 @@
 		where	articleno = #{articleNo}
 	</update>
 
-	<insert id="writeArticle"	parameterType="noticeDto">
+	<insert id="writeArticle"	parameterType="articleDto">
 		insert	
-		into	notice
+		into	article
 		values	(	null
 					,#{userId}
 					,#{subject}
@@ -46,11 +46,11 @@
 
 	<delete id="removeArticle"	parameterType="int">
 		delete
-		from	notice
+		from	article
 		where	articleno = #{articleNo}
 	</delete>
 
-	<update id="updateArticle"	parameterType="noticeDto">
+	<update id="updateArticle"	parameterType="articleDto">
 		update 	notice
 		set		subject = #{subject}
 				, content = #{content}

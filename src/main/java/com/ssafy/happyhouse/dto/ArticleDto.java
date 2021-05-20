@@ -1,19 +1,19 @@
 package com.ssafy.happyhouse.dto;
 
-public class NoticeDto {
+public class ArticleDto {
 	private int articleNo;
 	private String userId;
 	private String subject;
 	private String content;
-	private String regtime;
-	private int hits;
+	private String registerTime;
+	private int hit;
 
-	public int getHits() {
-		return hits;
+	public int getHit() {
+		return hit;
 	}
 
-	public void setHits(int hits) {
-		this.hits = hits;
+	public void setHit(int hit) {
+		this.hit = hit;
 	}
 
 	public int getArticleNo() {
@@ -48,12 +48,12 @@ public class NoticeDto {
 		this.content = content;
 	}
 
-	public String getRegtime() {
-		return regtime;
+	public String getRegisterTime() {
+		return registerTime;
 	}
 
-	public void setRegtime(String regtime) {
-		this.regtime = regtime;
+	public void setRegisterTime(String registerTime) {
+		this.registerTime = registerTime;
 	}
 
 	@Override
@@ -61,7 +61,7 @@ public class NoticeDto {
 		StringBuilder builder = new StringBuilder();
 		builder.append("GuestBookDto [articleNo=").append(articleNo).append(", userId=").append(userId)
 				.append(", subject=").append(subject).append(", content=").append(content).append(", regtime=")
-				.append(regtime).append("]");
+				.append(registerTime).append("]");
 		return builder.toString();
 	}
 
