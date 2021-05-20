@@ -8,7 +8,7 @@ public interface UserDao {
 //	public UserDto modifyMember(UserDto userDto);
 	UserDto getUser(String userId);
 
-	String getUser(UserDto userDto);
+	String getUserPwd(UserDto userDto);
 
 	void updateUser(UserDto userDto);
 

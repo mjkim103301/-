@@ -19,7 +19,7 @@
 	</select>
 	
 	<update id="updateUser" parameterType="userDto" >
-		update	member 
+		update	user 
 		set 	user_name = #{userName},
 				user_pwd = #{userPwd},
 		        email = #{email},

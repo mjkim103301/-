@@ -25,9 +25,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public String findMemberPwd(UserDto userDto) {
+	public String findUserPwd(UserDto userDto) {
 		// TODO Auto-generated method stub
-		String userPwd = userDao.getUser(userDto);
+		String userPwd = userDao.getUserPwd(userDto);
 		
 		if(userPwd == null || userPwd.equals("")) {
 			return null;
@@ -37,13 +37,13 @@ public class UserServiceImpl implements UserService {
 
 	@Transactional
 	@Override
-	public void updateMember(UserDto userDto) {
+	public void updateUser(UserDto userDto) {
 		userDao.updateUser(userDto);
 	}
 
 	@Override
 	@Transactional
-	public void registerMember(UserDto userDto) {
+	public void registerUser(UserDto userDto) {
 		// TODO Auto-generated method stub
 		userDao.registerUser(userDto);
 	}

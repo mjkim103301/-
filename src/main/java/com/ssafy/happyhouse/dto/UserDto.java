@@ -26,7 +26,7 @@ public class UserDto {
 		return sb.toString();
 	}
 
-public UserDto(String userId, String userName, String userPwd, String email, String address) {
+	public UserDto(String userId, String userName, String userPwd, String email, String address) {
 		super();
 		this.userId = userId;
 		this.userName = userName;

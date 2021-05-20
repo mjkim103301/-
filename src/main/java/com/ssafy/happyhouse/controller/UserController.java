@@ -33,11 +33,13 @@ public class UserController {
 	
 	@PostMapping("/login")
 	public ResponseEntity<UserDto> login(@RequestBody UserDto user, HttpSession session){
+		System.out.println(">>>move POST /login");
 //		System.out.println(map.get("userid") + " " + map.get("userpwd"));
-		System.out.println("id : " + user.getUserId());
+		System.out.println("id : " + user.getUserId() + "pwd : " + user.getUserPwd());
 		UserDto userDto = userService.login(user.getUserId(), user.getUserPwd());
 		
 		if(userDto == null) {
+			System.out.println("userDto null");
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		
@@ -48,8 +50,8 @@ public class UserController {
 	
 	@PostMapping("/findpassword")
 	public ResponseEntity<String> findPassword(@RequestBody UserDto user){
-		System.out.println("init");
-		String userPwd = userService.findMemberPwd(user);
+		System.out.println(">>>move POST /findpassword");
+		String userPwd = userService.findUserPwd(user);
 		
 		if(userPwd == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -60,21 +62,22 @@ public class UserController {
 	
 	@GetMapping("/logout")
 	public ResponseEntity<Void> logout(HttpSession session) {
+		System.out.println(">>>move GET /logout");
 		session.invalidate();
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 	@PutMapping("/updateuser")
 	public ResponseEntity<Void> updateMember(@RequestBody UserDto user, HttpSession session) {
-		System.out.println(user);
-		userService.updateMember(user);
+		System.out.println(">>>move PUT /updateUser");
+		userService.updateUser(user);
 		session.setAttribute("user", user);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 	@GetMapping("/idcheck/{userid}")
 	public ResponseEntity<Void> duplicatedIdCheck(@PathVariable(value = "userid") String userid) {
-		System.out.println(userid);
+		System.out.println(">>>move GET /idcheck/{userid}");
 		if(!userService.duplicatedIdCheck(userid)) {
 			System.out.println("fail");
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -84,7 +87,8 @@ public class UserController {
 	
 	@PostMapping("/register")
 	public ResponseEntity<Void> registerMember(@RequestBody UserDto member) {
-		userService.registerMember(member);
+		System.out.println("/register => POST >>>>>>>>>>>>>>");
+		userService.registerUser(member);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
