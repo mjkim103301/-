@@ -28,7 +28,7 @@ public class PageBean {
 	//스프링에서는 1 빼야함-0번부터 시작
 	//1번부터 시작하게 함
 	public int getStartNo() {
-		return (pageNo -1)*interval+1;
+		return (pageNo - 1) * interval;
 	}
 	public void setStartNo(int startNo) {
 		this.startNo = startNo;
