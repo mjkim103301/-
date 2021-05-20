@@ -29,7 +29,7 @@ import io.swagger.annotations.Api;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/art")
+@RequestMapping("/board")
 @Api(value="HappyHouse" , description="게시글 관련 컨트롤러")
 public class ArticleController {
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
@@ -48,6 +48,11 @@ public class ArticleController {
 		ArticlePageBean articlePageBean = new ArticlePageBean(paramMap.get("key"), paramMap.get("word"), paramMap.get("page"));
 
 		List<ArticleDto> result = articleService.listArticle(articlePageBean);
+
+		for (ArticleDto a:
+		result) {
+			System.out.println(a);
+		}
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 
@@ -116,9 +121,9 @@ public class ArticleController {
 	}
 
 	@ApiOperation(value = "댓글 삭제")
-	@DeleteMapping("/{articleNo}/{id}")
-	public ResponseEntity<Void> removeReply(@PathVariable int id){
-		articleService.removeReply(id);
+	@DeleteMapping("/{articleNo}/{replyId}")
+	public ResponseEntity<Void> removeReply(@PathVariable int replyId){
+		articleService.removeReply(replyId);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }

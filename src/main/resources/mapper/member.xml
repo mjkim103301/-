@@ -4,38 +4,38 @@
 	
 <mapper namespace="com.ssafy.happyhouse.dao.UserDao">
 
-	<select id="getMember"	parameterType="string"	resultType="userDto">
+	<select id="getUser"	parameterType="string"	resultType="userDto">
 		select	*
-		from	member
-		where	userid = #{userid}
+		from	user
+		where	user_id = #{userId}
 	</select>
 	
-	<select id="getMemberPwd" parameterType="userDto" resultType="string">
+	<select id="getUserPwd" parameterType="userDto" resultType="string">
 		select 	*
-		from	member
-		where	userid = #{userid}
-		and		username = #{username}
+		from	user
+		where	user_id = #{userId}
+		and		user_name = #{userName}
 		and		email = #{email}
 	</select>
 	
-	<update id="updateMember" parameterType="userDto" >
+	<update id="updateUser" parameterType="userDto" >
 		update	member 
-		set 	username = #{username},
-				userpwd = #{userpwd},
+		set 	user_name = #{userName},
+				user_pwd = #{userPwd},
 		        email = #{email},
 		        address = #{address}
-		where	userid = #{userid}
+		where	user_id = #{userId}
 	</update>
 	
-	<insert id="registerMember" parameterType="userDto">
+	<insert id="registerUser" parameterType="userDto">
 		insert 
-		into member 
-		values(	#{userid}
-				, #{username}
-                , #{userpwd}
+		into user 
+		values(	#{userId}
+				, #{userName}
+                , #{userPwd}
                 , #{email}
                 , #{address}
                 , now()
-                , false);
+                , #{admin});
 	</insert>
 </mapper>

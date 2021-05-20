@@ -11,7 +11,7 @@ public class ArticlePageBean {
 	/** 한 페이지에 보여주 content 개수 */
 	private int articleInterval = 10;
 	/** 페이지의 시작 게시글 번호 **/
-	private int startArticleNo = 1;
+	private int startArticleId = 1;
 
 //	private String pageLink;
 	public ArticlePageBean() {	}
@@ -28,11 +28,11 @@ public class ArticlePageBean {
 	
 	//스프링에서는 1 빼야함-0번부터 시작
 	//1번부터 시작하게 함
-	public int getStartArticleNo() {
+	public int getStartArticleId() {
 		return (pageNo - 1) * articleInterval;
 	}
-	public void setStartArticleNo(int startArticleNo) {
-		this.startArticleNo = startArticleNo;
+	public void setStartArticleId(int startArticleId) {
+		this.startArticleId = startArticleId;
 	}
 	private void setPageNo(String pageNo) {
 		try {

@@ -16,7 +16,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UserDto login(String userId, String userPwd) {
 		// TODO Auto-generated method stub
-		UserDto userDto = userDao.getMember(userId);
+		UserDto userDto = userDao.getUser(userId);
 		
 		if(userDto == null || !userDto.getUserPwd().equals(userPwd)) {
 			return null;
@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public String findMemberPwd(UserDto userDto) {
 		// TODO Auto-generated method stub
-		String userPwd = userDao.getMemberPwd(userDto);
+		String userPwd = userDao.getUser(userDto);
 		
 		if(userPwd == null || userPwd.equals("")) {
 			return null;
@@ -38,20 +38,20 @@ public class UserServiceImpl implements UserService {
 	@Transactional
 	@Override
 	public void updateMember(UserDto userDto) {
-		userDao.updateMember(userDto);
+		userDao.updateUser(userDto);
 	}
 
 	@Override
 	@Transactional
 	public void registerMember(UserDto userDto) {
 		// TODO Auto-generated method stub
-		userDao.registerMember(userDto);
+		userDao.registerUser(userDto);
 	}
 
 	@Override
 	public boolean duplicatedIdCheck(String userId) {
 		// TODO Auto-generated method stub
-		UserDto userDto = userDao.getMember(userId);
+		UserDto userDto = userDao.getUser(userId);
 		if(userDto != null) {
 			return false;
 		}

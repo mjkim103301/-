@@ -1,17 +1,17 @@
 package com.ssafy.happyhouse.dto;
 
 public class ReplyDto {
-	private int id;
+	private int replyId;
 	private String userId;
-	private int articleNo;
+	private int articleId;
 	private String content;
 
-	public int getId() {
-		return id;
+	public int getReplyId() {
+		return replyId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setReplyId(int replyId) {
+		this.replyId = replyId;
 	}
 
 	public String getUserId() {
@@ -22,12 +22,12 @@ public class ReplyDto {
 		this.userId = userId;
 	}
 
-	public int getArticleNo() {
-		return articleNo;
+	public int getArticleId() {
+		return articleId;
 	}
 
-	public void setArticleNo(int articleNo) {
-		this.articleNo = articleNo;
+	public void setArticleId(int articleId) {
+		this.articleId = articleId;
 	}
 
 	public String getContent() {

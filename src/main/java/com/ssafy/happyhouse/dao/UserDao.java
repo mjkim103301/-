@@ -6,10 +6,11 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface UserDao {
 //	public UserDto modifyMember(UserDto userDto);
-	
-	
-	public UserDto getMember(String userId);
-	public String getMemberPwd(UserDto userDto);
-	public void updateMember(UserDto userDto);
-	public void registerMember(UserDto userDto);
+	UserDto getUser(String userId);
+
+	String getUser(UserDto userDto);
+
+	void updateUser(UserDto userDto);
+
+	void registerUser(UserDto userDto);
 }

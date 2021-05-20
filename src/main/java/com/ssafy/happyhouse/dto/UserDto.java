@@ -12,7 +12,21 @@ public class UserDto {
 	
 	public UserDto() {}
 
-	public UserDto(String userId, String userName, String userPwd, String email, String address) {
+	@Override
+	public String toString() {
+		final StringBuilder sb = new StringBuilder("UserDto{");
+		sb.append("userId='").append(userId).append('\'');
+		sb.append(", userName='").append(userName).append('\'');
+		sb.append(", userPwd='").append(userPwd).append('\'');
+		sb.append(", email='").append(email).append('\'');
+		sb.append(", address='").append(address).append('\'');
+		sb.append(", registerTime='").append(registerTime).append('\'');
+		sb.append(", isAdmin=").append(isAdmin);
+		sb.append('}');
+		return sb.toString();
+	}
+
+public UserDto(String userId, String userName, String userPwd, String email, String address) {
 		super();
 		this.userId = userId;
 		this.userName = userName;

@@ -9,8 +9,8 @@
 		<if test = "key != null and word != null">
 			where 	${key} like CONCAT('%', #{word}, '%')
 		</if>
-		order 	by	articleno	desc
-		limit	#{startArticleNo},	#{articleInterval}
+		order 	by	article_id	desc
+		limit	#{startArticleId},	#{articleInterval}
 	</select>
 
 	<select id="getTotalPageCount"		parameterType="articlePageBean"		resultType="int">
@@ -24,13 +24,13 @@
 	<select id="getArticle"		parameterType="int"		resultType="articleDto">
 		select 	*
 		from 	article
-		where 	articleno = #{articleNo}
+		where 	article_id = #{articleId}
 	</select>
 
 	<update id="hitArticle"		parameterType="int"		>
 		update	notice
 		set		hits = hits + 1
-		where	articleno = #{articleNo}
+		where	article_id = #{articleId}
 	</update>
 
 	<insert id="writeArticle"	parameterType="articleDto">
@@ -41,20 +41,21 @@
 					,#{subject}
 					,#{content}
 					,now()
-					,0)
+					,0
+					,#{articleType})
 	</insert>
 
 	<delete id="removeArticle"	parameterType="int">
 		delete
 		from	article
-		where	articleno = #{articleNo}
+		where	article_id = #{articleId}
 	</delete>
 
 	<update id="updateArticle"	parameterType="articleDto">
 		update 	notice
 		set		subject = #{subject}
 				, content = #{content}
-		where	articleno = #{articleNo}
+		where	article_Id = #{articleId}
 	</update>
 
 	<insert id="writeReply"	parameterType="replyDto">
@@ -62,14 +63,14 @@
 		into	reply
 		values	(	null
 					,#{userId}
-					,#{articleNo}
+					,#{articleId}
 					,#{content})
 	</insert>
 
 	<select id="listReply"		parameterType="int"		resultType="replyDto">
 		select 	*
 		from 	reply
-		where 	articleno = #{articleNo}
+		where 	article_id = #{articleId}
 		order 	by	id
 	</select>
 
