@@ -211,20 +211,20 @@
 
 			<div class="section-title" data-aos="fade-up">
 				<h2>Team</h2>
-				<p>서울 8반 4조 박재준 김민지 진미령 입니다.</p>
+				<p>서울 8반 3조 김민기 김민지 입니다.</p>
 			</div>
 
 			<div class="row">
 
 				<div class="col" data-aos="fade-up">
 					<div class="member">
-						<img src="img/team/박재준.jpg" class="img-fluid" alt="">
+						<img src="img/team/temp.jpg" class="img-fluid" alt="">
 						<div class="member-info">
 							<div class="member-info-content">
-								<h4>박재준</h4>
+								<h4>김민기</h4>
 							</div>
 							<div class="social">
-								<a href="https://www.instagram.com/jjoonjjoonii/"><i class="icofont-facebook"></i></a> <a href="https://www.instagram.com/jjoonjjoonii/"><i class="icofont-instagram"></i></a>
+								<a href="https://github.com/cherrytomato1"><i class="icofont-github"></i></a> <a href="https://www.instagram.com/jjoonjjoonii/"><i class="icofont-instagram"></i></a>
 							</div>
 						</div>
 					</div>
@@ -232,31 +232,19 @@
 
 				<div class="col" data-aos="fade-up" data-aos-delay="100">
 					<div class="member">
-						<img src="img/team/김민지.jpg" class="img-fluid" alt="">
+						<img src="img/team/temp.jpg" class="img-fluid" alt="">
 						<div class="member-info">
 							<div class="member-info-content">
 								<h4>김민지</h4>
 							</div>
 							<div class="social">
-								<a href="https://www.instagram.com/_minzikim/"><i class="icofont-facebook"></i></a> <a href="https://www.instagram.com/_minzikim/"><i class="icofont-instagram"></i></a>
+								<a href="https://github.com/mjkim103301"><i class="icofont-github"></i></a> <a href="https://www.instagram.com/_minzikim/"><i class="icofont-instagram"></i></a>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="col" data-aos="fade-up" data-aos-delay="100">
-					<div class="member">
-						<img src="img/team/진미령.jpg" class="img-fluid" alt="">
-						<div class="member-info">
-							<div class="member-info-content">
-								<h4>진미령</h4>
-							</div>
-							<div class="social">
-								<a href="https://www.instagram.com/mirrrong__jj/"><i class="icofont-facebook"></i></a> <a href="https://www.instagram.com/mirrrong__jj/"><i class="icofont-instagram"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
+				
 			</div>
 
 		</div>
@@ -274,7 +262,7 @@
 						<div class="footer-info">
 							<h3>HappyHouse</h3>
 							<h5>SSAFY 5th 서울 8반</h5>
-							<h5>박재준 김민지 진미령</h5>
+							<h5>김민기 김민지</h5>
 						</div>
 					</div>
 
