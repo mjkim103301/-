@@ -6,8 +6,12 @@
 	<select id="listArticle"	parameterType="articlePageBean"		resultType="articleDto">
 		select 	*
 		from 	article
+		where 	1 = 1
 		<if test = "key != null and word != null">
-			where 	${key} like CONCAT('%', #{word}, '%')
+			and ${key} like CONCAT('%', #{word}, '%')
+		</if>
+		<if test = "articleType != null">
+			and article_type = #{articleType}
 		</if>
 		order 	by	article_id	desc
 		limit	#{startArticleId},	#{articleInterval}
@@ -16,8 +20,12 @@
 	<select id="getTotalPageCount"		parameterType="articlePageBean"		resultType="int">
 		select 	count(*)
 		from 	article
+		where 	1 = 1
 		<if test = "key != null and word != null">
-			where 	${key} like CONCAT('%', #{word}, '%')
+			and ${key} like CONCAT('%', #{word}, '%')
+		</if>
+		<if test = "articleType != null">
+			and article_type = #{articleType}
 		</if>
 	</select>
 
