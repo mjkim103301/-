@@ -5,6 +5,7 @@ public class ReplyDto {
 	private String userId;
 	private int articleId;
 	private String content;
+	private String registerTime;
 
 	public int getReplyId() {
 		return replyId;
@@ -37,4 +38,13 @@ public class ReplyDto {
 	public void setContent(String content) {
 		this.content = content;
 	}
+
+	public String getRegisterTime() {
+		return registerTime;
+	}
+
+	public void setRegisterTime(String registerTime) {
+		this.registerTime = registerTime;
+	}
+
 }

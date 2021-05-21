@@ -15,7 +15,7 @@ import com.ssafy.happyhouse.dao.ArticleDao;
 public class ArticleServiceImpl implements ArticleService {
 	
 	@Autowired
-	ArticleDao articleDao;
+	private ArticleDao articleDao;
 
 	@Transactional
 	@Override
@@ -51,20 +51,4 @@ public class ArticleServiceImpl implements ArticleService {
 	public void removeArticle(int articleNo) {
 		articleDao.removeArticle(articleNo);
 	}
-
-	@Override
-	public void writeReply(ReplyDto replyDto) {
-		articleDao.writeReply(replyDto);
-	}
-
-	@Override
-	public List<ReplyDto> listReply(int articleNo) {
-		return articleDao.listReply(articleNo);
-	}
-
-	@Override
-	public void removeReply(int id) {
-		articleDao.removeReply(id);
-	}
-
 }
