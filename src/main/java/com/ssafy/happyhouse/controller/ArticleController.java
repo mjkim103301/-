@@ -2,7 +2,6 @@ package com.ssafy.happyhouse.controller;
 
 import com.ssafy.happyhouse.dto.ArticlePageBean;
 import com.ssafy.happyhouse.dto.ArticleDto;
-import com.ssafy.happyhouse.dto.ReplyDto;
 import com.ssafy.happyhouse.service.ArticleService;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -72,9 +71,10 @@ public class ArticleController {
 	}
 
 	@ApiOperation(value = "글 상세보기")
-	@GetMapping("/{articleNo}")
-	public ResponseEntity<ArticleDto> getArticle(@PathVariable int articleNo){
-		ArticleDto articleDto = articleService.getArticle(articleNo);
+	@GetMapping("/{articleId}")
+	public ResponseEntity<ArticleDto> getArticle(@PathVariable int articleId){
+		System.out.println("GET /board/{articleId} => ");
+		ArticleDto articleDto = articleService.getArticle(articleId);
 		if(articleDto == null)   {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
