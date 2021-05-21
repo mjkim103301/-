@@ -165,6 +165,10 @@
 			</div>
 		</form>
 	</div>
+	
+	<!-- ======= Footer ======= -->
+	<jsp:include page="/WEB-INF/views/include/footer.jsp" />
+	<!-- End Footer -->
 </body>
 
 </html>
