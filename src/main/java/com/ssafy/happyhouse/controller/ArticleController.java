@@ -40,41 +40,36 @@ public class ArticleController {
 
 	@ApiOperation(value = "검색하기")
 	@ApiImplicitParams({
-		@ApiImplicitParam(name = "key", value = "검색조건", dataType = "string", paramType = "query"),
-		@ApiImplicitParam(name = "word", value = "검색어", dataType = "string", paramType = "query"),
-		@ApiImplicitParam(name = "page", value = "페이지", dataType = "string", paramType = "query")
+		@ApiImplicitParam(name = "key", value = "검색조건", dataType = "string", paramType = "query")
+		, @ApiImplicitParam(name = "word", value = "검색어", dataType = "string", paramType = "query")
+		, @ApiImplicitParam(name = "page", value = "페이지", dataType = "string", paramType = "query")
+		, @ApiImplicitParam(name = "articleType", value = "게시판 종류", dataType = "string", paramType = "query")
 	})
 
 	@GetMapping("")
 	public ResponseEntity<List<ArticleDto>> listArticle(@RequestParam(required = false) Map<String, String> paramMap){
-		ArticlePageBean articlePageBean = new ArticlePageBean(paramMap.get("key"), paramMap.get("word"), paramMap.get("page"));
+		ArticlePageBean articlePageBean = new ArticlePageBean(paramMap.get("key")
+			, paramMap.get("word"), paramMap.get("page"), paramMap.get("articleType"));
 		List<ArticleDto> result = articleService.listArticle(articlePageBean);
 
-		for (ArticleDto a:
-		result) {
-			System.out.println(a);
-		}
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 
 	@ApiOperation(value = "페이지 네비게이션 크기 받기")
 	@ApiImplicitParams({
-		@ApiImplicitParam(name = "key", value = "검색조건", dataType = "string", paramType = "query"),
-		@ApiImplicitParam(name = "word", value = "검색어", dataType = "string", paramType = "query"),
-		@ApiImplicitParam(name = "page", value = "페이지", dataType = "string", paramType = "query")
+		@ApiImplicitParam(name = "key", value = "검색조건", dataType = "string", paramType = "query")
+		, @ApiImplicitParam(name = "word", value = "검색어", dataType = "string", paramType = "query")
+		, @ApiImplicitParam(name = "page", value = "페이지", dataType = "string", paramType = "query")
+		, @ApiImplicitParam(name = "articleType", value = "게시판 종류", dataType = "string", paramType = "query")
 	})
 	@GetMapping("/pageCount")
 	public ResponseEntity<Integer> getTotalPageCount(@RequestParam(required = false) Map<String, String> paramMap){
-		ArticlePageBean articlePageBean = new ArticlePageBean(paramMap.get("key"), paramMap.get("word"), paramMap.get("page"));
+		ArticlePageBean articlePageBean = new ArticlePageBean(paramMap.get("key")
+			, paramMap.get("word"), paramMap.get("page"), paramMap.get("articleType"));
 
 		int totalPageCount = articleService.getTotalPageCount(articlePageBean);
 		return new ResponseEntity<>(totalPageCount, HttpStatus.OK);
 	}
-
-//	public ResponseEntity<List<NoticeDto>> listArticle(@RequestParam(required = false) Map<String, String> paramMap){
-//		List<NoticeDto> result = noticeService.listArticle(paramMap.get("key"), paramMap.get("word"));
-//		return new ResponseEntity<>(result, HttpStatus.OK);
-//	}
 
 	@ApiOperation(value = "글 상세보기")
 	@GetMapping("/{articleNo}")

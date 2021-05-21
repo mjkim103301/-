@@ -8,6 +8,8 @@ public class ArticlePageBean {
 	private String word;
 	/** 현재 페이지 번호 */
 	private int pageNo;
+
+	private String articleType;
 	/** 한 페이지에 보여주 content 개수 */
 	private int articleInterval = 10;
 	/** 페이지의 시작 게시글 번호 **/
@@ -15,15 +17,17 @@ public class ArticlePageBean {
 
 //	private String pageLink;
 	public ArticlePageBean() {	}
-	public ArticlePageBean(String key, String word, int pageNo) {
+	public ArticlePageBean(String key, String word, int pageNo, String articleType) {
 		setKey(key);
 		setWord(word);
 		setPageNo(pageNo);
+		setArticleType(articleType);
 	}
-	public ArticlePageBean(String key, String word, String pageNo) {
+	public ArticlePageBean(String key, String word, String pageNo, String articleType) {
 		setKey(key);
 		setWord(word);
 		setPageNo(pageNo);
+		setArticleType(articleType);
 	}
 	
 	//스프링에서는 1 빼야함-0번부터 시작
@@ -80,7 +84,16 @@ public class ArticlePageBean {
 	public void setArticleInterval(int articleInterval) {
 		this.articleInterval = articleInterval;
 	}
-	@Override
+
+	public String getArticleType() {
+		return articleType;
+	}
+
+	public void setArticleType(String articleType) {
+		this.articleType = articleType;
+	}
+
+@Override
 	public String toString() {
 		return "PageBean [key=" + key + ", word=" + word + ", pageNo=" + pageNo + ", interval=" + articleInterval
 			+ "]";
