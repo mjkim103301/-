@@ -103,23 +103,4 @@ public class ArticleController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
-	@ApiOperation(value = "댓글 쓰기")
-	@PostMapping("/{articleNo}/reply")
-	public ResponseEntity<Void> writeReply(@RequestBody ReplyDto replyDto){
-		articleService.writeReply(replyDto);
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
-
-	@ApiOperation(value = "댓글 불러오기")
-	@GetMapping("/{articleNo}/reply")
-	public ResponseEntity<List<ReplyDto>> listReply(@PathVariable int articleNo){
-		return new ResponseEntity<>(articleService.listReply(articleNo), HttpStatus.OK);
-	}
-
-	@ApiOperation(value = "댓글 삭제")
-	@DeleteMapping("/{articleNo}/{replyId}")
-	public ResponseEntity<Void> removeReply(@PathVariable int replyId){
-		articleService.removeReply(replyId);
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
 }
