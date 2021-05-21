@@ -40,4 +40,10 @@ public class HomeController {
 		return "user/register";
 	}
 	
+	@GetMapping("article")
+	public String board() {
+		System.out.println("mvarticle");
+		return "notice/notice";
+	}
+	
 }

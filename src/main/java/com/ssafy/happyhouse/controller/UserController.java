@@ -73,6 +73,7 @@ public class UserController {
 		userService.updateUser(user);
 		session.setAttribute("user", user);
 		return new ResponseEntity<>(HttpStatus.OK);
+
 	}
 	
 	@GetMapping("/idcheck/{userid}")

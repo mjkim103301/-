@@ -17,7 +17,7 @@
 
       <div class="logo mr-auto">
         <h1 class="text-light d-inline-block"><a href="<%=root%>/main.do?action=mvMain">HappyHouse</a></h1>
-        <span class="ml-1"><a href="<%=root%>/main.do?action=mvNotice">공지사항</a></span>
+        <span class="ml-1"><a href="article">게시판</a></span>
       </div>
 
       <nav class="nav-menu d-lg-block" id="nav-menu">
