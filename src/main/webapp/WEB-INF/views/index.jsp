@@ -44,9 +44,9 @@
 			<h2>HappyHouse에서 주택 실거래가를 검색하고 상권 정보와 환경 정보를 볼 수 있어요!</h2>
 			<a href="housedeal" class="btn-get-started scrollto">실거래가 검색하러 가기</a>
 		</div>
-		<div class="container text-center text-md-left" data-aos="fade-up" style="padding-top:10%">
+	<!-- 	<div class="container text-center text-md-left" data-aos="fade-up" style="padding-top:10%">
 			<div class="NewsTables row text-white">
-				<!-- 최고 거래가 Article Start  -->
+				최고 거래가 Article Start 
 				<article class="article_price col ">
 					<h3>이번주 거래가 순위</h3>
 					<table class="table table_striped text-white">
@@ -72,9 +72,9 @@
 						</tbody>
 					</table>
 				</article>
-				<!-- 인기글 Article End  -->
+				인기글 Article End 
 
-				<!-- 뉴스 Article Start  -->
+				뉴스 Article Start 
 				<article class="article_news col ">
 					<h3>부동산 뉴스</h3>
 					<table class="table table_bordered table_hover text-white">
@@ -99,7 +99,7 @@
 					
 				</article>
 			</div>
-			</div>
+			</div> -->
 	</section>
 
 
@@ -134,7 +134,7 @@
 				<div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
 
 					<div class="icon-box icon-box-cyan">
-						<a href="${root }/main.do?action=mvShopInfo" class="text-dark">
+						<a href="shop" class="text-dark">
 							<div class="icon">
 								<i class="bx bxl-dribbble"></i>
 							</div>
@@ -149,7 +149,7 @@
 
 
 					<div class="icon-box icon-box-green">
-						<a href="${root }/main.do?action=mvPollutionInfo" class="text-dark">
+						<a href="pollution" class="text-dark">
 							<div class="icon">
 								<i class="bx bx-world"></i>
 							</div>
@@ -163,7 +163,7 @@
 				<div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
 
 					<div class="icon-box icon-box-blue">
-						<a href="${root }/main.do?action=mvNotice" class="text-dark">
+						<a href="article" class="text-dark">
 							<div class="icon">
 								<i class="bx bx-file"></i>
 							</div>

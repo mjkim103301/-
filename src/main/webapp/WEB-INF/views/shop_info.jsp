@@ -1,8 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="root" value="${pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html lang="ko">
 
 <head>
-  <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>HappyHouse</title>
@@ -28,33 +30,9 @@
 </head>
 
 <body>
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
-    <div class="container d-flex">
-
-      <div class="logo mr-auto">
-        <h1 class="text-light d-inline-block"><a href="index.html">HappyHouse</a></h1>
-        <span class="ml-1"><a href="notice.html">공지사항</a></span>
-      </div>
-
-      <nav class="nav-menu d-none d-lg-block">
-        <ul>
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#team">Team</a></li>
-          
-          <li><a id="logout-nav" class="logout-nav font-weight-bold">Logout</a></li>
-          <li><a id="mypage-nav" href="mypage.html" class="mypage-nav font-weight-bold">MyPage</a></li>
-          <!-- 관리자가 로그인했을 때만 -->
-          <li><a id="admin-nav" href="userAdmin.html" class="admin-nav font-weight-bold">Admin</a></li> 
-
-
-        </ul>
-      </nav><!-- .nav-menu -->
-
-    </div>
-  </header><!-- End Header -->
+ <!-- ======= Header ======= -->
+	<jsp:include page="include/header.jsp" />
+	<!-- End Header -->
 
   <div class="jumbotron jumbotron-fluid">
     <picture >

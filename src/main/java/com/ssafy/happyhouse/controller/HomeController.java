@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -41,8 +42,25 @@ public class HomeController {
 	
 	@GetMapping("article")
 	public String board() {
-		System.out.println("mvarticle");
+		System.out.println("move article");
 		return "notice/notice";
 	}
 	
+	@GetMapping("user_admin")
+	public String userAdmin() {
+		System.out.println("move user_admin");
+		return "admin/user_admin";
+	}
+	
+	@GetMapping("shop")
+	public String shop() {
+		System.out.println("move shop");
+		return "shop_info";
+	}
+	
+	@GetMapping("pollution")
+	public String pollution() {
+		System.out.println("move pollution");
+		return "pollution_info";
+	}
 }
