@@ -38,7 +38,7 @@ export default new Vuex.Store({
       //     alert("수행 중 오류가 발생했습니다.");
       //   });
 
-       http
+      http
         .get("board")
          .then((response) => {
           console.log('get articles resonse: ', response)
@@ -53,6 +53,7 @@ export default new Vuex.Store({
       http
         .get(payload)
         .then(({ data }) => {
+          console.log(`index.js getArticle then commit data: ${data}`)
           context.commit("setArticle", data);
         })
         .catch(() => {

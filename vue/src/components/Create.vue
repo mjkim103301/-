@@ -42,6 +42,7 @@ export default {
       //데이타 검증
       let err = true;
       let msg = "";
+      console.log(`subject: ${this.subject}, content: ${this.content}`)
       err &&
         !this.subject &&
         ((msg = "제목을 입력해 주세요"), (err = false), this.$refs.subject.focus());

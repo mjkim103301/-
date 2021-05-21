@@ -20,7 +20,7 @@ const routes = [
     component: Create
   },
   {
-    path: "/happyhouse/article",
+    path: "/happyhouse/article/:articleId",
     name: "Search",
     component: Search
   },

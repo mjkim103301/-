@@ -77,8 +77,9 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch('getarticle' ,`/happyhouse/article/${this.$route.query.articleId}`)
-    console.log(`search.vue article 경로 ${this.$route.query.articleId}`)
+    this.$store.dispatch('getArticle' ,`/article/${this.$route.params.articleId}`)
+    console.log(`search.vue route 경로 ${this.$route.query} : `, this.$route)
+    console.log(`search.vue article 경로 ${this.$route.params.articleId}`)
   }
 };
 </script>
