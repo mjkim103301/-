@@ -10,7 +10,8 @@
 		values	(	null
 					,#{userId}
 					,#{articleId}
-					,#{content})
+					,#{content}
+                    ,now())
 	</insert>
 
 	<select id="listReply"		parameterType="replyPageBean"		resultType="replyDto">

@@ -23,7 +23,7 @@ import io.swagger.annotations.Api;
 
 @RestController
 @CrossOrigin("*")
-@Api(value="HappyHouse" , description="HappyHouse Resources Management 2021")
+@Api(value="HappyHouse" , description="사용자 관련 컨트롤러")
 public class UserController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
