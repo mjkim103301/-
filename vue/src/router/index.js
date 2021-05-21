@@ -4,7 +4,7 @@ import List from "@/components/List.vue";
 import Create from "@/components/Create.vue";
 import Search from "@/components/Search.vue";
 import Update from "@/components/Update.vue";
-
+import Remove from "@/components/Remove.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -25,15 +25,15 @@ const routes = [
     component: Search
   },
   {
-    path: "/happyhouse/article/update",
+    path: "/happyhouse/article/update/:articleId",
     name: "Update",
     component: Update
   },
-  // {
-  //   path: "/happyhouse/article/remove",
-  //   name: "Remove",
-  //   component: Remove
-  // }
+  {
+    path: "/happyhouse/article/remove/:articleId",
+    name: "Remove",
+    component: Remove
+  }
 ];
 
 const router = new VueRouter({

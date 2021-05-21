@@ -1,6 +1,5 @@
 <template>
     <div>
-        <h4 class="text-center">게시글 내용</h4>
         <table class="table table-condensed w-25" v-if="article">
             <tr>
                 <th>글번호</th>
@@ -63,12 +62,12 @@
             >
             <router-link
                 class="btn btn-primary"
-                :to="'/update?no=' + article.articleId"
+                :to="`/happyhouse/article/update/${article.articleId}`"
                 >수정</router-link
             >
             <router-link
                 class="btn btn-primary"
-                :to="'/remove?no=' + article.articleId"
+                :to="`/happyhouse/article/remove/${article.articleId}`"
                 >삭제</router-link
             >
         </div>

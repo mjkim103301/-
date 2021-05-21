@@ -60,7 +60,7 @@
 	</delete>
 
 	<update id="updateArticle"	parameterType="articleDto">
-		update 	notice
+		update 	article
 		set		subject = #{subject}
 				, content = #{content}
 		where	article_Id = #{articleId}
