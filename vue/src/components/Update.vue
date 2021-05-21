@@ -44,21 +44,25 @@ export default {
       if (!err) alert(msg);
       else {
         axios
-          .put(`http://localhost:9999/vue/api/article`, {
-
+          .put(`http://localhost:9000/happyhouse/board/update`, {
+            articleId:this.article.articleId,
+            articleType:this.article.articleType,
             subject: this.article.subject,
-      
-            content: this.article.content
+            content: this.article.content,
+            hit:this.article.hit,
+            userId:this.article.userId
           })
-          .then(({ data }) => {
-            if (data == "success") {
-              console.log("update................", data);
+           .then(({status}) => {
+             //console.log(`update: `, response)
+            if (status == 200) {
+              console.log("update................", status);
               alert("수정 완료!!!");
               this.moveHandler();
             } else {
-              alert("수정 중 오류 발생");
+              alert("수정 중 오류 발생 data: ", status);
             }
           })
+  
           .catch(() => {
             alert("오류 발생");
           });

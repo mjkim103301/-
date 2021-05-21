@@ -7,21 +7,20 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
-            <form id="articleform" method="post" action="">
-			<input type="hidden" name="action" id="action" value="registArticle">
+         
                 <div class="form-group">
                   <label for="subject">제목:</label>
-                  <input type="text" class="form-control" ref="subject" id="subject" name="subject">
+                  <input type="text" class="form-control" ref="subject" id="subject" v-model="subject" name="subject">
                 </div>
                 <div class="form-group">
                   <label for="content">내용:</label>
-                  <textarea rows="8" class="form-control" ref="content" id="content" name="content"></textarea>
+                  <textarea rows="8" class="form-control" ref="content" id="content" v-model="content" name="content"></textarea>
                 </div>
                 <div class="text-center">
                     <button type="button" class="btn btn-primary" @click="createHandler">글작성</button>
                     <button type="button" class="btn btn-secondary" @click="moveHandler">목록</button>
                 </div>
-            </form>
+           
         </div>
       </div>
     </div>
@@ -54,12 +53,13 @@ export default {
         alert(msg);
       } else {
         axios
-          .post("http://localhost:9000/happyhouse/article/write", {
+          .post("http://localhost:9000/happyhouse/board/write", {
+           // userId:"admin",
             subject: this.subject,
             content: this.content
           })
-          .then(({ data }) => {
-            if (data == "success") {
+          .then(({ status }) => {
+            if (status == 200) {
               alert("등록이 완료 됐습니다.");
               this.moveHandler();
             } else {

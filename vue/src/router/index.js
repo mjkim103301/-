@@ -5,6 +5,7 @@ import Create from "@/components/Create.vue";
 import Search from "@/components/Search.vue";
 import Update from "@/components/Update.vue";
 import ReplyList from "@/components/reply/ReplyList.vue";
+import Remove from "@/components/Remove.vue";
 
 Vue.use(VueRouter);
 
@@ -14,7 +15,6 @@ const routes = [
         name: "List",
         component: List,
     },
-
     {
         path: "/happyhouse/article/write",
         name: "Create",
@@ -40,11 +40,11 @@ const routes = [
         component: Update,
     },
 
-    // {
-    //   path: "/happyhouse/article/remove",
-    //   name: "Remove",
-    //   component: Remove
-    // }
+    {
+      path: "/happyhouse/article/remove",
+      name: "Remove",
+      component: Remove
+    }
 ];
 
 const router = new VueRouter({
