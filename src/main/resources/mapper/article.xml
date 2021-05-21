@@ -66,26 +66,6 @@
 		where	article_Id = #{articleId}
 	</update>
 
-	<insert id="writeReply"	parameterType="replyDto">
-		insert	
-		into	reply
-		values	(	null
-					,#{userId}
-					,#{articleId}
-					,#{content})
-	</insert>
 
-	<select id="listReply"		parameterType="int"		resultType="replyDto">
-		select 	*
-		from 	reply
-		where 	article_id = #{articleId}
-		order 	by	id
-	</select>
-
-	<delete id="removeReply"	parameterType="int">
-		delete
-		from	reply
-		where	id = #{id}
-	</delete>
 
 </mapper>
