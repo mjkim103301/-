@@ -34,11 +34,10 @@
 <link href="css/style.css" rel="stylesheet">
 
 <!-- Vue JS -->
-<link href="js/vuejs/notice/app.480cb3fa.js" rel="preload" as="script">
-<link href="js/vuejs/notice/chunk-vendors.8baa2699.js" rel="preload"
-	as="script">
-
+<link href="vue/notice/js/app.js" rel="preload" as="script">
+<link href="vue/notice/js/chunk-vendors.js" rel="preload" as="script">
 <script
+
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!--   <script type="text/javascript">
 	function registArticle() {
@@ -77,8 +76,9 @@
 				Javascript enabled.</strong>
 		</noscript>
 		<div id=app></div>
-		<script src="js/vuejs/notice/chunk-vendors.8baa2699.js"></script>
-		<script src="js/vuejs/notice/app.480cb3fa.js"></script>
+		<script src="vue/notice/js/app.js"></script>
+		<script src="vue/notice/js/chunk-vendors.js"></script>
+		
 
 		<!--  <section id="" class="p-1">
       <div class="container">

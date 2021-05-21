@@ -39,7 +39,7 @@ export default new Vuex.Store({
       //   });
 
        http
-        .get("art")
+        .get("board")
          .then((response) => {
           console.log('get articles resonse: ', response)
           context.commit("setArticles", response.data);
