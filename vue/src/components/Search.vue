@@ -71,11 +71,13 @@
                 >삭제</router-link
             >
         </div>
+        <router-view></router-view>
     </div>
 </template>
 <script>
 import moment from "moment";
 import { mapGetters } from "vuex";
+
 export default {
     computed: {
         ...mapGetters(["article"]),
