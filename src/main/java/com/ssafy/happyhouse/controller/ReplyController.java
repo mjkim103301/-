@@ -32,8 +32,9 @@ public class ReplyController {
 	private ReplyService replyService;
 
 	@ApiOperation(value = "댓글 쓰기")
-	@PostMapping("/")
+	@PostMapping("")
 	public ResponseEntity<Void> writeReply(@RequestBody ReplyDto replyDto){
+		System.out.println(">>>move POST /board/{article}/reply");
 		replyService.writeReply(replyDto);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
@@ -42,12 +43,14 @@ public class ReplyController {
 	@GetMapping("/{pageNo}")
 	public ResponseEntity<List<ReplyDto>> listReply(@PathVariable int articleNo, @PathVariable int pageNo){
 		ReplyPageBean replyPageBean = new ReplyPageBean(articleNo, pageNo);
+		System.out.println(">>>move GET /board/{article}/reply/{pageNo}");
 		return new ResponseEntity<>(replyService.listReply(replyPageBean), HttpStatus.OK);
 	}
 
 	@ApiOperation(value = "댓글 삭제")
 	@DeleteMapping("/{replyId}")
 	public ResponseEntity<Void> removeReply(@PathVariable int replyId){
+		System.out.println(">>>move DELETE /board/{article}/reply/{replyID}");
 		replyService.removeReply(replyId);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
