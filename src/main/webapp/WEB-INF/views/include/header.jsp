@@ -1,4 +1,4 @@
-<%@page import="com.ssafy.happyhouse.dto.MemberDto"%>
+<%@page import="com.ssafy.happyhouse.dto.UserDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c"    uri="http://java.sun.com/jsp/jstl/core" %>
@@ -9,7 +9,7 @@
 <html lang="ko">
 <body>
   <!-- ======= login modal ======= --> 
-  <jsp:include page="../member/login_modal.jsp" />
+  <jsp:include page="../user/login_modal.jsp" />
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
@@ -27,10 +27,10 @@
           <li><a href="#services">Services</a></li>
           <li><a href="#team">Team</a></li>
      <c:choose>
-     	<c:when test="${not empty member}">
+     	<c:when test="${not empty user}">
           <li><a id="logout-nav" href="javascript:void(0);" onclick="javascript:logout();" class="logout-nav font-weight-bold">Logout</a></li>
           <li><a id="mypage-nav" href="<%=root%>${root}/mypage" class="mypage-nav font-weight-bold">MyPage</a></li>
-          	<c:if test="${not empty member.isAdmin && member.isAdmin eq true}">
+          	<c:if test="${not empty user.admin && user.admin eq true}">
           <!-- 관리자가 로그인했을 때만 -->
           <li><a id="admin-nav" href="<%=root%>/main.do?action=mvUserAdmin" class="admin-nav font-weight-bold">Admin</a></li> 
           	</c:if>

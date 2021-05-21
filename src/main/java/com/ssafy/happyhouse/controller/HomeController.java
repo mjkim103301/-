@@ -25,18 +25,19 @@ public class HomeController {
 	@GetMapping("housedeal")
 	public String housedeal() {
 		logger.debug("move housedeal");
-		System.out.println(">>>move housedeal HomeControllder");
+		System.out.println(">>>move housedeal HomeController");
 		return "housedeal/actual_price";
 	}
 	
 	@GetMapping("mypage")
 	public String mypage() {
-		return "member/my_page";
+		return "user/my_page";
 	}
 	
 	@GetMapping("register")
 	public String register() {
-		return "member/register";
+		System.out.println(">>>move GET /register HomeController");
+		return "user/register";
 	}
 	
 	@GetMapping("article")
