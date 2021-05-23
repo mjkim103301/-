@@ -18,8 +18,14 @@
 		select 	*
 		from 	reply
 		where 	article_id = #{articleId}
-        order 	by	reply_id	desc
+        order 	by	reply_id
 		limit	#{startReplyId},	#{replyInterval}
+	</select>
+
+	<select id="getTotalReplyPageCount"		parameterType="int"		resultType="int">
+		select 	count(*)
+		from 	reply
+		where 	article_id = #{articleId}
 	</select>
 
 	<delete id="removeReply"	parameterType="int">

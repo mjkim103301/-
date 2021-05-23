@@ -1,23 +1,23 @@
 package com.ssafy.happyhouse.dto;
 
+import com.ssafy.happyhouse.dao.ReplyDao;
 import io.swagger.annotations.Api;
 
 @Api(value = "댓글 페이징 Dto")
 public class ReplyPageBean {
-
 	/** 현재 페이지 번호 */
 	private int pageNo;
 
-	/** 댓글 한 페이지에 보여주 content 개수 */
-	private int replyInterval = 15;
-	/** 댓글 페이지의 시작 게시글 번호 **/
-	private int startReplyId = 1;
-
 	private int articleId;
+
+	/** 댓글 한 페이지에 보여주 content 개수 */
+	private static int replyInterval = 15;
+	/** 댓글 페이지의 시작 댓글 번호 **/
+	private int startReplyId = 1;
 
 	public ReplyPageBean() {}
 
-	public ReplyPageBean(int articleId, int pageNo) {
+	public ReplyPageBean(int articleId, int pageNo ) {
 		this.articleId = articleId;
 		this.pageNo = pageNo;
 	}
@@ -45,12 +45,12 @@ public class ReplyPageBean {
 		this.pageNo = pageNo;
 	}
 
-	public int getReplyInterval() {
+	public static int getReplyInterval() {
 		return replyInterval;
 	}
 
-	public void setReplyInterval(int replyInterval) {
-		this.replyInterval = replyInterval;
+	public static void setReplyInterval(int replyInterval) {
+		ReplyPageBean.replyInterval = replyInterval;
 	}
 
 	public int getArticleId() {

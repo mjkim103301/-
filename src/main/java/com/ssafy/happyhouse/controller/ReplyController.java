@@ -1,5 +1,6 @@
 package com.ssafy.happyhouse.controller;
 
+import com.ssafy.happyhouse.dto.PageNavigation;
 import com.ssafy.happyhouse.dto.ReplyDto;
 import com.ssafy.happyhouse.dto.ReplyPageBean;
 import com.ssafy.happyhouse.service.ReplyService;
@@ -22,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/board/{articleNo}/reply")
+@RequestMapping("/board/{articleId}/reply")
 
 @Api(value="댓글 컨트롤러 ")
 public class ReplyController {
@@ -41,11 +42,19 @@ public class ReplyController {
 
 	@ApiOperation(value = "댓글 불러오기")
 	@GetMapping("/{pageNo}")
-	public ResponseEntity<List<ReplyDto>> listReply(@PathVariable int articleNo, @PathVariable int pageNo){
-		ReplyPageBean replyPageBean = new ReplyPageBean(articleNo, pageNo);
+	public ResponseEntity<List<ReplyDto>> listReply(@PathVariable int articleId, @PathVariable int pageNo){
+		ReplyPageBean replyPageBean = new ReplyPageBean(articleId, pageNo);
 		System.out.println(">>>move GET /board/{article}/reply/{pageNo}");
 		return new ResponseEntity<>(replyService.listReply(replyPageBean), HttpStatus.OK);
 	}
+
+	@ApiOperation(value = "댓글 페이지 네비게이션")
+	@GetMapping("/{pageNo}/navigation")
+	public ResponseEntity<PageNavigation> getReplyNavigation(@PathVariable int articleId, @PathVariable int pageNo){
+		System.out.println(">>>move GET /board/{article}/reply/{pageNo}navgation");
+		return new ResponseEntity<>(replyService.getReplyNavigation(articleId, pageNo), HttpStatus.OK);
+	}
+
 
 	@ApiOperation(value = "댓글 삭제")
 	@DeleteMapping("/{replyId}")
