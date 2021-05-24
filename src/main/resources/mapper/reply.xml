@@ -18,14 +18,27 @@
 		select 	*
 		from 	reply
 		where 	article_id = #{articleId}
-        order 	by	reply_id	desc
+        order 	by	reply_id
 		limit	#{startReplyId},	#{replyInterval}
+	</select>
+
+	<select id="getTotalReplyPageCount"		parameterType="int"		resultType="int">
+		select 	count(*)
+		from 	reply
+		where 	article_id = #{articleId}
 	</select>
 
 	<delete id="removeReply"	parameterType="int">
 		delete
 		from	reply
-		where	id = #{id}
+		where	reply_id = #{reply_id}
 	</delete>
+
+	<update id="updateReply"	parameterType="replyDto">
+		update 	reply
+		set		
+				, content = #{content}
+		where	reply_Id = #{replyId}
+	</update>
 
 </mapper>

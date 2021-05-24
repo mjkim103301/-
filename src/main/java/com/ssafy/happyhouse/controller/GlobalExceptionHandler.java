@@ -14,20 +14,21 @@ import org.springframework.web.servlet.ModelAndView;
 public class GlobalExceptionHandler {
 	
 	// 브라우저 요청
-	@ExceptionHandler(value = Exception.class)
-	public ModelAndView defaultErrorHandler(HttpServletRequest req, Exception e) throws Exception {
-
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("exception", e);
-		mav.addObject("url", req.getRequestURL());
-		mav.setViewName("error/globalError");
-		return mav;
-	}
+//	@ExceptionHandler(value = Exception.class)
+//	public ModelAndView defaultErrorHandler(HttpServletRequest req, Exception e) throws Exception {
+//
+//		e.printStackTrace();
+//		ModelAndView mav = new ModelAndView();
+//		mav.addObject("exception", e);
+//		mav.addObject("url", req.getRequestURL());
+//		mav.setViewName("error/globalError");
+//		return mav;
+//	}
 	
 	// ajax 요청에 대한 exception 처리
 	// Transaction 테스트 경우 ajax 요청 -> NullPointer 오류가 위 method 가 실행되면 error page html 이 넘어옴. 아래의 것으로 변경
-//	@ExceptionHandler(Exception.class)
-//	public ResponseEntity<String> handleErrorResponseEntity(Exception e) {
-//		return new ResponseEntity<String>("ajax_global_exception", HttpStatus.INTERNAL_SERVER_ERROR);
-//	}
+	@ExceptionHandler(Exception.class)
+	public ResponseEntity<String> handleErrorResponseEntity(Exception e) {
+		return new ResponseEntity<String>("ajax_global_exception", HttpStatus.INTERNAL_SERVER_ERROR);
+	}
 }

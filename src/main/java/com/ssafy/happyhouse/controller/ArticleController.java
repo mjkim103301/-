@@ -90,9 +90,9 @@ public class ArticleController {
 
 
 	@ApiOperation(value = "글 삭제")
-	@DeleteMapping("/{articleNo}")
-	public ResponseEntity<Void> removeArticle(@PathVariable int articleNo) {
-		articleService.removeArticle(articleNo);
+	@DeleteMapping("/{articleId}")
+	public ResponseEntity<Void> removeArticle(@PathVariable int articleId) {
+		articleService.removeArticle(articleId);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 

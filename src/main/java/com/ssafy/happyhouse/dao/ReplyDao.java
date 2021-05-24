@@ -11,8 +11,9 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface ReplyDao {
-	int getTotalReplyPageCount(ReplyPageBean bean);
+	int getTotalReplyPageCount(int articleId);
 	void writeReply(ReplyDto replyDto);
 	List<ReplyDto> listReply(ReplyPageBean bean);
 	void removeReply(int replyId);
+	void updateReply(ReplyDto replyDto);
 }
