@@ -19,6 +19,7 @@
 <script>
 import ArticleNotice from '@/page/ArticleNotice.vue';
 import ArticleReply from '@/page/ArticleReply.vue';
+
 export default{
     name:'article',
     components:{
@@ -27,21 +28,18 @@ export default{
     },
     methods:{
         moveNotice(){
-            console.log(`move notice`)
-            this.$store.dispatch(
-                `/board?articleType=NOTICE`
-            )
+             console.log(`move notice`)
+            this.$store.dispatch("getNotices")
+           
         }
         ,
         moveQna(){
-            console.log(`move qna`)
-            this.$store.dispatch(
-                `/board?articleType=QNA`
-            )
+             console.log(`move qna`)
+          this.$store.dispatch("getQna")
         }
     },
     mounted(){
-        this.moveNotice()
+        this.$store.dispatch("getNotices")
     }
 
 }
