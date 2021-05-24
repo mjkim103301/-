@@ -1,12 +1,12 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Article from "@/page/Article.vue";
+import Article from "@/components/article/Article.vue";
 //import List from "@/components/List.vue";
-import Create from "@/components/Create.vue";
-import Search from "@/components/Search.vue";
-import Update from "@/components/Update.vue";
-import ReplyList from "@/components/reply/ReplyList.vue";
-import Remove from "@/components/Remove.vue";
+import WriteArticle from "@/components/article/WriteArticle.vue";
+import DetailArticle from "@/components/article/DetailArticle.vue";
+import UpdateArticle from "@/components/article/UpdateArticle.vue";
+import ListReply from "@/components/reply/ListReply.vue";
+import RemoveArticle from "@/components/article/RemoveArticle.vue";
 
 Vue.use(VueRouter);
 
@@ -18,34 +18,34 @@ const routes = [
     },
     {
         path: "/happyhouse/article/write",
-        name: "Create",
-        component: Create,
+        name: "WriteArticle",
+        component: WriteArticle,
     },
 
     {
         path: "/happyhouse/article/:articleId",
-        name: "Search",
-        component: Search,
+        name: "DetailArticle",
+        component: DetailArticle,
         children: [
             {
                 path: "",
-                name: "ReplyList",
-                component: ReplyList,
+                name: "ListReply",
+                component: ListReply,
             },
         ],
     },
 
     {
         path: "/happyhouse/article/update",
-        name: "Update",
-        component: Update,
+        name: "UpdateArticle",
+        component: UpdateArticle,
     },
 
     {
-      path: "/happyhouse/article/remove",
-      name: "Remove",
-      component: Remove
-    }
+        path: "/happyhouse/article/remove",
+        name: "RemoveArticle",
+        component: RemoveArticle,
+    },
 ];
 
 const router = new VueRouter({

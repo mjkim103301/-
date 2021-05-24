@@ -14,7 +14,7 @@
                                 <button
                                     v-if="
                                         session.userId == reply.userId ||
-                                        session.admin == 1
+                                        (session.admin && session.admin == 1)
                                     "
                                     class="btn ptn-primary"
                                     @click="removeReplyHandler(reply)"

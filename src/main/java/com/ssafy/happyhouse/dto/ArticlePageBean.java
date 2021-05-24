@@ -11,7 +11,7 @@ public class ArticlePageBean {
 
 	private String articleType;
 	/** 한 페이지에 보여주 content 개수 */
-	private int articleInterval = 10;
+	private static int articleInterval = 10;
 	/** 페이지의 시작 게시글 번호 **/
 	private int startArticleId = 1;
 
@@ -49,14 +49,6 @@ public class ArticlePageBean {
 		return key;
 	}
 
-	public String getKey(String k) {
-		if (key != null && key.equals(k)) {
-			return "selected='selected'";
-		} else {
-			return "";
-		}
-	}
-
 	public void setKey(String key) {
 		this.key = key;
 	}
@@ -77,12 +69,12 @@ public class ArticlePageBean {
 		this.pageNo = pageNo;
 	}
 
-	public int getArticleInterval() {
+	public static int getArticleInterval() {
 		return articleInterval;
 	}
 
-	public void setArticleInterval(int articleInterval) {
-		this.articleInterval = articleInterval;
+	public static void setArticleInterval(int articleInterval) {
+		ArticlePageBean.articleInterval = articleInterval;
 	}
 
 	public String getArticleType() {
@@ -93,15 +85,16 @@ public class ArticlePageBean {
 		this.articleType = articleType;
 	}
 
-@Override
+	@Override
 	public String toString() {
-		return "PageBean [key=" + key + ", word=" + word + ", pageNo=" + pageNo + ", interval=" + articleInterval
-			+ "]";
+		final StringBuilder sb = new StringBuilder("ArticlePageBean{");
+		sb.append("key='").append(key).append('\'');
+		sb.append(", word='").append(word).append('\'');
+		sb.append(", pageNo=").append(pageNo);
+		sb.append(", articleType='").append(articleType).append('\'');
+		sb.append(", articleInterval=").append(articleInterval);
+		sb.append(", startArticleId=").append(startArticleId);
+		sb.append('}');
+		return sb.toString();
 	}
-//	public void setPageLink(String pageLink) {
-//		this.pageLink = pageLink;
-//	}
-//	public String getPageLink() {
-//		return pageLink;
-//	}
 }
