@@ -2,6 +2,7 @@ package com.ssafy.happyhouse.controller;
 
 import com.ssafy.happyhouse.dto.ArticlePageBean;
 import com.ssafy.happyhouse.dto.ArticleDto;
+import com.ssafy.happyhouse.dto.PageNavigation;
 import com.ssafy.happyhouse.service.ArticleService;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -47,28 +48,24 @@ public class ArticleController {
 
 	@GetMapping("")
 	public ResponseEntity<List<ArticleDto>> listArticle(@RequestParam(required = false) Map<String, String> params){
-		ArticlePageBean articlePageBean = new ArticlePageBean(params.get("key")
-			, params.get("word"), params.get("page"), params.get("articleType"));
-		System.out.println(articlePageBean);
-		List<ArticleDto> result = articleService.listArticle(articlePageBean);
+		System.out.println(">>>>>moveArticle" + params.get("articleType"));
+		List<ArticleDto> result = articleService.listArticle(params);
 
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 
-	@ApiOperation(value = "페이지 네비게이션 크기 받기")
+	@ApiOperation(value = "페이지 네비게이션 받기")
 	@ApiImplicitParams({
 		@ApiImplicitParam(name = "key", value = "검색조건", dataType = "string", paramType = "query")
 		, @ApiImplicitParam(name = "word", value = "검색어", dataType = "string", paramType = "query")
 		, @ApiImplicitParam(name = "page", value = "페이지", dataType = "string", paramType = "query")
 		, @ApiImplicitParam(name = "articleType", value = "게시판 종류", dataType = "string", paramType = "query")
 	})
-	@GetMapping("/pageCount")
-	public ResponseEntity<Integer> getTotalPageCount(@RequestParam(required = false) Map<String, String> paramMap){
-		ArticlePageBean articlePageBean = new ArticlePageBean(paramMap.get("key")
-			, paramMap.get("word"), paramMap.get("page"), paramMap.get("articleType"));
-
-		int totalPageCount = articleService.getTotalPageCount(articlePageBean);
-		return new ResponseEntity<>(totalPageCount, HttpStatus.OK);
+	@GetMapping("/pageNavigation")
+	public ResponseEntity<PageNavigation> getPageNavigation(@RequestParam(required = false) Map<String, String> params){
+		PageNavigation pageNavigation = articleService.getPageNavigation(params);
+		System.out.println("pageNavigation created" + pageNavigation);
+		return new ResponseEntity<>(pageNavigation, HttpStatus.OK);
 	}
 
 	@ApiOperation(value = "글 상세보기")

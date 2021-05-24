@@ -9,6 +9,12 @@ export default new Vuex.Store({
         article: {}, //update, search할때 현재 보는 게시글
         replies: [], //댓글 목록
         session: {},
+        pageParams: {
+            key: "",
+            word: "",
+            page: 1,
+            articleType: "",
+        },
     },
     getters: {
         articles(state) {
@@ -28,6 +34,9 @@ export default new Vuex.Store({
             console.log(state.session);
             return state.session;
         },
+        pageParams(state) {
+            return state.pageParams;
+        },
     },
     mutations: {
         setArticles(state, payload) {
@@ -44,11 +53,16 @@ export default new Vuex.Store({
             console.log("[mutation session]");
             state.session = payload;
         },
+        setPageParams(state, payload) {
+            state.pageParams = payload;
+        },
     },
     actions: {
-        getArticles(context, params) {
-            console.log(params);
-            http.get("board", { params })
+        getArticles(context) {
+            console.log(`state :  `);
+            console.log(context.state.pageParams.articleType);
+            let params = context.state.pageParams;
+            http.get("/board", { params })
                 .then((response) => {
                     console.log("get articles resonse: ", response);
                     context.commit("setArticles", response.data);
@@ -91,6 +105,11 @@ export default new Vuex.Store({
                 .catch(() => {
                     alert("session 오류");
                 });
+        },
+        getPageParams(context, payload) {
+            console.log("[action] getPageParams");
+            console.log(payload);
+            context.commit("setPageParams", payload);
         },
     },
 });

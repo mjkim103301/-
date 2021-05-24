@@ -2,20 +2,20 @@
     <div>
         <b-card no-body>
             <b-tabs card>
-                <b-tab title="전체 게시판" @click="moveTab('')">
-                    <article-info></article-info>
+                <b-tab title="전체 게시판" active @click="moveTab('')">
+                    <article-list></article-list>
                 </b-tab>
 
-                <b-tab title="공지사항" active @click="moveTab('NOTICE')">
-                    <article-info></article-info>
+                <b-tab title="공지사항" @click="moveTab('NOTICE')">
+                    <article-list></article-list>
                 </b-tab>
 
                 <b-tab title="Q & A" @click="moveTab('QNA')">
-                    <article-info></article-info>
+                    <article-list></article-list>
                 </b-tab>
 
                 <b-tab title="자유 게시판" @click="moveTab('FREE')">
-                    <article-info></article-info>
+                    <article-list></article-list>
                 </b-tab>
             </b-tabs>
         </b-card>
@@ -23,31 +23,37 @@
 </template>
 
 <script>
-import ArticleInfo from "@/page/ArticleInfo.vue";
+import ArticleList from "@/page/ArticleList.vue";
+import { mapGetters } from "vuex";
 
 export default {
     name: "article",
-    data() {
-        return {
-            params: {
-                key: "",
-                word: "",
-                page: 1,
-                articleType: "NOTICE",
-            },
-        };
+    computed: {
+        ...mapGetters["pageParams"],
     },
     components: {
-        ArticleInfo,
+        ArticleList,
     },
     methods: {
         moveTab(tab) {
-            this.params.articleType = tab;
-            this.$store.dispatch("getArticles", this.params);
+            this.$store.dispatch("getPageParams", {
+                page: 1,
+                key: "",
+                word: "",
+                articleType: tab,
+            });
+
+            this.$store.dispatch("getArticles");
         },
     },
     mounted() {
-        this.$store.dispatch("getArticles", this.params);
+        this.$store.dispatch("getPageParams", {
+            page: 1,
+            key: "",
+            word: "",
+            articleType: "",
+        });
+        this.$store.dispatch("getArticles");
     },
 };
 </script>

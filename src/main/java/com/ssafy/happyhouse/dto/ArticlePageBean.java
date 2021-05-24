@@ -11,7 +11,7 @@ public class ArticlePageBean {
 
 	private String articleType;
 	/** 한 페이지에 보여주 content 개수 */
-	private int articleInterval = 10;
+	private static int articleInterval = 10;
 	/** 페이지의 시작 게시글 번호 **/
 	private int startArticleId = 1;
 
@@ -69,12 +69,12 @@ public class ArticlePageBean {
 		this.pageNo = pageNo;
 	}
 
-	public int getArticleInterval() {
+	public static int getArticleInterval() {
 		return articleInterval;
 	}
 
-	public void setArticleInterval(int articleInterval) {
-		this.articleInterval = articleInterval;
+	public static void setArticleInterval(int articleInterval) {
+		ArticlePageBean.articleInterval = articleInterval;
 	}
 
 	public String getArticleType() {

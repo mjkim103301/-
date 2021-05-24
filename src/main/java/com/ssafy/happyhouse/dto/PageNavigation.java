@@ -56,4 +56,16 @@ public class PageNavigation {
 	public int getPageInterval() {
 		return pageInterval;
 	}
+
+	@Override
+	public String toString() {
+		final StringBuilder sb = new StringBuilder("PageNavigation{");
+		sb.append("currentPage=").append(currentPage);
+		sb.append(", startPageNumber=").append(startPageNumber);
+		sb.append(", endPageNumber=").append(endPageNumber);
+		sb.append(", pageInterval=").append(pageInterval);
+		sb.append(", totalPageCount=").append(totalPageCount);
+		sb.append('}');
+		return sb.toString();
+	}
 }
