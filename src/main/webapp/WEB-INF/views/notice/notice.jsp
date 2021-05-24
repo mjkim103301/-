@@ -39,20 +39,6 @@
 <script
 
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!--   <script type="text/javascript">
-	function registArticle() {
-		if (document.getElementById("title").value == "") {
-			alert("제목을 입력해주세요");
-			return;
-		} else if (document.getElementById("content").value == "") {
-			alert("내용을 입력해주세요");
-			return;
-		} else {
-			document.getElementById("articleform").action = "${root}/main.do";
-			document.getElementById("articleform").submit();
-		}
-	}
-	</script> -->
 </head>
 
 <body>
@@ -61,7 +47,7 @@
 		<picture> <img src="img/bg-index.jpg"
 			class="jumbotron__background"> </picture>
 		<div class="container text-white text-center">
-			<h1 class="display-4">공지사항</h1>
+			<h1 class="display-4">게시판</h1>
 			<p class="lead"></p>
 		</div>
 	</div>
@@ -78,75 +64,6 @@
 		<div id=app></div>
 		<script src="vue/notice/js/app.js"></script>
 		<script src="vue/notice/js/chunk-vendors.js"></script>
-		
-
-		<!--  <section id="" class="p-1">
-      <div class="container">
-        <div class="mb-2">
-          <button type="button" id="write-notice" class="btn btn-primary" data-toggle="modal" data-target="#postModal" >글쓰기</button>
-          <form class="form-inline float-right">
-            <div class="form-group mr-sm-2">
-              <select class="form-control" id="selectOption">
-                <option selected>내용</option>
-                <option>작성일</option>
-                <option>글 번호</option>
-              </select>
-            </div>
-            <div class="form-group mr-sm-2">
-                <input type="text" class="form-control" id="searchKey">
-            </div>
-            <button type="submit" class="btn btn-secondary">검색</button>
-          </form>
-        </div>
-        <div class="p-2 mb-5">        
-            <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>글번호</th>
-                    <th>제목</th>
-                    <th>작성자</th>
-                    <th>조회수</th>
-                    <th>작성일</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td class="selectPost"><a href="/postAdmin.html" style="color: black;">HappyHouse 웹사이트가 서비스를 시작했어요!</a></td>
-                    <td>관리자</td>
-                    <td>4</td>
-                    <td>2021/03/15</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td class="selectPost"><a href="/postAdmin.html" style="color: black;">내일 점심 뭐먹을까 추천해주세요</a></td>
-                    <td>관리자</td>
-                    <td>2</td>
-                    <td>2021/03/13</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td class="selectPost"><a href="/postAdmin.html" style="color: black;">내일 저녁 뭐먹을까 추천해주세요</a></td>
-                    <td>관리자</td>
-                    <td>12</td>
-                    <td>2021/03/10</td>
-                </tr>
-            </tbody>
-            </table>
-        </div>  
-        <div class="mt-3">
-            <ul class="pagination justify-content-center">
-                <li class="page-item"><a class="page-link" href="#">최신</a></li>
-                <li class="page-item"><a class="page-link" href="#">이전</a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">다음</a></li>
-                <li class="page-item"><a class="page-link" href="#">마지막</a></li>
-            </ul>
-        </div>
-    </div>
-    </section>End About Section -->
 
 	</main>
 	<!-- End #main -->

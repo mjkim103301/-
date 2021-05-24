@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import List from "@/components/List.vue";
+import Article from "@/page/Article.vue";
+//import List from "@/components/List.vue";
 import Create from "@/components/Create.vue";
 import Search from "@/components/Search.vue";
 import Update from "@/components/Update.vue";
@@ -12,8 +13,8 @@ Vue.use(VueRouter);
 const routes = [
     {
         path: "/happyhouse/article",
-        name: "List",
-        component: List,
+        name: "Article",
+        component: Article,
     },
     {
         path: "/happyhouse/article/write",

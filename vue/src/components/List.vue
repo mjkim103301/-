@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <section id="" class="p-1">
       <div class="container">
         <div class="mb-2">
@@ -76,6 +77,7 @@
 // import http from '@/util/http-common.js'
 import moment from "moment";
 import { mapGetters} from "vuex";
+
 export default {
   name: "list",
   computed:{
