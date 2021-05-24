@@ -13,12 +13,12 @@
                         <select class="form-control" id="selectOption">
                             <option value="FREE" selected>자유</option>
                             <option value="QNA">QnA</option>
-                            <!-- <option
+                            <option
+                                v-if="$store.state.session.admin == 1"
                                 value="NOTICE"
-                                v-if="session && session.admin == 1"
                             >
                                 공지 사항
-                            </option> -->
+                            </option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -76,7 +76,7 @@ export default {
         };
     },
     computed: {
-        ...mapGetters["session"],
+        ...mapGetters("session"),
     },
     methods: {
         createHandler() {
@@ -119,6 +119,10 @@ export default {
         },
         moveHandler() {
             this.$router.push("/happyhouse/article");
+        },
+        mounted() {
+            this.$store.dispatch("getSession");
+            console.log(this.$store.state.session);
         },
     },
 };
