@@ -8,6 +8,7 @@ export default new Vuex.Store({
         articles: [], //전체 게시글
         article: {}, //update, search할때 현재 보는 게시글
         replies: [], //댓글 목록
+        session: {},
     },
     getters: {
         articles(state) {
@@ -22,6 +23,10 @@ export default new Vuex.Store({
             console.log("[getter] Replies " + state.replies);
             return state.replies;
         },
+        session(state) {
+            console.log("[getter] session");
+            return state.session;
+        },
     },
     mutations: {
         setArticles(state, payload) {
@@ -31,8 +36,12 @@ export default new Vuex.Store({
             state.article = payload;
         },
         setReplies(state, payload) {
-            console.log("[mutaion] reply " + state.replies);
+            console.log("[mutation] reply " + state.replies);
             state.replies = payload;
+        },
+        setSession(state, payload) {
+            console.log("[mutation session]");
+            state.session = payload;
         },
     },
     actions: {
@@ -79,6 +88,16 @@ export default new Vuex.Store({
                 })
                 .catch(() => {
                     alert("reply 불러오기 오류 발생");
+                });
+        },
+        getSession(context) {
+            console.log("[action] getSession");
+            http.get(`/getSession`)
+                .then(({ data }) => {
+                    context.commit("setSession", data);
+                })
+                .catch(() => {
+                    alert("session 오류");
                 });
         },
     },

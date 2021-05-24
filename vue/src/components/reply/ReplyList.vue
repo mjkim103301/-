@@ -111,7 +111,7 @@ export default {
         };
     },
     computed: {
-        ...mapGetters(["replies", "article"]),
+        ...mapGetters(["replies", "article", "session"]),
     },
     filters: {
         toDate: function (regtime) {
@@ -210,6 +210,7 @@ export default {
     },
     created() {
         console.log("ReplyList created" + `${this.$route.params.articleId}`);
+        this.$store.dispatch("getSession");
         this.listReply();
         this.createNavigation();
     },
