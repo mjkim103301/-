@@ -91,7 +91,7 @@ export default {
         console.log(`[search] created`);
         this.$store.dispatch(
             "getArticle",
-            `/board/${this.$route.params.articleId}`
+            `/article/${this.$route.params.articleId}`
         );
         console.log(`search.vue article 경로 ${this.$route.params.articleId}`);
     },

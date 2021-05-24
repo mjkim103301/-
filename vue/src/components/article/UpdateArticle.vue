@@ -60,7 +60,7 @@ export default {
             if (!err) alert(msg);
             else {
                 axios
-                    .put(`http://localhost:9000/happyhouse/board/update`, {
+                    .put(`http://localhost:9000/happyhouse/article/update`, {
                         articleId: this.article.articleId,
                         articleType: this.article.articleType,
                         subject: this.article.subject,

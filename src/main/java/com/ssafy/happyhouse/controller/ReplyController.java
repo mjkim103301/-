@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/board/{articleId}/reply")
+@RequestMapping("/article/{articleId}/reply")
 
 @Api(value="댓글 컨트롤러 ")
 public class ReplyController {
@@ -28,7 +28,7 @@ public class ReplyController {
 	@ApiOperation(value = "댓글 쓰기")
 	@PostMapping("")
 	public ResponseEntity<Void> writeReply(@RequestBody ReplyDto replyDto){
-		System.out.println(">>>move POST /board/{article}/reply");
+		System.out.println(">>>move POST /article/{article}/reply");
 		replyService.writeReply(replyDto);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
@@ -37,14 +37,14 @@ public class ReplyController {
 	@GetMapping("/{pageNo}")
 	public ResponseEntity<List<ReplyDto>> listReply(@PathVariable int articleId, @PathVariable int pageNo){
 		ReplyPageBean replyPageBean = new ReplyPageBean(articleId, pageNo);
-		System.out.println(">>>move GET /board/{article}/reply/{pageNo}");
+		System.out.println(">>>move GET /article/{article}/reply/{pageNo}");
 		return new ResponseEntity<>(replyService.listReply(replyPageBean), HttpStatus.OK);
 	}
 
 	@ApiOperation(value = "댓글 페이지 네비게이션")
 	@GetMapping("/{pageNo}/navigation")
 	public ResponseEntity<PageNavigation> getReplyNavigation(@PathVariable int articleId, @PathVariable int pageNo){
-		System.out.println(">>>move GET /board/{article}/reply/{pageNo}/navigation");
+		System.out.println(">>>move GET /article/{article}/reply/{pageNo}/navigation");
 		return new ResponseEntity<>(replyService.getReplyNavigation(articleId, pageNo), HttpStatus.OK);
 	}
 
@@ -52,7 +52,7 @@ public class ReplyController {
 	@ApiOperation(value = "댓글 삭제")
 	@DeleteMapping("/{replyId}")
 	public ResponseEntity<Void> removeReply(@PathVariable int replyId){
-		System.out.println(">>>move DELETE /board/{article}/reply/{replyID}");
+		System.out.println(">>>move DELETE /article/{article}/reply/{replyID}");
 		replyService.removeReply(replyId);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
@@ -60,7 +60,7 @@ public class ReplyController {
 	@ApiOperation(value = "댓글 수정")
 	@PutMapping("/update")
 	public ResponseEntity<Void> removeReply(@RequestBody ReplyDto replyDto){
-		System.out.println(">>>move PUT /board/{article}/reply/update");
+		System.out.println(">>>move PUT /article/{article}/reply/update");
 		replyService.updateReply(replyDto);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}

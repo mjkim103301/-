@@ -99,7 +99,7 @@ export default {
                 return;
             }
 
-            http.post("/board/write", {
+            http.post("/article/write", {
                 userId: this.$store.getters.session.userId,
                 articleType: this.articleType,
                 subject: this.subject,

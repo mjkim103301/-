@@ -62,7 +62,7 @@ export default new Vuex.Store({
             console.log(`state :  `);
             console.log(context.state.pageParams.articleType);
             let params = context.state.pageParams;
-            http.get("/board", { params })
+            http.get("/article/list", { params })
                 .then((response) => {
                     console.log("get articles resonse: ", response);
                     context.commit("setArticles", response.data);
