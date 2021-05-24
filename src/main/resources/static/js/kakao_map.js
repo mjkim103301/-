@@ -21,7 +21,7 @@ searchPlaces();
 
 // 키워드 검색을 요청하는 함수입니다
 function searchPlaces() {
-
+	console.log(`search places`)
     var keyword = document.getElementById('keyword').value;
     console.log('keyword: ', keyword)
     // console.log('keyword--: ', document.getElementById('keyword'))
@@ -230,9 +230,9 @@ function displayPagination(pagination) {
         i;
 
     // 기존에 추가된 페이지번호를 삭제합니다
-    while (paginationEl.hasChildNodes()) {
-        paginationEl.removeChild(paginationEl.lastChild);
-    }
+//    while (paginationEl.hasChildNodes()) {
+//        paginationEl.removeChild(paginationEl.lastChild);
+//    }
 
     for (i = 1; i <= pagination.last; i++) {
         var el = document.createElement('a');
@@ -251,7 +251,7 @@ function displayPagination(pagination) {
 
         fragment.appendChild(el);
     }
-    paginationEl.appendChild(fragment);
+ //   paginationEl.appendChild(fragment);
 }
 
 // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다

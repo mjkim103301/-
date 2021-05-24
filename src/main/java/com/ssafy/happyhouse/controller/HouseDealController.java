@@ -33,11 +33,11 @@ public class HouseDealController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	
-	@GetMapping(value="/housedeal/search")
-	public ResponseEntity<List<HouseDealDto>> houseDealSearch(@RequestBody List<HouseDealDto> houseDealDto) {
-		System.out.println(">>>moveHouseDeal");
-		List<HouseDealDto> list=houseDealService.houseDealList(houseDealDto);
-		return new ResponseEntity<List<HouseDealDto>> (list, HttpStatus.OK);
-	}
+//	@GetMapping(value="/housedeal/search")
+//	public ResponseEntity<List<HouseDealDto>> houseDealSearch(@RequestBody List<HouseDealDto> houseDealDto) {
+//		System.out.println(">>>moveHouseDeal");
+//		List<HouseDealDto> list=houseDealService.houseDealList(houseDealDto);
+//		return new ResponseEntity<List<HouseDealDto>> (list, HttpStatus.OK);
+//	}
 	
 }

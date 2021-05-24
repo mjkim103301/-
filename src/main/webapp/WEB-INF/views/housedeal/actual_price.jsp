@@ -76,7 +76,7 @@
 					</select>  -->
 					<input id="keyword" type="text" class="form-control mr-2"
 						placeholder="지역, 아파트 검색" style="width: 200px;">
-					<button  class="btn btn-success" type="button" >검색</button>
+					<button  class="btn btn-success" type="submit">검색</button>
 
 				</div>
 			</form>
