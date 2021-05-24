@@ -12,7 +12,7 @@ public class PageNavigation {
 		this.pageInterval = pageInterval;
 		startPageNumber = (currentPage - 1) / pageInterval * pageInterval + 1;
 		endPageNumber = startPageNumber + pageInterval - 1;
-
+		this.totalPageCount = totalPageCount;
 		if(totalPageCount < endPageNumber)
 			endPageNumber = totalPageCount;
 	}

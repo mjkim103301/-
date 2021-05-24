@@ -114,7 +114,10 @@ export default {
     },
     methods: {
         movePageHandler(page) {
-            this.page = page;
+            this.page =
+                page > this.lastPage ? this.lastPage : page < 1 ? 1 : page;
+            console.log(page + " " + this.lastPage);
+            console.log(this.page);
             this.listReply();
             this.createNavigation();
         },
@@ -157,6 +160,7 @@ export default {
                         alert("오류 발생");
                         return;
                     }
+                    this.lastPage = response.data.totalPageCount;
                     console.log("start : " + response.data.startPageNumber);
                     console.log("end : " + response.data.endPageNumber);
                     for (
