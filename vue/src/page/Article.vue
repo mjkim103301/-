@@ -2,11 +2,19 @@
     <div>
         <b-card no-body>
             <b-tabs card>
+                <b-tab title="전체 게시판" @click="moveTab('')">
+                    <article-info></article-info>
+                </b-tab>
+
                 <b-tab title="공지사항" active @click="moveTab('NOTICE')">
                     <article-info></article-info>
                 </b-tab>
 
                 <b-tab title="Q & A" @click="moveTab('QNA')">
+                    <article-info></article-info>
+                </b-tab>
+
+                <b-tab title="자유 게시판" @click="moveTab('FREE')">
                     <article-info></article-info>
                 </b-tab>
             </b-tabs>

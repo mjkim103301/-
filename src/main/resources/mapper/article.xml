@@ -10,7 +10,7 @@
 		<if test = "key != null and key != '' and word != null">
 			and ${key} like CONCAT('%', #{word}, '%')
 		</if>
-		<if test = "articleType != null">
+		<if test = "articleType != null and articleType != ''">
 			and article_type = #{articleType}
 		</if>
 		order 	by	article_id	desc
@@ -21,10 +21,10 @@
 		select 	count(*)
 		from 	article
 		where 	1 = 1
-		<if test = "key != null and word != null">
+		<if test = "key != null and key != '' and word != null">
 			and ${key} like CONCAT('%', #{word}, '%')
 		</if>
-		<if test = "articleType != null">
+		<if test = "articleType != null and articleType != ''">
 			and article_type = #{articleType}
 		</if>
 	</select>

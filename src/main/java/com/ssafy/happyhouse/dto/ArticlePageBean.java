@@ -87,13 +87,14 @@ public class ArticlePageBean {
 
 	@Override
 	public String toString() {
-		return "PageBean [key=" + key + ", word=" + word + ", pageNo=" + pageNo + ", interval=" + articleInterval
-			+ "]";
+		final StringBuilder sb = new StringBuilder("ArticlePageBean{");
+		sb.append("key='").append(key).append('\'');
+		sb.append(", word='").append(word).append('\'');
+		sb.append(", pageNo=").append(pageNo);
+		sb.append(", articleType='").append(articleType).append('\'');
+		sb.append(", articleInterval=").append(articleInterval);
+		sb.append(", startArticleId=").append(startArticleId);
+		sb.append('}');
+		return sb.toString();
 	}
-//	public void setPageLink(String pageLink) {
-//		this.pageLink = pageLink;
-//	}
-//	public String getPageLink() {
-//		return pageLink;
-//	}
 }

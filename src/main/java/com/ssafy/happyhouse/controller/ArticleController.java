@@ -47,7 +47,6 @@ public class ArticleController {
 
 	@GetMapping("")
 	public ResponseEntity<List<ArticleDto>> listArticle(@RequestParam(required = false) Map<String, String> params){
-//		System.out.println(params.get("articleType") + params.get("key") + params.get("word"));
 		ArticlePageBean articlePageBean = new ArticlePageBean(params.get("key")
 			, params.get("word"), params.get("page"), params.get("articleType"));
 		System.out.println(articlePageBean);

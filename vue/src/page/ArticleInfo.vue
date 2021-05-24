@@ -60,21 +60,6 @@
                                 <td>{{ article.registerTime }}</td>
                             </tr>
                         </tbody>
-                        <tbody v-else>
-                            <tr>
-                                <td>1</td>
-                                <td class="selectPost">
-                                    <router-link
-                                        :to="`/happyhouse/article/${1}`"
-                                        style="color: black"
-                                        >1번 공지</router-link
-                                    >
-                                </td>
-                                <td>김싸피</td>
-                                <td>1</td>
-                                <td>2020-05-18</td>
-                            </tr>
-                        </tbody>
                     </table>
                 </div>
                 <div class="mt-3">
@@ -114,6 +99,16 @@ export default {
     name: "article_notice",
     computed: {
         ...mapGetters(["articles"]),
+    },
+    data() {
+        return {
+            params: {
+                key: "",
+                word: "",
+                page: 1,
+                articleType: "NOTICE",
+            },
+        };
     },
     filters: {
         toDate: function (regtime) {
