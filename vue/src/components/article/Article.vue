@@ -3,19 +3,19 @@
         <b-card no-body>
             <b-tabs card>
                 <b-tab title="전체 게시판" active @click="moveTab('')">
-                    <article-list></article-list>
+                    <list-article></list-article>
                 </b-tab>
 
                 <b-tab title="공지사항" @click="moveTab('NOTICE')">
-                    <article-list></article-list>
+                    <list-article></list-article>
                 </b-tab>
 
                 <b-tab title="Q & A" @click="moveTab('QNA')">
-                    <article-list></article-list>
+                    <list-article></list-article>
                 </b-tab>
 
                 <b-tab title="자유 게시판" @click="moveTab('FREE')">
-                    <article-list></article-list>
+                    <list-article></list-article>
                 </b-tab>
             </b-tabs>
         </b-card>
@@ -23,16 +23,16 @@
 </template>
 
 <script>
-import ArticleList from "@/page/ArticleList.vue";
+import ListArticle from "@/components/article/ListArticle.vue";
 import { mapGetters } from "vuex";
 
 export default {
     name: "article",
     computed: {
-        ...mapGetters["pageParams"],
+        ...mapGetters(["pageParams", "session"]),
     },
     components: {
-        ArticleList,
+        ListArticle,
     },
     methods: {
         moveTab(tab) {
@@ -47,6 +47,7 @@ export default {
         },
     },
     mounted() {
+        this.$store.dispatch("getSession");
         this.$store.dispatch("getPageParams", {
             page: 1,
             key: "",

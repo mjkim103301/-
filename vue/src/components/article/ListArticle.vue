@@ -4,6 +4,7 @@
             <div class="container">
                 <div class="mb-2">
                     <button
+                        v-if="session.userId != null && session.userId != ''"
                         type="button"
                         id="write-notice"
                         class="btn btn-primary"
@@ -124,7 +125,7 @@ import http from "@/util/http-common.js";
 export default {
     name: "articleInfo",
     computed: {
-        ...mapGetters(["articles", "pageParams"]),
+        ...mapGetters(["articles", "pageParams", "session"]),
         changedParams: function () {
             return { page: this.$store.getters.pageParams.page };
         },
@@ -201,9 +202,6 @@ export default {
         },
         created() {
             console.log("created");
-        },
-        mounted() {
-            console.log("mounted");
         },
     },
 };
