@@ -57,7 +57,7 @@
                                 </td>
                                 <td>{{ article.userId }}</td>
                                 <td>{{ article.hit }}</td>
-                                <td>{{ article.registerTime | regtime }}</td>
+                                <td>{{ article.registerTime }}</td>
                             </tr>
                         </tbody>
                         <tbody v-else>
@@ -111,7 +111,7 @@ import moment from "moment";
 import { mapGetters } from "vuex";
 
 export default {
-    name: "article_reply",
+    name: "article_notice",
     computed: {
         ...mapGetters(["articles"]),
     },
@@ -124,9 +124,6 @@ export default {
         movePage() {
             this.$router.push("/happyhouse/article/write");
         },
-    },
-    created() {
-        this.$store.dispatch("getArticles");
     },
 };
 </script>

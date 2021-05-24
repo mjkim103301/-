@@ -49,14 +49,6 @@ public class ArticlePageBean {
 		return key;
 	}
 
-	public String getKey(String k) {
-		if (key != null && key.equals(k)) {
-			return "selected='selected'";
-		} else {
-			return "";
-		}
-	}
-
 	public void setKey(String key) {
 		this.key = key;
 	}
@@ -93,7 +85,7 @@ public class ArticlePageBean {
 		this.articleType = articleType;
 	}
 
-@Override
+	@Override
 	public String toString() {
 		return "PageBean [key=" + key + ", word=" + word + ", pageNo=" + pageNo + ", interval=" + articleInterval
 			+ "]";

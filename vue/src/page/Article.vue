@@ -1,51 +1,47 @@
 <template>
-<div>
-  <b-card no-body>
-    <b-tabs card>
-        <b-tab title="공지사항" active @click="moveNotice">     
-            <article-notice></article-notice>
-        </b-tab>
-      
-        <b-tab title="Q & A" @click="moveQna">     
-            <article-reply ></article-reply>
-      </b-tab>
-    </b-tabs>
-  </b-card>
+    <div>
+        <b-card no-body>
+            <b-tabs card>
+                <b-tab title="공지사항" active @click="moveTab('NOTICE')">
+                    <article-info></article-info>
+                </b-tab>
 
-</div>
+                <b-tab title="Q & A" @click="moveTab('QNA')">
+                    <article-info></article-info>
+                </b-tab>
+            </b-tabs>
+        </b-card>
+    </div>
 </template>
 
-
 <script>
-import ArticleNotice from '@/page/ArticleNotice.vue';
-import ArticleReply from '@/page/ArticleReply.vue';
+import ArticleInfo from "@/page/ArticleInfo.vue";
 
-export default{
-    name:'article',
-    components:{
-        ArticleNotice,
-        ArticleReply,
+export default {
+    name: "article",
+    data() {
+        return {
+            params: {
+                key: "",
+                word: "",
+                page: 1,
+                articleType: "NOTICE",
+            },
+        };
     },
-    methods:{
-        moveNotice(){
-             console.log(`move notice`)
-            this.$store.dispatch("getNotices")
-           
-        }
-        ,
-        moveQna(){
-             console.log(`move qna`)
-          this.$store.dispatch("getQna")
-        }
+    components: {
+        ArticleInfo,
     },
-    mounted(){
-        this.$store.dispatch("getNotices")
-    }
-
-}
+    methods: {
+        moveTab(tab) {
+            this.params.articleType = tab;
+            this.$store.dispatch("getArticles", this.params);
+        },
+    },
+    mounted() {
+        this.$store.dispatch("getArticles", this.params);
+    },
+};
 </script>
 
-<style>
-
-</style>
-
+<style></style>

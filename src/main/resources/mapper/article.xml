@@ -7,7 +7,7 @@
 		select 	*
 		from 	article
 		where 	1 = 1
-		<if test = "key != null and word != null">
+		<if test = "key != null and key != '' and word != null">
 			and ${key} like CONCAT('%', #{word}, '%')
 		</if>
 		<if test = "articleType != null">

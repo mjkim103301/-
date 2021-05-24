@@ -46,9 +46,11 @@ public class ArticleController {
 	})
 
 	@GetMapping("")
-	public ResponseEntity<List<ArticleDto>> listArticle(@RequestParam(required = false) Map<String, String> paramMap){
-		ArticlePageBean articlePageBean = new ArticlePageBean(paramMap.get("key")
-			, paramMap.get("word"), paramMap.get("page"), paramMap.get("articleType"));
+	public ResponseEntity<List<ArticleDto>> listArticle(@RequestParam(required = false) Map<String, String> params){
+//		System.out.println(params.get("articleType") + params.get("key") + params.get("word"));
+		ArticlePageBean articlePageBean = new ArticlePageBean(params.get("key")
+			, params.get("word"), params.get("page"), params.get("articleType"));
+		System.out.println(articlePageBean);
 		List<ArticleDto> result = articleService.listArticle(articlePageBean);
 
 		return new ResponseEntity<>(result, HttpStatus.OK);
