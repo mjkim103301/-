@@ -37,4 +37,9 @@ public class ReplyServiceImpl implements ReplyService {
 		return new PageNavigation(page, 10, totalPageCount);
 	}
 
+	@Override
+	public void updateReply(ReplyDto replyDto) {
+		replyDao.updateReply(replyDto);
+	}
+
 }

@@ -31,7 +31,14 @@
 	<delete id="removeReply"	parameterType="int">
 		delete
 		from	reply
-		where	id = #{id}
+		where	reply_id = #{reply_id}
 	</delete>
+
+	<update id="updateReply"	parameterType="replyDto">
+		update 	reply
+		set		
+				, content = #{content}
+		where	reply_Id = #{replyId}
+	</update>
 
 </mapper>

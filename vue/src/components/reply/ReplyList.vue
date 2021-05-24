@@ -11,6 +11,12 @@
                                 <td>{{ reply.userId }}</td>
                                 <td>{{ reply.content }}</td>
                                 <td>{{ reply.registerTime | toDate }}</td>
+                                <button
+                                    class="btn ptn-primary"
+                                    @click="removeReplyHandler(reply)"
+                                >
+                                    삭제
+                                </button>
                             </tr>
                         </tbody>
                     </table>
@@ -113,6 +119,22 @@ export default {
         },
     },
     methods: {
+        removeReplyHandler(reply) {
+            http.delete(
+                `board/${this.$route.params.articleId}/reply/${reply.replyId}`
+            )
+                .then(({ status }) => {
+                    if (status != 200) {
+                        alert("에러 ! ");
+                        return;
+                    }
+                    this.listReply();
+                    this.createNavigation();
+                })
+                .catch(() => {
+                    alert("에러 ! ");
+                });
+        },
         movePageHandler(page) {
             this.page =
                 page > this.lastPage ? this.lastPage : page < 1 ? 1 : page;

@@ -15,4 +15,5 @@ public interface ReplyDao {
 	void writeReply(ReplyDto replyDto);
 	List<ReplyDto> listReply(ReplyPageBean bean);
 	void removeReply(int replyId);
+	void updateReply(ReplyDto replyDto);
 }
