@@ -47,17 +47,32 @@ export default new Vuex.Store({
     },
     actions: {
         getArticles(context) {
-            // http
-            //   .get("article")
-            //   .then(({data}) => {
-            //     context.commit("setArticles", data);
-            //     console.log('get articles', data);
-            //   })
-            //   .catch(() => {
-            //     alert("수행 중 오류가 발생했습니다.");
-            //   });
 
             http.get("board")
+                .then((response) => {
+                    console.log("get articles resonse: ", response);
+                    context.commit("setArticles", response.data);
+                    console.log("get articles response.data: ", response.data);
+                })
+                .catch(() => {
+                    alert("수행 중 오류가 발생했습니다.");
+                });
+        },
+        getNotices(context) {
+
+            http.get("/board?articleType=NOTICE")
+                .then((response) => {
+                    console.log("get articles resonse: ", response);
+                    context.commit("setArticles", response.data);
+                    console.log("get articles response.data: ", response.data);
+                })
+                .catch(() => {
+                    alert("수행 중 오류가 발생했습니다.");
+                });
+        },
+         getQna(context) {
+
+            http.get("/board?articleType=QNA")
                 .then((response) => {
                     console.log("get articles resonse: ", response);
                     context.commit("setArticles", response.data);

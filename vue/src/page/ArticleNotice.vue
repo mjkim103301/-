@@ -74,7 +74,6 @@
   </div>
 </template>
 <script>
-// import http from '@/util/http-common.js'
 import moment from "moment";
 import { mapGetters} from "vuex";
 
