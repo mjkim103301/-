@@ -25,6 +25,7 @@ export default new Vuex.Store({
         },
         session(state) {
             console.log("[getter] session");
+            console.log(state.session);
             return state.session;
         },
     },

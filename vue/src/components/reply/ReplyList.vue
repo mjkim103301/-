@@ -12,6 +12,10 @@
                                 <td>{{ reply.content }}</td>
                                 <td>{{ reply.registerTime | toDate }}</td>
                                 <button
+                                    v-if="
+                                        session.userId == reply.userId ||
+                                        session.admin == 1
+                                    "
                                     class="btn ptn-primary"
                                     @click="removeReplyHandler(reply)"
                                 >
