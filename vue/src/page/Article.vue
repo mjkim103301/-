@@ -19,6 +19,7 @@
 <script>
 import ArticleNotice from '@/page/ArticleNotice.vue';
 import ArticleReply from '@/page/ArticleReply.vue';
+//import http from '@/util/http-common';
 export default{
     name:'article',
     components:{
@@ -27,21 +28,32 @@ export default{
     },
     methods:{
         moveNotice(){
-            console.log(`move notice`)
-            this.$store.dispatch(
-                `/board?articleType=NOTICE`
-            )
+             console.log(`move notice`)
+            // http.get("/board?articleType=NOTICE")
+            // .then(response=>{
+            //     console.log(`move notice ${response}`, response)
+            // }).catch(err=>{
+            //     console.log(`move notice error 발생`, err)
+            // })
+
+            this.$store.dispatch("getNotices")
+           
         }
         ,
         moveQna(){
-            console.log(`move qna`)
-            this.$store.dispatch(
-                `/board?articleType=QNA`
-            )
+             console.log(`move qna`)
+            //  http.get("/board?articleType=QNA")
+            // .then(response=>{
+            //     console.log(`move qna ${response}`, response)
+            // }).catch(err=>{
+            //     console.log(`move qna error 발생`, err)
+            // })
+          this.$store.dispatch("getQna")
         }
     },
     mounted(){
-        this.moveNotice()
+        this.$store.dispatch("getNotices")
+        //this.moveNotice()
     }
 
 }
