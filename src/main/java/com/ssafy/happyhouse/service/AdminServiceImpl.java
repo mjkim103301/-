@@ -20,6 +20,7 @@ public class AdminServiceImpl implements AdminService {
 	public List<UserDto> getUserList(Map<String, String> paramsMap) {
 		UserListPageBean userListPageBean = new UserListPageBean(paramsMap.get("key")
 			,paramsMap.get("word"), paramsMap.get("page"));
+		System.out.println("[service] userListPageBean created : " + userListPageBean);
 		return adminDao.getUserList(userListPageBean);
 	}
 

@@ -6,18 +6,23 @@
                     <form class="form-inline float-right">
                         <div class="form-group mr-sm-2">
                             <select class="form-control" id="selectOption">
-                                <option selected>ID</option>
-                                <option>이름</option>
+                                <option selected value="user_id">ID</option>
+                                <option value="user_name">이름</option>
                             </select>
                         </div>
                         <div class="form-group mr-sm-2">
                             <input
                                 type="text"
                                 class="form-control"
-                                id="searchKey"
+                                id="searchWord"
+                                @keydown.enter="searchUserHandler()"
                             />
                         </div>
-                        <button type="submit" class="btn btn-secondary">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            @click="searchUserHandler()"
+                        >
                             검색
                         </button>
                     </form>
@@ -119,6 +124,8 @@ export default {
             page: 1,
             lastPage: 1,
             navigationItem: [],
+            key: "",
+            word: "",
         };
     },
     filters: {
@@ -127,6 +134,13 @@ export default {
         },
     },
     methods: {
+        searchUserHandler() {
+            this.key = document.getElementById("selectOption").value;
+            this.word = document.getElementById("searchWord").value;
+            console.log("search userHandler : " + this.key + this.word);
+            this.listUser();
+        },
+
         removeUserHandler(user) {
             http.delete(`admin/user/remove/${user.userId}`)
                 .then(({ status }) => {
@@ -135,7 +149,6 @@ export default {
                         return;
                     }
                     this.listUser();
-                    this.createNavigation();
                 })
                 .catch(() => {
                     alert("에러 ! ");
@@ -147,7 +160,6 @@ export default {
             console.log(page + " " + this.lastPage);
             console.log(this.page);
             this.listUser();
-            this.createNavigation();
         },
 
         createNavigation() {
@@ -176,7 +188,12 @@ export default {
         },
 
         listUser() {
-            http.get(`admin/user/list`)
+            let params = {
+                page: this.page,
+                key: this.key,
+                word: this.word,
+            };
+            http.get(`admin/user/list`, { params })
                 .then((response) => {
                     console.log(response.status);
                     if (response.status != 200) {
@@ -196,7 +213,6 @@ export default {
         console.log("UserList created" + `${this.$route.params.articleId}`);
         this.$store.dispatch("getSession");
         this.listUser();
-        this.createNavigation();
     },
 };
 </script>

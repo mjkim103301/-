@@ -29,7 +29,8 @@ public class AdminController {
 	@Autowired
 	AdminService adminService;
 
-	@ApiOperation(value = "유저 리스트 받기")
+
+	@ApiOperation(value = "페이지 네비게이션 받기")
 	@ApiImplicitParams({
 			@ApiImplicitParam(name = "key", value = "검색조건", dataType = "string", paramType = "query")
 			, @ApiImplicitParam(name = "word", value = "검색어", dataType = "string", paramType = "query")
@@ -38,11 +39,11 @@ public class AdminController {
 	@GetMapping("/user/list/navigation")
 	public ResponseEntity<PageNavigation> getPageNavigation(@RequestParam(required = false) Map<String, String> params) {
 		PageNavigation pageNavigation = adminService.getPageNavigation(params);
-		System.out.println("[service] admin user pageNavigation created" + pageNavigation);
+		System.out.println("[controller] admin user pageNavigation created" + pageNavigation);
 		return new ResponseEntity<>(pageNavigation, HttpStatus.OK);
 	}
 
-	@ApiOperation(value = "페이지 네비게이션 받기")
+	@ApiOperation(value = "유저 리스트 받기")
 	@ApiImplicitParams({
 			@ApiImplicitParam(name = "key", value = "검색조건", dataType = "string", paramType = "query")
 			, @ApiImplicitParam(name = "word", value = "검색어", dataType = "string", paramType = "query")
@@ -50,8 +51,9 @@ public class AdminController {
 	})
 	@GetMapping("/user/list")
 	public ResponseEntity<List<UserDto>> getUserList(@RequestParam(required = false) Map<String, String> params) {
+		System.out.println("[controller] params : " + params);
 		List<UserDto> list = adminService.getUserList(params);
-		System.out.println("[service] userlist created" + list);
+		System.out.println("[controller] userlist created" + list);
 		return new ResponseEntity<>(list, HttpStatus.OK);
 	}
 
