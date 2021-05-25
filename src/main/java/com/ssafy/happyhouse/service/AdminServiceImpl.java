@@ -35,7 +35,7 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public void removeUser(int userId) {
+	public void removeUser(String userId) {
 		adminDao.removeUser(userId);
 	}
 }

@@ -10,6 +10,6 @@ import java.util.List;
 @Mapper
 public interface AdminDao {
 	List<UserDto> getUserList(UserListPageBean userListPageBean);
-	void removeUser(int userId);
+	void removeUser(String userId);
 	int getTotalUserCount(UserListPageBean userListPageBean);
 }

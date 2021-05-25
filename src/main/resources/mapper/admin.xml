@@ -23,7 +23,7 @@
 		</if>
 	</select>
 
-	<delete id="removeUser"		parameterType="int">
+	<delete id="removeUser"		parameterType="string">
 		delete 
 		from	user
 		where	user_id = #{userId}

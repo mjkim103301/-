@@ -41,6 +41,12 @@
                                 <td>{{ user.email }}</td>
                                 <td>{{ user.address }}</td>
                                 <td>{{ user.registerTime }}</td>
+                                <button
+                                    class="btn ptn-primary"
+                                    @click="removeUserHandler(user)"
+                                >
+                                    삭제
+                                </button>
                             </tr>
                         </tbody>
                     </table>
@@ -121,8 +127,8 @@ export default {
         },
     },
     methods: {
-        removeUserHandler(userId) {
-            http.delete(`admin/user/remove/${userId}`)
+        removeUserHandler(user) {
+            http.delete(`admin/user/remove/${user.userId}`)
                 .then(({ status }) => {
                     if (status != 200) {
                         alert("에러 ! ");

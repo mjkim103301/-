@@ -10,5 +10,5 @@ public interface AdminService {
 	List<UserDto> getUserList(Map<String, String> paramsMap);
 	PageNavigation getPageNavigation(Map<String, String> paramsMap);
 
-	void removeUser(int userId);
+	void removeUser(String userId);
 }

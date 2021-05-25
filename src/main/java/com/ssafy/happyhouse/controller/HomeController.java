@@ -53,7 +53,7 @@ public class HomeController {
 	public String admin(HttpSession session) {
 		UserDto user = (UserDto) session.getAttribute("user");
 		System.out.println("move user_admin");
-		return user.isAdmin() ? "index" : "admin/admin";
+		return user.isAdmin() ?  "admin/admin" : "index";
 	}
 	
 	@GetMapping("shop")
