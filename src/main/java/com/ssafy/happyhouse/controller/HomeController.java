@@ -30,27 +30,26 @@ public class HomeController {
 		return "housedeal/actual_price";
 	}
 	
-	@GetMapping("mypage")
-	public String mypage() {
+	@GetMapping("/mypage")
+	public String moveMypage() {
 		return "user/my_page";
 	}
 	
-	@GetMapping("register")
-	public String register() {
+	@GetMapping("/register")
+	public String moveRegister() {
 		System.out.println(">>>move GET /register HomeController");
 		return "user/register";
 	}
-	
 	@GetMapping("article")
 	public String board() {
 		System.out.println("move article");
 		return "notice/notice";
 	}
 	
-	@GetMapping("user_admin")
+	@GetMapping("admin")
 	public String userAdmin() {
 		System.out.println("move user_admin");
-		return "admin/user_admin";
+		return "admin/admin";
 	}
 	
 	@GetMapping("shop")

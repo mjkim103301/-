@@ -1,8 +1,7 @@
 package com.ssafy.happyhouse.controller;
 
-import com.ssafy.happyhouse.dto.ArticlePageBean;
 import com.ssafy.happyhouse.dto.ArticleDto;
-import com.ssafy.happyhouse.dto.PageNavigation;
+import com.ssafy.happyhouse.dto.pagedto.PageNavigation;
 import com.ssafy.happyhouse.service.ArticleService;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -48,7 +47,7 @@ public class ArticleController {
 
 	@GetMapping("/list")
 	public ResponseEntity<List<ArticleDto>> listArticle(@RequestParam(required = false) Map<String, String> params){
-		System.out.println(">>>>>moveArticle" + params.get("articleType"));
+		System.out.println(">>>>>moveArticle" + params.toString());
 		List<ArticleDto> result = articleService.listArticle(params);
 
 		return new ResponseEntity<>(result, HttpStatus.OK);

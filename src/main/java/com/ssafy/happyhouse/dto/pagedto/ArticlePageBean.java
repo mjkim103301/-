@@ -1,4 +1,4 @@
-package com.ssafy.happyhouse.dto;
+package com.ssafy.happyhouse.dto.pagedto;
 
 /** UI 화면 페이지에 대한 정보를 표시하는 클래스 */
 public class ArticlePageBean {
@@ -15,7 +15,6 @@ public class ArticlePageBean {
 	/** 페이지의 시작 게시글 번호 **/
 	private int startArticleId = 1;
 
-//	private String pageLink;
 	public ArticlePageBean() {	}
 	public ArticlePageBean(String key, String word, int pageNo, String articleType) {
 		setKey(key);
