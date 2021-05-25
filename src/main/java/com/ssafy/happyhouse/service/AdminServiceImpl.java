@@ -2,8 +2,8 @@ package com.ssafy.happyhouse.service;
 
 import com.ssafy.happyhouse.dao.AdminDao;
 import com.ssafy.happyhouse.dto.UserDto;
-import com.ssafy.happyhouse.dto.pagedto.PageNavigation;
-import com.ssafy.happyhouse.dto.pagedto.UserListPageBean;
+import com.ssafy.happyhouse.dto.pageDto.PageNavigation;
+import com.ssafy.happyhouse.dto.pageDto.UserListPageBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

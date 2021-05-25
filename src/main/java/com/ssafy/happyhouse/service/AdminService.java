@@ -1,7 +1,7 @@
 package com.ssafy.happyhouse.service;
 
 import com.ssafy.happyhouse.dto.UserDto;
-import com.ssafy.happyhouse.dto.pagedto.PageNavigation;
+import com.ssafy.happyhouse.dto.pageDto.PageNavigation;
 
 import java.util.List;
 import java.util.Map;

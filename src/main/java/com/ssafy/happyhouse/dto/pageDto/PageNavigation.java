@@ -1,4 +1,4 @@
-package com.ssafy.happyhouse.dto.pagedto;
+package com.ssafy.happyhouse.dto.pageDto;
 
 public class PageNavigation {
 	private int currentPage;
