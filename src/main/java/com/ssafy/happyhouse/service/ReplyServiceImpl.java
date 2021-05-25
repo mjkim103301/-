@@ -1,13 +1,14 @@
 package com.ssafy.happyhouse.service;
 
-import com.ssafy.happyhouse.dao.ArticleDao;
 import com.ssafy.happyhouse.dao.ReplyDao;
 import com.ssafy.happyhouse.dto.*;
 
 import java.util.List;
+
+import com.ssafy.happyhouse.dto.pagedto.PageNavigation;
+import com.ssafy.happyhouse.dto.pagedto.ReplyPageBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ReplyServiceImpl implements ReplyService {

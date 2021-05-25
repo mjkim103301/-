@@ -49,7 +49,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                 <img src="img/bg-index.jpg" class="jumbotron__background" />
             </picture>
             <div class="container text-white text-center">
-                <h1 class="display-4">게시판</h1>
+                <h1 class="display-4">회원 관리</h1>
                 <p class="lead"></p>
             </div>
         </div>

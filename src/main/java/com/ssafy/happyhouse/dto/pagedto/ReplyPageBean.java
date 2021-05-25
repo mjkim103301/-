@@ -1,6 +1,5 @@
-package com.ssafy.happyhouse.dto;
+package com.ssafy.happyhouse.dto.pagedto;
 
-import com.ssafy.happyhouse.dao.ReplyDao;
 import io.swagger.annotations.Api;
 
 @Api(value = "댓글 페이징 Dto")

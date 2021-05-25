@@ -1,9 +1,8 @@
 package com.ssafy.happyhouse.service;
 
 import com.ssafy.happyhouse.dto.ArticleDto;
-import com.ssafy.happyhouse.dto.ArticlePageBean;
-import com.ssafy.happyhouse.dto.PageNavigation;
-import com.ssafy.happyhouse.dto.ReplyDto;
+import com.ssafy.happyhouse.dto.pagedto.PageNavigation;
+
 import java.util.List;
 import java.util.Map;
 

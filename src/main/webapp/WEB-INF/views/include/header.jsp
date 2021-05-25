@@ -29,19 +29,21 @@
          
           <li><a href="#team">Team</a></li>
      <c:choose>
-     	<c:when test="${not empty user}">
+     	  <c:when test="${not empty user && user.admin}">
           <li><a id="logout-nav" href="javascript:void(0);" onclick="javascript:logout();" class="logout-nav font-weight-bold">Logout</a></li>
-          <li><a id="mypage-nav" href="/happyhouse/mypage" class="mypage-nav font-weight-bold">MyPage</a></li>
-          	<c:if test="${not empty member.isAdmin && member.isAdmin eq true}">
-          <!-- 관리자가 로그인했을 때만 -->
-          <li><a id="admin-nav" href="/happyhouse/user_admin" class="admin-nav font-weight-bold">Admin</a></li> 
-          	</c:if>
+              <!-- 관리자가 로그인했을 때만 -->
+              <c:if test="${not empty user.admin && user.admin eq true}">
+                <li><a id="admin-nav" href="/happyhouse/admin" class="admin-nav font-weight-bold">Admin</a></li> 
+              </c:if>
+              <c:if test="${empty user.admin && user.admin != true}">
+                <li><a id="mypage-nav" href="/happyhouse/mypage" class="mypage-nav font-weight-bold">MyPage</a></li>
+              </c:if>
         </c:when>
         <c:otherwise>
-          <li><a id="login-nav" href="" class="login-nav font-weight-bold" data-toggle="modal" data-target="#loginModal">Login</a></li>
-          <li><a id="signup-nav" href="/happyhouse/register" class="signup-nav font-weight-bold" >SignUp</a></li>
+            <li><a id="login-nav" href="" class="login-nav font-weight-bold" data-toggle="modal" data-target="#loginModal">Login</a></li>
+            <li><a id="signup-nav" href="/happyhouse/register" class="signup-nav font-weight-bold" >SignUp</a></li>
         </c:otherwise>
-	</c:choose>
+	    </c:choose>
 
         </ul>
       </nav><!-- .nav-menu -->

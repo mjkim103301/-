@@ -1,8 +1,8 @@
 package com.ssafy.happyhouse.controller;
 
-import com.ssafy.happyhouse.dto.PageNavigation;
+import com.ssafy.happyhouse.dto.pagedto.PageNavigation;
 import com.ssafy.happyhouse.dto.ReplyDto;
-import com.ssafy.happyhouse.dto.ReplyPageBean;
+import com.ssafy.happyhouse.dto.pagedto.ReplyPageBean;
 import com.ssafy.happyhouse.service.ReplyService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
