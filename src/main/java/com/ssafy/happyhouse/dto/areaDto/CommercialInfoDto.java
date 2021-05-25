@@ -7,17 +7,21 @@ public class CommercialInfoDto {
 	private String address;
 	private String lng;
 	private String lat;
+	private String largeCategory;
+	private String smallCategory;
 
 	public CommercialInfoDto() {
 	}
 
-	public CommercialInfoDto(int commercialInfoId, String shopName, String localName, String address, String lng, String lat) {
+	public CommercialInfoDto(int commercialInfoId, String shopName, String localName, String address, String lng, String lat, String largeCategory, String smallCategory) {
 		this.commercialInfoId = commercialInfoId;
 		this.shopName = shopName;
 		this.localName = localName;
 		this.address = address;
 		this.lng = lng;
 		this.lat = lat;
+		this.largeCategory = largeCategory;
+		this.smallCategory = smallCategory;
 	}
 
 	public int getCommercialInfoId() {
@@ -66,5 +70,21 @@ public class CommercialInfoDto {
 
 	public void setLat(String lat) {
 		this.lat = lat;
+	}
+
+	public String getLargeCategory() {
+		return largeCategory;
+	}
+
+	public void setLargeCategory(String largeCategory) {
+		this.largeCategory = largeCategory;
+	}
+
+	public String getSmallCategory() {
+		return smallCategory;
+	}
+
+	public void setSmallCategory(String smallCategory) {
+		this.smallCategory = smallCategory;
 	}
 }

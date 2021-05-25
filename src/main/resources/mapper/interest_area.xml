@@ -24,8 +24,29 @@
 		and		i.user_id = #{userId};
 	</select>
 
-<!--	<select id="getCommercialInfoList"	parameterType="string"	resultType="commercialInfoDto">-->
-<!--		select commercial-->
+	<select id="getCommercialInfoList"	parameterType="string"	resultType="commercialInfoDto">
+		select	commercial_info_id
+		     	, shopname
+		     	, localname
+				, IFNULL(jibun_address, road_address) as address
+				, lng
+				, lat
+				, codename1 as large_category
+				, codename2 as small_category
+		from	commercial_info
+		where	dongcode = #{dongcode};
+	</select>
 
-<!--	</select>-->
+	<select id="getEnvironmentInfoList"	parameterType="string"	resultType="environmentInfoDto">
+		select 	environment_info_id
+				, name
+				, codename as category
+				, IFNULL(jibun_address, road_address) as address
+		from	environment_info
+		where	jibun_address like concat('%', (
+			select 	dong
+			from	dongcode as d
+			where 	d.dongcode = ${dongcode}
+		), '%');
+	</select>
 </mapper>

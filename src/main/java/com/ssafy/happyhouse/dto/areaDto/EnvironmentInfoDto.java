@@ -3,17 +3,17 @@ package com.ssafy.happyhouse.dto.areaDto;
 public class EnvironmentInfoDto {
 	private int EnvironmentInfoId;
 	private String name;
-	private String codeName;
+	private String category;
 	private String address;
 
 	public EnvironmentInfoDto(int environmentInfoId) {
 		EnvironmentInfoId = environmentInfoId;
 	}
 
-	public EnvironmentInfoDto(int environmentInfoId, String name, String codeName, String address) {
+	public EnvironmentInfoDto(int environmentInfoId, String name, String category, String address) {
 		EnvironmentInfoId = environmentInfoId;
 		this.name = name;
-		this.codeName = codeName;
+		this.category = category;
 		this.address = address;
 	}
 
@@ -33,12 +33,12 @@ public class EnvironmentInfoDto {
 		this.name = name;
 	}
 
-	public String getCodeName() {
-		return codeName;
+	public String getCategory() {
+		return category;
 	}
 
-	public void setCodeName(String codeName) {
-		this.codeName = codeName;
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	public String getAddress() {
