@@ -10,7 +10,6 @@ export default {
         },
     },
     created() {
-        // let no = new URL(document.location).searchParams.get("no");
         const articleId = this.$route.params.articleId;
         console.log("remove.............", articleId);
         http.delete(`article/${articleId}`)

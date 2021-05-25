@@ -14,20 +14,29 @@
                     </button>
                     <form class="form-inline float-right">
                         <div class="form-group mr-sm-2">
-                            <select class="form-control" id="selectOption">
-                                <option selected>내용</option>
-                                <option>작성일</option>
-                                <option>글 번호</option>
+                            <select
+                                class="form-control selectOption"
+                                id="selectOption"
+                            >
+                                <option selected value="subject">제목</option>
+                                <option value="content">내용</option>
+                                <option value="user_id">작성자</option>
+                                <option value="article_id">글 번호</option>
                             </select>
                         </div>
                         <div class="form-group mr-sm-2">
                             <input
                                 type="text"
-                                class="form-control"
-                                id="searchKey"
+                                class="form-control searchWord"
+                                id="searchWord"
+                                @keypress.enter="searchArticleHandler()"
                             />
                         </div>
-                        <button type="submit" class="btn btn-secondary">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            @click="searchArticleHandler()"
+                        >
                             검색
                         </button>
                     </form>
@@ -127,7 +136,12 @@ export default {
     computed: {
         ...mapGetters(["articles", "pageParams", "session"]),
         changedParams: function () {
-            return { page: this.$store.getters.pageParams.page };
+            return {
+                page: this.$store.getters.pageParams.page,
+                key: this.$store.getters.pageParams.key,
+                word: this.$store.getters.pageParams.word,
+                articleType: this.$store.getters.pageParams.articleType,
+            };
         },
     },
     watch: {
@@ -152,6 +166,31 @@ export default {
         },
     },
     methods: {
+        searchArticleHandler() {
+            // document.getElementsByClassName;
+            let params = this.$store.getters.pageParams;
+            let idx = 0;
+            switch (this.$store.getters.pageParams.articleType) {
+                case "NOTICE":
+                    idx = 1;
+                    break;
+                case "QNA":
+                    idx = 2;
+                    break;
+                case "FREE":
+                    idx = 3;
+                    break;
+            }
+            params.key =
+                document.getElementsByClassName("selectOption")[idx].value;
+            params.word =
+                document.getElementsByClassName("searchWord")[idx].value;
+            params.page = 1;
+            console.log("search userHandler : " + this.key + this.word);
+            this.$store.dispatch("getPageParams", params);
+            this.$store.dispatch("getArticles");
+        },
+
         moveWritePage() {
             this.$router.push("/happyhouse/article/write");
         },
