@@ -1,52 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set var="root" value="${pageContext.request.contextPath }" />
-<!DOCTYPE html>
-<html lang="ko">
-
-<head>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>HappyHouse</title>
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-</head>
-
-<body>
- <!-- ======= Header ======= -->
-	<jsp:include page="include/header.jsp" />
-	<!-- End Header -->
-
-  <div class="jumbotron jumbotron-fluid">
-    <picture >
-      <img src="assets/img/shop-bg.png" class="jumbotron__background">
-    </picture>
-    <div class="container text-white text-center">
-      <h1 class="display-4">상권 정보를 확인하세요!</h1>
-      <p class="lead"></p>
-    </div>
-  </div>
-  <!-- /.jumbotron -->
-
-  <main id="main">
-    <section id="" class="p-1">
+<template>
+    <div>
+        
+<section id="" class="p-1">
       <div class="container">
         <div class="m-3">
           <h3>"E편한세상 서창아파트" 주변 상권</h3>
@@ -78,25 +33,25 @@
             <div class="tab-pane fade" id="aaa">
               <div class="row">
                 <div class="col-3 p-3">
-                  <img src="assets/img/shop/ex.png" class="img-fluid p-2" alt="">
+                  <img src="img/shop/ex.png" class="img-fluid p-2" alt="">
                   <div class="shop-info-content text-center">
                     스타벅스 인천서창점
                   </div>
                 </div>
                 <div class="col-3 p-3">
-                  <img src="assets/img/shop/ex.png" class="img-fluid p-2" alt="">
+                  <img src="img/shop/ex.png" class="img-fluid p-2" alt="">
                   <div class="shop-info-content text-center">
                     투썸플레이스 인천서창점
                   </div>
                 </div>
                 <div class="col-3 p-3">
-                  <img src="assets/img/shop/ex.png" class="img-fluid p-2" alt="">
+                  <img src="img/shop/ex.png" class="img-fluid p-2" alt="">
                   <div class="shop-info-content text-center">
                     알베로테라
                   </div>
                 </div>
                 <div class="col-3 p-3">
-                  <img src="assets/img/shop/ex.png" class="img-fluid p-2" alt="">
+                  <img src="img/shop/ex.png" class="img-fluid p-2" alt="">
                   <div class="shop-info-content text-center">
                     Cafe Coco.
                   </div>
@@ -106,25 +61,25 @@
             <div class="tab-pane fade show active" id="bbb">
               <div class="row">
                 <div class="col-3 p-3">
-                  <img src="assets/img/shop/IMG_5905.jpg" class="img-fluid p-2" alt="">
+                  <img src="img/shop/IMG_5905.jpg" class="img-fluid p-2" alt="">
                   <div class="shop-info-content text-center">
                     스타벅스 인천서창점
                   </div>
                 </div>
                 <div class="col-3 p-3">
-                  <img src="assets/img/shop/IMG_5906.jpg" class="img-fluid p-2" alt="">
+                  <img src="img/shop/IMG_5906.jpg" class="img-fluid p-2" alt="">
                   <div class="shop-info-content text-center">
                     투썸플레이스 인천서창점
                   </div>
                 </div>
                 <div class="col-3 p-3">
-                  <img src="assets/img/shop/IMG_5907.jpg" class="img-fluid p-2" alt="">
+                  <img src="img/shop/IMG_5907.jpg" class="img-fluid p-2" alt="">
                   <div class="shop-info-content text-center">
                     알베로테라
                   </div>
                 </div>
                 <div class="col-3 p-3">
-                  <img src="assets/img/shop/IMG_5908.jpg" class="img-fluid p-2" alt="">
+                  <img src="img/shop/IMG_5908.jpg" class="img-fluid p-2" alt="">
                   <div class="shop-info-content text-center">
                     Cafe Coco.
                   </div>
@@ -134,25 +89,25 @@
             <div class="tab-pane fade" id="ccc">
               <div class="row">
                 <div class="col-3 p-3">
-                  <img src="assets/img/shop/ex.png" class="img-fluid p-2" alt="">
+                  <img src="img/shop/ex.png" class="img-fluid p-2" alt="">
                   <div class="shop-info-content text-center">
                     스타벅스 인천서창점
                   </div>
                 </div>
                 <div class="col-3 p-3">
-                  <img src="assets/img/shop/ex.png" class="img-fluid p-2" alt="">
+                  <img src="img/shop/ex.png" class="img-fluid p-2" alt="">
                   <div class="shop-info-content text-center">
                     투썸플레이스 인천서창점
                   </div>
                 </div>
                 <div class="col-3 p-3">
-                  <img src="assets/img/shop/ex.png" class="img-fluid p-2" alt="">
+                  <img src="img/shop/ex.png" class="img-fluid p-2" alt="">
                   <div class="shop-info-content text-center">
                     알베로테라
                   </div>
                 </div>
                 <div class="col-3 p-3">
-                  <img src="assets/img/shop/ex.png" class="img-fluid p-2" alt="">
+                  <img src="img/shop/ex.png" class="img-fluid p-2" alt="">
                   <div class="shop-info-content text-center">
                     Cafe Coco.
                   </div>
@@ -162,25 +117,25 @@
             <div class="tab-pane fade" id="ddd">
               <div class="row">
                 <div class="col-3 p-3">
-                  <img src="assets/img/shop/ex.png" class="img-fluid p-2" alt="">
+                  <img src="img/shop/ex.png" class="img-fluid p-2" alt="">
                   <div class="shop-info-content text-center">
                     스타벅스 인천서창점
                   </div>
                 </div>
                 <div class="col-3 p-3">
-                  <img src="assets/img/shop/ex.png" class="img-fluid p-2" alt="">
+                  <img src="img/shop/ex.png" class="img-fluid p-2" alt="">
                   <div class="shop-info-content text-center">
                     투썸플레이스 인천서창점
                   </div>
                 </div>
                 <div class="col-3 p-3">
-                  <img src="assets/img/shop/ex.png" class="img-fluid p-2" alt="">
+                  <img src="img/shop/ex.png" class="img-fluid p-2" alt="">
                   <div class="shop-info-content text-center">
                     알베로테라
                   </div>
                 </div>
                 <div class="col-3 p-3">
-                  <img src="assets/img/shop/ex.png" class="img-fluid p-2" alt="">
+                  <img src="img/shop/ex.png" class="img-fluid p-2" alt="">
                   <div class="shop-info-content text-center">
                     Cafe Coco.
                   </div>
@@ -190,25 +145,25 @@
             <div class="tab-pane fade" id="eee">
               <div class="row">
                 <div class="col-3 p-3">
-                  <img src="assets/img/shop/ex.png" class="img-fluid p-2" alt="">
+                  <img src="img/shop/ex.png" class="img-fluid p-2" alt="">
                   <div class="shop-info-content text-center">
                     스타벅스 인천서창점
                   </div>
                 </div>
                 <div class="col-3 p-3">
-                  <img src="assets/img/shop/ex.png" class="img-fluid p-2" alt="">
+                  <img src="img/shop/ex.png" class="img-fluid p-2" alt="">
                   <div class="shop-info-content text-center">
                     투썸플레이스 인천서창점
                   </div>
                 </div>
                 <div class="col-3 p-3">
-                  <img src="assets/img/shop/ex.png" class="img-fluid p-2" alt="">
+                  <img src="img/shop/ex.png" class="img-fluid p-2" alt="">
                   <div class="shop-info-content text-center">
                     알베로테라
                   </div>
                 </div>
                 <div class="col-3 p-3">
-                  <img src="assets/img/shop/ex.png" class="img-fluid p-2" alt="">
+                  <img src="img/shop/ex.png" class="img-fluid p-2" alt="">
                   <div class="shop-info-content text-center">
                     Cafe Coco.
                   </div>
@@ -219,29 +174,12 @@
         </div>
 
     </section><!-- End About Section -->
-    
-  </main><!-- End #main -->
 
-	<!-- ======= Footer ======= -->
-	<jsp:include page="/WEB-INF/views/include/footer.jsp" />
-	<!-- End Footer -->
+    </div>
 
-  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/jquery/jquery.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/venobox/venobox.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/user.js"></script>
-
-</body>
-
-</html>
+</template>
+<script>
+export default {
+    name:"interested"
+}
+</script>

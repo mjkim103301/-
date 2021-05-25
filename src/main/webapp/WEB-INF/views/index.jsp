@@ -44,62 +44,6 @@
 			<h2>HappyHouse에서 주택 실거래가를 검색하고 상권 정보와 환경 정보를 볼 수 있어요!</h2>
 			<a href="housedeal" class="btn-get-started scrollto">실거래가 검색하러 가기</a>
 		</div>
-	<!-- 	<div class="container text-center text-md-left" data-aos="fade-up" style="padding-top:10%">
-			<div class="NewsTables row text-white">
-				최고 거래가 Article Start 
-				<article class="article_price col ">
-					<h3>이번주 거래가 순위</h3>
-					<table class="table table_striped text-white">
-						<thead >
-							<tr>
-								<th class="title">아파트이름</th>
-								<th>가격</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>헤라팰리스</td>
-								<td>00억</td>
-							</tr>
-							<tr>
-								<td>A아파트</td>
-								<td>00억</td>
-							</tr>
-							<tr>
-								<td>B아파트</td>
-								<td>00억</td>
-							</tr>
-						</tbody>
-					</table>
-				</article>
-				인기글 Article End 
-
-				뉴스 Article Start 
-				<article class="article_news col ">
-					<h3>부동산 뉴스</h3>
-					<table class="table table_bordered table_hover text-white">
-						<thead>
-							<tr>
-								<th class="title">기사 제목</th>
-							</tr>
-						</thead>
-						<tbody >
-							<tr>
-								<td><a href="http://www.m-i.kr/news/articleView.html?idxno=805952" class="text-white">LH 직원 20명 투기 의심…“부동산 투기와의 전쟁 선포”</a></td>
-							</tr>
-							<tr>
-								<td><a href="http://www.segye.com/newsView/20210311516931?OutUrl=naver" class="text-white">지난해 집값 9.3% ‘껑충’…주요국 중 상승률 최고</a></td>
-
-							</tr>
-							<tr>
-								<td><a href="http://www.newstomato.com/ReadNews.aspx?no=1029110" class="text-white">전세난, 임대주택으로 해법 찾는다</a></td>
-							</tr>
-						</tbody>
-					</table>
-					
-				</article>
-			</div>
-			</div> -->
 	</section>
 
 
@@ -107,7 +51,7 @@
 	<!-- End Hero -->
 
 	<main id="main"> <!-- ======= Services Section ======= -->
-	<section id="services" class="services section-bg">
+	<section id="services" class="services section-bg" >
 		<div class="container">
 
 			<div class="section-title" data-aos="fade-up">
@@ -117,7 +61,7 @@
 
 			<div class="row">
 
-				<div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
+				<div class="col-md-4 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
 
 					<div class="icon-box icon-box-pink">
 						<a href="housedeal" class="text-dark">
@@ -131,36 +75,21 @@
 
 				</div>
 
-				<div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+				<div class="col-md-4 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="50">
 
 					<div class="icon-box icon-box-cyan">
-						<a href="shop" class="text-dark">
+						<a href="interested" class="text-dark">
 							<div class="icon">
 								<i class="bx bxl-dribbble"></i>
 							</div>
-							<h4 class="title">주변 상권 정보</h4>
-							<p class="description">선택한 아파트 주변 동네업종 정보를 확인할 수 있습니다.</p>
+							<h4 class="title">관심지역 정보</h4>
+							<p class="description">선택한 관심지역의 동네업종, 환경정보를 비교할 수 있습니다.</p>
 						</a>
 					</div>
 
 				</div>
 
-				<div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
-
-
-					<div class="icon-box icon-box-green">
-						<a href="pollution" class="text-dark">
-							<div class="icon">
-								<i class="bx bx-world"></i>
-							</div>
-							<h4 class="title">대기오염 정보</h4>
-							<p class="description">선택한 지역의 미세먼지 농도 등의 대기오염 정보를 확인할 수 있습니다.</p>
-						</a>
-					</div>
-
-				</div>
-
-				<div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
+				<div class="col-md-4 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
 
 					<div class="icon-box icon-box-blue">
 						<a href="article" class="text-dark">
@@ -195,7 +124,7 @@
 						<p>관리자 아이디는 'admin'이고 비밀번호도 'admin'입니다.</p>
 					</div>
 
-					<div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+					<div class="icon-box" data-aos="fade-up" data-aos-delay="50">
 						<i class="bx bx-cube-alt"></i>
 						<h4>Servlet과 JSP</h4>
 						<p>Servlet과 JSP를 사용한 웹 백엔드 프로젝트입니다.</p>
@@ -230,7 +159,7 @@
 					</div>
 				</div>
 
-				<div class="col" data-aos="fade-up" data-aos-delay="100">
+				<div class="col" data-aos="fade-up" data-aos-delay="50">
 					<div class="member">
 						<img src="img/team/temp.jpg" class="img-fluid" alt="">
 						<div class="member-info">

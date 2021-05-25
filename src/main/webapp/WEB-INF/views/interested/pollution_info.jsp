@@ -10,8 +10,8 @@
 
 <title>HappyHouse</title>
 <!-- Favicons -->
-<link href="assets/img/favicon.png" rel="icon">
-<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+<link href="img/favicon.png" rel="icon">
+<link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
@@ -21,27 +21,27 @@
 	rel="stylesheet">
 
 <!-- Vendor CSS Files -->
-<link href="assets/vendor/bootstrap/css/bootstrap.min.css"
+<link href="vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
-<link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-<link href="assets/vendor/boxicons/css/boxicons.min.css"
+<link href="vendor/icofont/icofont.min.css" rel="stylesheet">
+<link href="vendor/boxicons/css/boxicons.min.css"
 	rel="stylesheet">
-<link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css"
+<link href="vendor/owl.carousel/assets/owl.carousel.min.css"
 	rel="stylesheet">
-<link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
-<link href="assets/vendor/aos/aos.css" rel="stylesheet">
+<link href="vendor/venobox/venobox.css" rel="stylesheet">
+<link href="vendor/aos/aos.css" rel="stylesheet">
 
 <!-- Template Main CSS File -->
-<link href="assets/css/style.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
 	<!-- ======= Header ======= -->
-	<jsp:include page="include/header.jsp" />
+	<jsp:include page="../include/header.jsp" />
 	<!-- End Header -->
 
 	<div class="jumbotron jumbotron-fluid">
-		<picture> <img src="assets/img/미세먼지2.jpg"
+		<picture> <img src="img/미세먼지2.jpg"
 			class="jumbotron__background"> </picture>
 		<div class="container text-white text-center">
 			<h4 class="display-4">관심 지역의 대기오염 정보를 확인하세요.</h4>
@@ -133,18 +133,18 @@
 	<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
 	<!-- Vendor JS Files -->
-	<script src="assets/vendor/jquery/jquery.min.js"></script>
-	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-	<script src="assets/vendor/php-email-form/validate.js"></script>
-	<script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-	<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-	<script src="assets/vendor/venobox/venobox.min.js"></script>
-	<script src="assets/vendor/aos/aos.js"></script>
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="vendor/jquery.easing/jquery.easing.min.js"></script>
+	<script src="vendor/php-email-form/validate.js"></script>
+	<script src="vendor/owl.carousel/owl.carousel.min.js"></script>
+	<script src="vendor/isotope-layout/isotope.pkgd.min.js"></script>
+	<script src="vendor/venobox/venobox.min.js"></script>
+	<script src="vendor/aos/aos.js"></script>
 
 	<!-- Template Main JS File -->
-	<script src="assets/js/main.js"></script>
-	<script src="assets/js/user.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/user.js"></script>
 
 </body>
 
