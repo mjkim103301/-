@@ -153,24 +153,24 @@ function showList(){
 											<div class="card-body">
 												<div class="row no-gutters align-items-center">
 													<div class="col-sm-4">
-														<img class="img-fluid " src="img/apartment/apartimg01.jpg"
+														<img class="img-fluid " src="${item.img}"
 															alt="" />
 													</div>
 													<div class="col-sm-7 ml-4">
 
 														<div
 															class="h5 mb-0 font-weight-bold text-primary text-gray-800">${item.aptName}</div>
-														<div class="text-xs mb-0 text-gray-800">거래금액 :
+														<div class="text-xs mb-0 text-gray-800"><b>거래금액 :</b>
 															${item.dealAmount} (억)</div>
-														<div class="text-xs mb-0  text-gray-800">면적:
+														<div class="text-xs mb-0  text-gray-800"><b>면적:</b>
 															${item.area} (m^2) </div>
 														<div class="text-xs mb-0  text-gray-800">
-															거래날짜:
+															<b>거래날짜:</b>
 															${item.dealYear}.${item.dealMonth}.${item.dealDay}
 															
 														</div>
 														<div class="text-xs mb-0  text-gray-800">
-															동이름: 
+															<b>동이름: </b>
 															${item.dong}
 															
 														</div>
@@ -274,9 +274,9 @@ function displayPlaces(places) {
 
 // 검색결과 항목을 Element로 반환하는 함수입니다
 function getListItem(index, places) {
-
+	
     var el = document.createElement('li'),
-        itemStr = '<span class="markerbg marker_' + (index + 1) + '"></span>' +
+    itemStr = '<span class="markerbg marker_' + (index + 1) + '"></span>' +
             '<div class="info">' +
             '   <h5>' + places.place_name + '</h5>';
 
@@ -290,6 +290,7 @@ function getListItem(index, places) {
     itemStr += '  <span class="tel">' + places.phone + '</span>' +
         '</div>';
 
+   
     el.innerHTML = itemStr;
     el.className = 'item';
 
