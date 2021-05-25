@@ -2,7 +2,7 @@
     <div>삭제중...</div>
 </template>
 <script>
-import axios from "axios";
+import http from "@/util/http-common.js";
 export default {
     methods: {
         moveHandler: function () {
@@ -13,8 +13,7 @@ export default {
         // let no = new URL(document.location).searchParams.get("no");
         const articleId = this.$route.params.articleId;
         console.log("remove.............", articleId);
-        axios
-            .delete(`http://localhost:9000/happyhouse/article/${articleId}`)
+        http.delete(`article/${articleId}`)
             .then(({ status }) => {
                 //console.log(`remove.vue response `, response)
                 if (status == 200) {
