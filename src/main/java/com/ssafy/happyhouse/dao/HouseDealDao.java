@@ -8,5 +8,7 @@ import com.ssafy.happyhouse.dto.HouseDealDto;
 
 @Mapper
 public interface HouseDealDao {
-	public List<HouseDealDto> houseDealList(List<HouseDealDto> houseDealDto);
+	public List<HouseDealDto> houseDealList(HouseDealDto houseDealDto);
+
+	public List<HouseDealDto> allHouseDealList();
 }

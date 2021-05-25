@@ -58,22 +58,7 @@
 			<form id="search-using-word" onsubmit="searchPlaces(); return false;">
 				<!-- <input type="hidden" name="action" id="action" value="listHouseDeal"> -->
 				<div class="row mb-4">
-				<!-- 	<select class="search-do-Condition mr-2" style="height: 40px;"
-						name="city" id="city">
-						<option value="all">광역시/도</option>
-						<option>서울특별시</option>
-						<option>경기도</option>
-						<option>인천광역시</option>
-					</select> <select class="search-gu-Condition mr-2" name="gugun" id="gugun">
-						<option value="all">시/구/군</option>
-						<option>강남구</option>
-						<option>강북구</option>
-						<option>용산구</option>
-					</select> <select class="search-dong-Condition mr-2" name="dong" id="dong">
-						<option value="all">동</option>
-						<option>역삼동</option>
-						<option>신당동</option>
-					</select>  -->
+
 					<input id="keyword" type="text" class="form-control mr-2"
 						placeholder="지역, 아파트 검색" style="width: 200px;">
 					<button  class="btn btn-success" type="submit">검색</button>
@@ -97,8 +82,9 @@
 					<article id="place_list">
 
 						<!-- =====검색결과 list===== -->
-						<c:if test="${!empty list}">
-							<c:forEach var="item" items="${list}">
+						<%-- <c:if test="${!empty list}">
+						
+							<c:forEach var="item" items="${list}"> --%>
 								<div class="card border-left-primary shadow h-100 py-2">
 									<div class="card-body">
 										<div class="row no-gutters align-items-center">
@@ -123,18 +109,16 @@
 												</div>
 
 											</div>
-
-											<!--  =====클릭하면 자세한 설명 나오게끔==== -->
 										</div>
 
 									</div>
 								</div>
 
-							</c:forEach>
+						<%-- 	</c:forEach>
 						</c:if>
 
 						<!-- =====검색결과 list가 비어있을 때 가져오는 기본 값===== -->
-						<c:if test="${empty list}">
+						<c:if test="${empty list}"> 
 							<div class="card border-left-primary shadow h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
@@ -267,7 +251,9 @@
 								</div>
 							</div>
 						</c:if>
+						--%>
 					</article>
+					
 				</div>
 				<div id="actual_price_map" class="col-sm-9"
 					style="width: 100%; height: 650px"></div>
