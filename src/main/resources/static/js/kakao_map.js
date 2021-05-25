@@ -37,16 +37,16 @@ function searchPlaces() {
         // alert('키워드를 입력해주세요!');
         return false;
     }
-    getAddressInform(keyword)
-    
-   // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
-   // ps.keywordSearch(keyword, placesSearchCB);
+    getAddressInform(keyword);
+
+    // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
+    // ps.keywordSearch(keyword, placesSearchCB);
 }
 
 function getAllHouseDeal() {
     console.log("getAllHouseDeal");
     removeHouseDeal();
-
+    removeMarker();
     $.ajax({
         url: "housedeal/search",
         type: "GET",
@@ -56,28 +56,13 @@ function getAllHouseDeal() {
                 housedealResultList.push(element);
             });
 
-function getAllHouseDeal(){
-	console.log('getAllHouseDeal')
-	removeHouseDeal()
-	removeMarker()
-	 $.ajax({
-		 	url:'housedeal/search',
-	    	type:'GET',	  
-	    	dataType:'json',
-	    	success:function(data){
-	    		
-	    		data.forEach(element=>{
-	    			housedealResultList.push(element);
-	    		})
-	    	
-	    		 showList()
-	    		 makeMarker()
-	    	},
-	    	error:function(err){
-	    		console.log('getHouseDeal error', err)
-	    	}
-	    })
-	
+            showList();
+            makeMarker();
+        },
+        error: function (err) {
+            console.log("getHouseDeal error", err);
+        },
+    });
 }
 
 function getAddressInform(keyword) {
@@ -105,12 +90,11 @@ function getAddressInform(keyword) {
                     keyword: keyword,
                 });
             }
-          
-            console.log('addressInformData: ', addressInformData)
-            removeHouseDeal()
-            removeMarker()
-            getHouseDeal(addressInformData)
-          
+
+            console.log("addressInformData: ", addressInformData);
+            removeHouseDeal();
+            removeMarker();
+            getHouseDeal(addressInformData);
         },
         error: function (err) {
             console.log("getAddressInform error: ", err);
@@ -118,108 +102,109 @@ function getAddressInform(keyword) {
     });
 }
 
-function makeMarker(){
-	console.log('makeMarker')
-	// 마커를 표시할 위치와 title 객체 배열입니다 
-	var positions=[]
-	var bounds = new kakao.maps.LatLngBounds()
-	housedealResultList.forEach(el=>{
-		
-		positions.push({
-			content: `<div>${el.aptName} </div>`,
-			title:el.aptName,
-			latlng: new kakao.maps.LatLng(el.lat, el.lng)
-			
-		})
-		 bounds.extend(new kakao.maps.LatLng(el.lat, el.lng));
+function makeMarker() {
+    console.log("makeMarker");
+    // 마커를 표시할 위치와 title 객체 배열입니다
+    var positions = [];
+    var bounds = new kakao.maps.LatLngBounds();
+    housedealResultList.forEach((el) => {
+        positions.push({
+            content: `<div>${el.aptName} </div>`,
+            title: el.aptName,
+            latlng: new kakao.maps.LatLng(el.lat, el.lng),
+        });
+        bounds.extend(new kakao.maps.LatLng(el.lat, el.lng));
+    });
+    // 마커 이미지의 이미지 주소입니다
+    var imageSrc =
+        "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
 
-	})
-	// 마커 이미지의 이미지 주소입니다
-	var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
-	    
-	for (var i = 0; i < positions.length; i ++) {
-	    
-	    // 마커 이미지의 이미지 크기 입니다
-	    var imageSize = new kakao.maps.Size(24, 35); 
-	    
-	    // 마커 이미지를 생성합니다    
-	    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
-	    
-	    // 마커를 생성합니다
-	    var marker= new kakao.maps.Marker({
-	        map: map, // 마커를 표시할 지도
-	        position: positions[i].latlng, // 마커를 표시할 위치
-	        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-	        //image : markerImage // 마커 이미지 
-	    });
-	   
-	    markers.push(marker)
-	    
-	    // 마커에 표시할 인포윈도우를 생성합니다 
-	    var infowindow = new kakao.maps.InfoWindow({
-	        content: positions[i].content // 인포윈도우에 표시할 내용
-	    });
+    for (var i = 0; i < positions.length; i++) {
+        // 마커 이미지의 이미지 크기 입니다
+        var imageSize = new kakao.maps.Size(24, 35);
 
-	    // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
-	    // 이벤트 리스너로는 클로저를 만들어 등록합니다 
-	    // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
-	    kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
-	    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
-	}
-	  map.setBounds(bounds);
+        // 마커 이미지를 생성합니다
+        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+            map: map, // 마커를 표시할 지도
+            position: positions[i].latlng, // 마커를 표시할 위치
+            title: positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+            //image : markerImage // 마커 이미지
+        });
+
+        markers.push(marker);
+
+        // 마커에 표시할 인포윈도우를 생성합니다
+        var infowindow = new kakao.maps.InfoWindow({
+            content: positions[i].content, // 인포윈도우에 표시할 내용
+        });
+
+        // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+        // 이벤트 리스너로는 클로저를 만들어 등록합니다
+        // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+        kakao.maps.event.addListener(
+            marker,
+            "mouseover",
+            makeOverListener(map, marker, infowindow)
+        );
+        kakao.maps.event.addListener(
+            marker,
+            "mouseout",
+            makeOutListener(infowindow)
+        );
+    }
+    map.setBounds(bounds);
 }
-//인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+//인포윈도우를 표시하는 클로저를 만드는 함수입니다
 function makeOverListener(map, marker, infowindow) {
-    return function() {
+    return function () {
         infowindow.open(map, marker);
     };
 }
 
-// 인포윈도우를 닫는 클로저를 만드는 함수입니다 
+// 인포윈도우를 닫는 클로저를 만드는 함수입니다
 function makeOutListener(infowindow) {
-    return function() {
+    return function () {
         infowindow.close();
     };
 }
-function removeHouseDeal(){
-	console.log('remove')
-	$('#place_list').empty();
-	housedealResultList=[];
-	positions=[];
-	console.log('after remove ', $('#place_list'))
+function removeHouseDeal() {
+    console.log("remove");
+    $("#place_list").empty();
+    housedealResultList = [];
+    positions = [];
+    console.log("after remove ", $("#place_list"));
 }
 
-function getHouseDeal(addressInformData){
-	console.log('getHouseDeal')
-	 $.ajax({
-		 	url:'housedeal/search',
-	    	type:'POST',
-	    	contentType : "application/json; charset=UTF-8",
-	    	dataType:'json',
-	    	data : JSON.stringify(addressInformData),
-	    	success:function(data){
-	    		
-	    		data.forEach(element=>{
-	    			housedealResultList.push(element);
-	    		})
-	    	
-	    		 showList()
-	    		 makeMarker()
-	    	},
-	    	error:function(err){
-	    		console.log('getHouseDeal error', err)
-	    	}
-	    })
+function getHouseDeal(addressInformData) {
+    console.log("getHouseDeal");
+    $.ajax({
+        url: "housedeal/search",
+        type: "POST",
+        contentType: "application/json; charset=UTF-8",
+        dataType: "json",
+        data: JSON.stringify(addressInformData),
+        success: function (data) {
+            data.forEach((element) => {
+                housedealResultList.push(element);
+            });
+
+            showList();
+            makeMarker();
+        },
+        error: function (err) {
+            console.log("getHouseDeal error", err);
+        },
+    });
 }
 
-
-function showList(){
-	console.log('showList')
-	 let html=``
-		 housedealResultList.forEach(item=>{
-			
-			 html+=
-				 `					
+function showList() {
+    console.log("showList");
+    let html = ``;
+    housedealResultList.forEach((item) => {
+        html += `					
 					<div class="card border-left-primary shadow h-100 py-2">
 											<div class="card-body">
 												<div class="row no-gutters align-items-center">
@@ -336,9 +321,11 @@ function displayPlaces(places) {
 
 // 검색결과 항목을 Element로 반환하는 함수입니다
 function getListItem(index, places) {
-	
-    var el = document.createElement('li'),
-    itemStr = '<span class="markerbg marker_' + (index + 1) + '"></span>' +
+    var el = document.createElement("li"),
+        itemStr =
+            '<span class="markerbg marker_' +
+            (index + 1) +
+            '"></span>' +
             '<div class="info">' +
             "   <h5>" +
             places.place_name +
@@ -358,7 +345,6 @@ function getListItem(index, places) {
 
     itemStr += '  <span class="tel">' + places.phone + "</span>" + "</div>";
 
-   
     el.innerHTML = itemStr;
     el.className = "item";
 
@@ -400,7 +386,7 @@ function addMarker(position, idx, title) {
 
 // 지도 위에 표시되고 있는 마커를 모두 제거합니다
 function removeMarker() {
-	console.log('removeMarker')
+    console.log("removeMarker");
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(null);
     }
