@@ -35,3 +35,6 @@ src/main/resources/static/vue/notice/js/chunk-vendors.js
 src/main/resources/static/vue/notice/js/chunk-vendors.js.map
 src/main/resources/static/vue/notice/js/app.js.map
 src/main/resources/static/vue/notice/js/app.js
+vue/package-lock.json
+src/main/resources/static/vue/notice/css/chunk-vendors.css
+src/main/resources/static/vue/notice/js/chunk-vendors.js
