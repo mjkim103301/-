@@ -29,10 +29,6 @@ function searchPlaces() {
 	var keyword=''
     keyword = document.getElementById('keyword').value;
     console.log('keyword: ', keyword)
-    console.log(typeof(keyword))
-    console.log('keyword length ', keyword.length)
-    // console.log('keyword--: ', document.getElementById('keyword'))
-    
     
     if(keyword.length==0){
     	console.log('getAllHouseDeal')
@@ -48,16 +44,15 @@ function searchPlaces() {
     ps.keywordSearch(keyword, placesSearchCB);
 }
 
+
 function getAllHouseDeal(){
 	console.log('getAllHouseDeal')
 	removeHouseDeal()
 	
 	 $.ajax({
 		 	url:'housedeal/search',
-	    	type:'GET',
-	    	//contentType : "application/json; charset=UTF-8",
+	    	type:'GET',	  
 	    	dataType:'json',
-	    	//data : JSON.stringify(addressInformData),
 	    	success:function(data){
 	    		
 	    		data.forEach(element=>{
@@ -74,7 +69,7 @@ function getAllHouseDeal(){
 }
 
 function getAddressInform(keyword) {
-    console.log('getAddressInform keyword: ', keyword)
+    console.log('getAddressInform')
     var addressInformData=[]
 
     $.ajax({
@@ -144,6 +139,7 @@ function getHouseDeal(addressInformData){
 	    })
 }
 
+function 
 
 function showList(){
 	 let html=``

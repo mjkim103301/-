@@ -66,9 +66,7 @@ public class HouseDealController {
 	@ApiOperation(value = "실거래가 리스트")
 	@GetMapping(path="/search")
 	public ResponseEntity<List<HouseDealDto>> allHouseDealSearch() {
-		//System.out.println(">>>moveHouseDeal Search "+ houseDealDtoList.get(0).toString());
 		List<HouseDealDto> list=houseDealService.allHouseDealList();
-		//System.out.println("result list "+list.get(0));
 		
 		return new ResponseEntity<List<HouseDealDto>> (list, HttpStatus.OK);
 	}	
