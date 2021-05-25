@@ -1,6 +1,6 @@
 package com.ssafy.happyhouse.dto.areaDto;
 
-public class ScreeningCenterInfo {
+public class ScreeningCenterInfoDto {
 	private int screeningCenterInfoId;
 	private String name;
 	private String address;
@@ -8,10 +8,10 @@ public class ScreeningCenterInfo {
 	private String opertingHourSaturday;
 	private String opertingHourHoliday;
 
-	public ScreeningCenterInfo() {
+	public ScreeningCenterInfoDto() {
 	}
 
-	public ScreeningCenterInfo(int screeningCenterInfoId, String name, String address, String opertingHourWeekday, String opertingHourSaturday, String opertingHourHoliday) {
+	public ScreeningCenterInfoDto(int screeningCenterInfoId, String name, String address, String opertingHourWeekday, String opertingHourSaturday, String opertingHourHoliday) {
 		this.screeningCenterInfoId = screeningCenterInfoId;
 		this.name = name;
 		this.address = address;

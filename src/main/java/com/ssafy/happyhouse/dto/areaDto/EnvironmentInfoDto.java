@@ -1,16 +1,16 @@
 package com.ssafy.happyhouse.dto.areaDto;
 
-public class EnvironmentInfo {
+public class EnvironmentInfoDto {
 	private int EnvironmentInfoId;
 	private String name;
 	private String codeName;
 	private String address;
 
-	public EnvironmentInfo(int environmentInfoId) {
+	public EnvironmentInfoDto(int environmentInfoId) {
 		EnvironmentInfoId = environmentInfoId;
 	}
 
-	public EnvironmentInfo(int environmentInfoId, String name, String codeName, String address) {
+	public EnvironmentInfoDto(int environmentInfoId, String name, String codeName, String address) {
 		EnvironmentInfoId = environmentInfoId;
 		this.name = name;
 		this.codeName = codeName;

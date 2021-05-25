@@ -1,14 +1,14 @@
 package com.ssafy.happyhouse.dto.areaDto;
 
-public class InterestArea {
+public class InterestAreaDto {
 	private int interestAreaId;
 	private String userId;
 	private String dongcode;
 
-	public InterestArea() {
+	public InterestAreaDto() {
 	}
 
-	public InterestArea(int interestAreaId, String userId, String dongcode) {
+	public InterestAreaDto(int interestAreaId, String userId, String dongcode) {
 		this.interestAreaId = interestAreaId;
 		this.userId = userId;
 		this.dongcode = dongcode;

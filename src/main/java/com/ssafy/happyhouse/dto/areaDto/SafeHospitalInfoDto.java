@@ -1,15 +1,15 @@
 package com.ssafy.happyhouse.dto.areaDto;
 
-public class SafeHospitalInfo {
+public class SafeHospitalInfoDto {
 	private int safeHospitalInfoId;
 	private String name;
 	private String address;
 	private String phone;
 
-	public SafeHospitalInfo() {
+	public SafeHospitalInfoDto() {
 	}
 
-	public SafeHospitalInfo(int safeHospitalInfoId, String name, String address, String phone) {
+	public SafeHospitalInfoDto(int safeHospitalInfoId, String name, String address, String phone) {
 		this.safeHospitalInfoId = safeHospitalInfoId;
 		this.name = name;
 		this.address = address;

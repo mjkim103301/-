@@ -1,6 +1,6 @@
 package com.ssafy.happyhouse.dto.areaDto;
 
-public class CommercialInfo {
+public class CommercialInfoDto {
 	private int commercialInfoId;
 	private String shopName;
 	private String localName;
@@ -8,10 +8,10 @@ public class CommercialInfo {
 	private String lng;
 	private String lat;
 
-	public CommercialInfo() {
+	public CommercialInfoDto() {
 	}
 
-	public CommercialInfo(int commercialInfoId, String shopName, String localName, String address, String lng, String lat) {
+	public CommercialInfoDto(int commercialInfoId, String shopName, String localName, String address, String lng, String lat) {
 		this.commercialInfoId = commercialInfoId;
 		this.shopName = shopName;
 		this.localName = localName;
