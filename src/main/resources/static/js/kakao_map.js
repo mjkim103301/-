@@ -161,12 +161,17 @@ function showList(){
 														<div
 															class="h5 mb-0 font-weight-bold text-primary text-gray-800">${item.aptName}</div>
 														<div class="text-xs mb-0 text-gray-800">거래금액 :
-															${item.dealAmount}</div>
+															${item.dealAmount} (억)</div>
 														<div class="text-xs mb-0  text-gray-800">면적:
-															${item.area}</div>
+															${item.area} (m^2) </div>
 														<div class="text-xs mb-0  text-gray-800">
 															거래날짜:
 															${item.dealYear}.${item.dealMonth}.${item.dealDay}
+															
+														</div>
+														<div class="text-xs mb-0  text-gray-800">
+															동이름: 
+															${item.dong}
 															
 														</div>
 
