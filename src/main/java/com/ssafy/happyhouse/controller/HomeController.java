@@ -1,5 +1,6 @@
 package com.ssafy.happyhouse.controller;
 
+import com.ssafy.happyhouse.dto.UserDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import io.swagger.annotations.Api;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 @Api(value="HappyHouse" , description="HappyHouse Resources Management 2021")
@@ -47,9 +50,10 @@ public class HomeController {
 	}
 	
 	@GetMapping("admin")
-	public String userAdmin() {
+	public String admin(HttpSession session) {
+		UserDto user = (UserDto) session.getAttribute("user");
 		System.out.println("move user_admin");
-		return "admin/admin";
+		return user.isAdmin() ? "index" : "admin/admin";
 	}
 	
 	@GetMapping("shop")

@@ -7,6 +7,7 @@ import DetailArticle from "@/components/article/DetailArticle.vue";
 import UpdateArticle from "@/components/article/UpdateArticle.vue";
 import ListReply from "@/components/reply/ListReply.vue";
 import RemoveArticle from "@/components/article/RemoveArticle.vue";
+import ListUser from "@/components/admin/ListUser.vue";
 
 Vue.use(VueRouter);
 
@@ -45,6 +46,11 @@ const routes = [
         path: "/happyhouse/article/remove/:articleId",
         name: "RemoveArticle",
         component: RemoveArticle,
+    },
+    {
+        path: "/happyhouse/admin",
+        name: "ListUser",
+        component: ListUser,
     },
 ];
 

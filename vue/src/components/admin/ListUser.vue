@@ -2,6 +2,7 @@
     <div>
         <section id="" class="p-1">
             <div class="container">
+                <div>
                     <form class="form-inline float-right">
                         <div class="form-group mr-sm-2">
                             <select class="form-control" id="selectOption">
@@ -21,6 +22,7 @@
                         </button>
                     </form>
                 </div>
+
                 <div class="p-2 mb-5">
                     <table class="table table-hover">
                         <thead>
@@ -33,10 +35,7 @@
                             </tr>
                         </thead>
                         <tbody v-if="users.length > 0">
-                            <tr
-                                v-for="(user, index) in users"
-                                :key="index"
-                            >
+                            <tr v-for="(user, index) in users" :key="index">
                                 <td>{{ user.userId }}</td>
                                 <td>{{ user.userName }}</td>
                                 <td>{{ user.email }}</td>
@@ -46,6 +45,7 @@
                         </tbody>
                     </table>
                 </div>
+
                 <div class="mt-3">
                     <ul class="pagination justify-content-center">
                         <li class="page-item">
@@ -109,7 +109,7 @@ export default {
 
     data() {
         return {
-            users : [],
+            users: [],
             page: 1,
             lastPage: 1,
             navigationItem: [],
@@ -122,9 +122,7 @@ export default {
     },
     methods: {
         removeUserHandler(userId) {
-            http.delete(
-                `admin/user/remove/reply/${userId}`
-            )
+            http.delete(`admin/user/remove/${userId}`)
                 .then(({ status }) => {
                     if (status != 200) {
                         alert("에러 ! ");
@@ -148,9 +146,7 @@ export default {
 
         createNavigation() {
             this.navigationItem = [];
-            http.get(
-                `admin/user/list/navigation`
-            )
+            http.get(`admin/user/list/navigation`)
                 .then((response) => {
                     console.log(response);
                     if (response.status != 200) {
@@ -175,7 +171,7 @@ export default {
 
         listUser() {
             http.get(`admin/user/list`)
-                .then(({ response }) => {
+                .then((response) => {
                     console.log(response.status);
                     if (response.status != 200) {
                         alert("오류 발생");
@@ -191,9 +187,9 @@ export default {
         },
     },
     created() {
-        console.log("ReplyList created" + `${this.$route.params.articleId}`);
+        console.log("UserList created" + `${this.$route.params.articleId}`);
         this.$store.dispatch("getSession");
-        this.listReply();
+        this.listUser();
         this.createNavigation();
     },
 };

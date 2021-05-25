@@ -55,7 +55,7 @@ public class AdminController {
 		return new ResponseEntity<>(list, HttpStatus.OK);
 	}
 
-	@DeleteMapping("user/remove/reply/:userId")
+	@DeleteMapping("user/remove/:userId")
 	public ResponseEntity<Void> removeUser(@PathVariable int userId) {
 		adminService.removeUser(userId);
 		return new ResponseEntity<>(HttpStatus.OK);

@@ -11,7 +11,7 @@
 			and ${key} like CONCAT('%', #{word}, '%')
 		</if>
 		order 	by	user_id	desc
-		limit	#{startUserId},	#{userInterval}
+		limit	#{startUserId},	#{userListInterval}
 	</select>
 
 	<select id="getTotalUserCount"	parameterType="userListPageBean"		resultType="int">
