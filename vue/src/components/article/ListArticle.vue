@@ -177,11 +177,11 @@ export default {
             console.log(this.navigationItem);
             let params = this.$store.getters.pageParams;
             console.log({ params });
-            http.get(`board/pageNavigation`, { params })
+            http.get(`article/pageNavigation`, { params })
                 .then((response) => {
                     console.log(response);
                     if (response.status != 200) {
-                        alert("오류 발생");
+                        alert("오류 발생" + response.status);
                         return;
                     }
                     this.lastPage = response.data.totalPageCount;

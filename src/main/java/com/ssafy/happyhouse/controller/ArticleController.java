@@ -29,7 +29,7 @@ import io.swagger.annotations.Api;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/board")
+@RequestMapping("/article")
 
 @Api(value="HappyHouse" , description="게시글 관련 컨트롤러")
 public class ArticleController {
@@ -46,7 +46,7 @@ public class ArticleController {
 		, @ApiImplicitParam(name = "articleType", value = "게시판 종류", dataType = "string", paramType = "query")
 	})
 
-	@GetMapping("")
+	@GetMapping("/list")
 	public ResponseEntity<List<ArticleDto>> listArticle(@RequestParam(required = false) Map<String, String> params){
 		System.out.println(">>>>>moveArticle" + params.get("articleType"));
 		List<ArticleDto> result = articleService.listArticle(params);
@@ -71,7 +71,7 @@ public class ArticleController {
 	@ApiOperation(value = "글 상세보기")
 	@GetMapping("/{articleId}")
 	public ResponseEntity<ArticleDto> getArticle(@PathVariable int articleId){
-		System.out.println("GET /board/{articleId} => ");
+		System.out.println("GET /article/{articleId} => ");
 		ArticleDto articleDto = articleService.getArticle(articleId);
 		if(articleDto == null)   {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);

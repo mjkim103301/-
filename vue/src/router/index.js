@@ -36,13 +36,13 @@ const routes = [
     },
 
     {
-        path: "/happyhouse/article/update",
+        path: "/happyhouse/article/update/:articleId",
         name: "UpdateArticle",
         component: UpdateArticle,
     },
 
     {
-        path: "/happyhouse/article/remove",
+        path: "/happyhouse/article/remove/:articleId",
         name: "RemoveArticle",
         component: RemoveArticle,
     },

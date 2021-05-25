@@ -1,5 +1,22 @@
 <template>
     <div>
+        <div class="text-right">
+            <router-link class="btn btn-primary" :to="`/happyhouse/article`"
+                >목록</router-link
+            >
+            <router-link
+                v-if="session.userId == article.userId || session.admin == 1"
+                class="btn btn-primary"
+                :to="`/happyhouse/article/update/${article.articleId}`"
+                >수정</router-link
+            >
+            <router-link
+                v-if="session.userId == article.userId || session.admin == 1"
+                class="btn btn-primary"
+                :to="`/happyhouse/article/remove/${article.articleId}`"
+                >삭제</router-link
+            >
+        </div>
         <table class="table table-condensed w-25" v-if="article">
             <tr>
                 <th>글번호</th>
@@ -56,21 +73,6 @@
             </tr>
         </table>
 
-        <div class="text-right">
-            <router-link class="btn btn-primary" :to="`/happyhouse/article`"
-                >목록</router-link
-            >
-            <router-link
-                class="btn btn-primary"
-                :to="`/happyhouse/article/update/${article.articleId}`"
-                >수정</router-link
-            >
-            <router-link
-                class="btn btn-primary"
-                :to="`/happyhouse/article/remove/${article.articleId}`"
-                >삭제</router-link
-            >
-        </div>
         <router-view></router-view>
     </div>
 </template>
@@ -80,7 +82,7 @@ import { mapGetters } from "vuex";
 
 export default {
     computed: {
-        ...mapGetters(["article"]),
+        ...mapGetters(["article", "session"]),
     },
     filters: {
         toDate: function (regtime) {
@@ -91,9 +93,12 @@ export default {
         console.log(`[search] created`);
         this.$store.dispatch(
             "getArticle",
-            `/board/${this.$route.params.articleId}`
+            `/article/${this.$route.params.articleId}`
         );
         console.log(`search.vue article 경로 ${this.$route.params.articleId}`);
+    },
+    mounted() {
+        this.$store.dispatch("getSession");
     },
 };
 </script>

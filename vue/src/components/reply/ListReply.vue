@@ -125,7 +125,7 @@ export default {
     methods: {
         removeReplyHandler(reply) {
             http.delete(
-                `board/${this.$route.params.articleId}/reply/${reply.replyId}`
+                `article/${this.$route.params.articleId}/reply/${reply.replyId}`
             )
                 .then(({ status }) => {
                     if (status != 200) {
@@ -156,7 +156,7 @@ export default {
             this.createReply();
         },
         createReply() {
-            http.post(`board/${this.$route.params.articleId}/reply`, {
+            http.post(`article/${this.$route.params.articleId}/reply`, {
                 userId: "ssafy",
                 articleId: `${this.$route.params.articleId}`,
                 content: this.content,
@@ -178,7 +178,7 @@ export default {
         createNavigation() {
             this.navigationItem = [];
             http.get(
-                `board/${this.$route.params.articleId}/reply/${this.page}/navigation`
+                `article/${this.$route.params.articleId}/reply/${this.page}/navigation`
             )
                 .then((response) => {
                     console.log(response);
@@ -204,11 +204,11 @@ export default {
 
         listReply() {
             console.log(
-                `/board/${this.$route.params.articleId}/reply/${this.page}`
+                `/article/${this.$route.params.articleId}/reply/${this.page}`
             );
             this.$store.dispatch(
                 "getReplies",
-                `/board/${this.$route.params.articleId}/reply/${this.page}`
+                `/article/${this.$route.params.articleId}/reply/${this.page}`
             );
         },
     },
