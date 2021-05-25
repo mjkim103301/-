@@ -35,6 +35,7 @@ public class HouseDealController {
 	@Autowired
 	private HouseDealService houseDealService;
 	
+	private List<HouseDealDto> list;
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	@ApiOperation(value = "실거래가 리스트")
@@ -46,8 +47,8 @@ public class HouseDealController {
 		
 		for(Map<String, Object> p:params) {
 			String dongcode=(String) p.get("dongcode");
-			
-			if(dongcode.length()==0) {
+			System.out.println("dongcode "+dongcode);
+			if(dongcode==null||dongcode.length()==0) {
 				System.out.println("dongocde is null");
 				continue;
 			}
@@ -56,13 +57,18 @@ public class HouseDealController {
 			
 			houseDealDtoList.add(new HouseDealDto((String)p.get("dong"), Long.parseLong(dongcode), Long.parseLong(guguncode)));
 		}
-		
-		//System.out.println(">>>moveHouseDeal Search "+ houseDealDtoList.get(0).toString());
-		List<HouseDealDto> list=houseDealService.houseDealList(houseDealDtoList);
-		//System.out.println("result list "+list.get(0));
+		System.out.println("houseDealDtoList size "+houseDealDtoList.size());
+		if(houseDealDtoList.size()>0) {
+			list=houseDealService.houseDealList(houseDealDtoList);
+		}else {
+			System.out.println("controller houseDealSearch AptName "+params.get(0));
+			System.out.println("controller houseDealSearch AptName "+(String) params.get(0).get("keyword"));
+			list=houseDealService.houseDealList((String) params.get(0).get("keyword"));
+		}
 		
 		return new ResponseEntity<List<HouseDealDto>> (list, HttpStatus.OK);
 	}
+	
 	@ApiOperation(value = "실거래가 리스트")
 	@GetMapping(path="/search")
 	public ResponseEntity<List<HouseDealDto>> allHouseDealSearch() {

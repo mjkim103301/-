@@ -98,6 +98,7 @@ function getAddressInform(keyword) {
             console.log('addressInformData: ', addressInformData)
             removeHouseDeal()
             getHouseDeal(addressInformData)
+           
         },
         error: function (err) {
             console.log('getAddressInform error: ', err)
@@ -139,7 +140,8 @@ function getHouseDeal(addressInformData){
 	    })
 }
 
-function 
+
+//function  
 
 function showList(){
 	 let html=``

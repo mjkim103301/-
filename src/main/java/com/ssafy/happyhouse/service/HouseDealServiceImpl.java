@@ -31,7 +31,16 @@ public class HouseDealServiceImpl implements HouseDealService {
 	public List<HouseDealDto> allHouseDealList() {
 		list = new ArrayList<>();
 
-		list = dao.allHouseDealList();
+		list.addAll(dao.allHouseDealList());
+
+		return list;
+	}
+
+	@Override
+	public List<HouseDealDto> houseDealList(String keyword) {
+		System.out.println("houseDealAptList keyword "+keyword);
+		list = new ArrayList<>();
+		list.addAll(dao.houseDealAptList(keyword));
 
 		return list;
 	}
