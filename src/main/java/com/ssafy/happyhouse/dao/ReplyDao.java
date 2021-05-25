@@ -1,7 +1,7 @@
 package com.ssafy.happyhouse.dao;
 
 import com.ssafy.happyhouse.dto.ReplyDto;
-import com.ssafy.happyhouse.dto.pagedto.ReplyPageBean;
+import com.ssafy.happyhouse.dto.pageDto.ReplyPageBean;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;

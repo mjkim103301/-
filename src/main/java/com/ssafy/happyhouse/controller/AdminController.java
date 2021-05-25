@@ -1,7 +1,7 @@
 package com.ssafy.happyhouse.controller;
 
 import com.ssafy.happyhouse.dto.UserDto;
-import com.ssafy.happyhouse.dto.pagedto.PageNavigation;
+import com.ssafy.happyhouse.dto.pageDto.PageNavigation;
 import com.ssafy.happyhouse.service.AdminService;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;

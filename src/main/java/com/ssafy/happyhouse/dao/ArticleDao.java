@@ -1,7 +1,7 @@
 package com.ssafy.happyhouse.dao;
 
 import com.ssafy.happyhouse.dto.ArticleDto;
-import com.ssafy.happyhouse.dto.pagedto.ArticlePageBean;
+import com.ssafy.happyhouse.dto.pageDto.ArticlePageBean;
 import com.ssafy.happyhouse.dto.ReplyDto;
 
 import java.util.List;

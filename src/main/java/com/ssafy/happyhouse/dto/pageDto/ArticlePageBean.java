@@ -1,4 +1,4 @@
-package com.ssafy.happyhouse.dto.pagedto;
+package com.ssafy.happyhouse.dto.pageDto;
 
 /** UI 화면 페이지에 대한 정보를 표시하는 클래스 */
 public class ArticlePageBean {

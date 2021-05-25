@@ -5,8 +5,8 @@ import com.ssafy.happyhouse.dto.*;
 import java.util.List;
 import java.util.Map;
 
-import com.ssafy.happyhouse.dto.pagedto.ArticlePageBean;
-import com.ssafy.happyhouse.dto.pagedto.PageNavigation;
+import com.ssafy.happyhouse.dto.pageDto.ArticlePageBean;
+import com.ssafy.happyhouse.dto.pageDto.PageNavigation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
