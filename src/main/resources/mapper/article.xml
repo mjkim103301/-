@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ssafy.happyhouse.dao.ArticleDao">
+	<select id="listArticle"	parameterType="articlePageBean"		resultType="articleDto">
+		select 	*
+		from 	article
+		where 	1 = 1
+		<if test = "key != null and key != '' and word != null">
+			and ${key} like CONCAT('%', #{word}, '%')
+		</if>
+		<if test = "articleType != null and articleType != ''">
+			and article_type = #{articleType}
+		</if>
+		order 	by	article_id	desc
+		limit	#{startArticleId},	#{articleInterval}
+	</select>
+
+	<select id="getTotalPageCount"		parameterType="articlePageBean"		resultType="int">
+		select 	count(*)
+		from 	article
+		where 	1 = 1
+		<if test = "key != null and key != '' and word != null">
+			and ${key} like CONCAT('%', #{word}, '%')
+		</if>
+		<if test = "articleType != null and articleType != ''">
+			and article_type = #{articleType}
+		</if>
+	</select>
+
+	<select id="getArticle"		parameterType="int"		resultType="articleDto">
+		select 	*
+		from 	article
+		where 	article_id = #{articleId}
+	</select>
+
+	<update id="hitArticle"		parameterType="int"		>
+		update	article
+		set		hit = hit + 1
+		where	article_id = #{articleId}
+	</update>
+
+	<insert id="writeArticle"	parameterType="articleDto">
+		insert	
+		into	article
+		values	(	null
+					,#{userId}
+					,#{subject}
+					,#{content}
+					,now()
+					,0
+					,#{articleType})
+	</insert>
+
+	<delete id="removeArticle"	parameterType="int">
+		delete
+		from	article
+		where	article_id = #{articleId}
+	</delete>
+
+	<update id="updateArticle"	parameterType="articleDto">
+		update 	article
+		set		subject = #{subject}
+				, content = #{content}
+		where	article_Id = #{articleId}
+	</update>
+
+
+
+</mapper>

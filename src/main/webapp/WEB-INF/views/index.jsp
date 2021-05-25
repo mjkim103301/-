@@ -44,9 +44,9 @@
 			<h2>HappyHouse에서 주택 실거래가를 검색하고 상권 정보와 환경 정보를 볼 수 있어요!</h2>
 			<a href="housedeal" class="btn-get-started scrollto">실거래가 검색하러 가기</a>
 		</div>
-		<div class="container text-center text-md-left" data-aos="fade-up" style="padding-top:10%">
+	<!-- 	<div class="container text-center text-md-left" data-aos="fade-up" style="padding-top:10%">
 			<div class="NewsTables row text-white">
-				<!-- 최고 거래가 Article Start  -->
+				최고 거래가 Article Start 
 				<article class="article_price col ">
 					<h3>이번주 거래가 순위</h3>
 					<table class="table table_striped text-white">
@@ -72,9 +72,9 @@
 						</tbody>
 					</table>
 				</article>
-				<!-- 인기글 Article End  -->
+				인기글 Article End 
 
-				<!-- 뉴스 Article Start  -->
+				뉴스 Article Start 
 				<article class="article_news col ">
 					<h3>부동산 뉴스</h3>
 					<table class="table table_bordered table_hover text-white">
@@ -99,7 +99,7 @@
 					
 				</article>
 			</div>
-			</div>
+			</div> -->
 	</section>
 
 
@@ -134,7 +134,7 @@
 				<div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
 
 					<div class="icon-box icon-box-cyan">
-						<a href="${root }/main.do?action=mvShopInfo" class="text-dark">
+						<a href="shop" class="text-dark">
 							<div class="icon">
 								<i class="bx bxl-dribbble"></i>
 							</div>
@@ -149,7 +149,7 @@
 
 
 					<div class="icon-box icon-box-green">
-						<a href="${root }/main.do?action=mvPollutionInfo" class="text-dark">
+						<a href="pollution" class="text-dark">
 							<div class="icon">
 								<i class="bx bx-world"></i>
 							</div>
@@ -163,7 +163,7 @@
 				<div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
 
 					<div class="icon-box icon-box-blue">
-						<a href="${root }/main.do?action=mvNotice" class="text-dark">
+						<a href="article" class="text-dark">
 							<div class="icon">
 								<i class="bx bx-file"></i>
 							</div>
@@ -211,20 +211,20 @@
 
 			<div class="section-title" data-aos="fade-up">
 				<h2>Team</h2>
-				<p>서울 8반 4조 박재준 김민지 진미령 입니다.</p>
+				<p>서울 8반 3조 김민기 김민지 입니다.</p>
 			</div>
 
 			<div class="row">
 
 				<div class="col" data-aos="fade-up">
 					<div class="member">
-						<img src="img/team/박재준.jpg" class="img-fluid" alt="">
+						<img src="img/team/temp.jpg" class="img-fluid" alt="">
 						<div class="member-info">
 							<div class="member-info-content">
-								<h4>박재준</h4>
+								<h4>김민기</h4>
 							</div>
 							<div class="social">
-								<a href="https://www.instagram.com/jjoonjjoonii/"><i class="icofont-facebook"></i></a> <a href="https://www.instagram.com/jjoonjjoonii/"><i class="icofont-instagram"></i></a>
+								<a href="https://github.com/cherrytomato1"><i class="icofont-github"></i></a> <a href="https://www.instagram.com/jjoonjjoonii/"><i class="icofont-instagram"></i></a>
 							</div>
 						</div>
 					</div>
@@ -232,31 +232,19 @@
 
 				<div class="col" data-aos="fade-up" data-aos-delay="100">
 					<div class="member">
-						<img src="img/team/김민지.jpg" class="img-fluid" alt="">
+						<img src="img/team/temp.jpg" class="img-fluid" alt="">
 						<div class="member-info">
 							<div class="member-info-content">
 								<h4>김민지</h4>
 							</div>
 							<div class="social">
-								<a href="https://www.instagram.com/_minzikim/"><i class="icofont-facebook"></i></a> <a href="https://www.instagram.com/_minzikim/"><i class="icofont-instagram"></i></a>
+								<a href="https://github.com/mjkim103301"><i class="icofont-github"></i></a> <a href="https://www.instagram.com/_minzikim/"><i class="icofont-instagram"></i></a>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="col" data-aos="fade-up" data-aos-delay="100">
-					<div class="member">
-						<img src="img/team/진미령.jpg" class="img-fluid" alt="">
-						<div class="member-info">
-							<div class="member-info-content">
-								<h4>진미령</h4>
-							</div>
-							<div class="social">
-								<a href="https://www.instagram.com/mirrrong__jj/"><i class="icofont-facebook"></i></a> <a href="https://www.instagram.com/mirrrong__jj/"><i class="icofont-instagram"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
+				
 			</div>
 
 		</div>
@@ -265,39 +253,7 @@
 	<!-- End #main -->
 
 	<!-- ======= Footer ======= -->
-	<footer id="footer">
-		<div class="footer-top">
-			<div class="container">
-				<div class="row">
-
-					<div class="col-lg-3 col-md-6">
-						<div class="footer-info">
-							<h3>HappyHouse</h3>
-							<h5>SSAFY 5th 서울 8반</h5>
-							<h5>박재준 김민지 진미령</h5>
-						</div>
-					</div>
-
-					<div class="col-lg-2 col-md-6 footer-links">
-						<h4>Links</h4>
-						<ul>
-							<li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-							<li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="container">
-			<div class="copyright">
-				&copy; Copyright <strong><span>Maxim</span></strong>. All Rights Reserved
-			</div>
-			<div class="credits">
-				Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-			</div>
-		</div>
-	</footer>
+	<jsp:include page="include/footer.jsp" />
 	<!-- End Footer -->
 
 	<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>

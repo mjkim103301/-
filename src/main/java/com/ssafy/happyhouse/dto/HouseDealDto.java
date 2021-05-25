@@ -1,12 +1,14 @@
 package com.ssafy.happyhouse.dto;
 
 public class HouseDealDto {
+
+
 	private long no;
 	private String dong;
 	private String aptName;
 	private long dongcode;
 	private long guguncode;
-	private long dealAmount;
+	private String dealAmount;
 	private int buildYear;
 	private int dealYear;
 	private int dealMonth;
@@ -24,9 +26,14 @@ public class HouseDealDto {
 
 	}
 	
+	public HouseDealDto(String dong, long dongcode, long guguncode) {
+		this.dong=dong;
+		this.dongcode=dongcode;
+		this.guguncode=guguncode;
+	}
 	
 
-	public HouseDealDto(long no, String dong, String aptName, long dongcode, long guguncode, long dealAmount,
+	public HouseDealDto(long no, String dong, String aptName, long dongcode, long guguncode, String dealAmount,
 			int buildYear, int dealYear, int dealMonth, int dealDay, double area, double floor, String jibun, int type,
 			long rentMoney, String img, String lat, String lng) {
 		super();
@@ -90,11 +97,11 @@ public class HouseDealDto {
 		this.guguncode = guguncode;
 	}
 
-	public long getDealAmount() {
+	public String getDealAmount() {
 		return dealAmount;
 	}
 
-	public void setDealAmount(long dealAmount) {
+	public void setDealAmount(String dealAmount) {
 		this.dealAmount = dealAmount;
 	}
 
@@ -195,7 +202,18 @@ public class HouseDealDto {
 	}
 
 
-
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("HouseDealDto [no=").append(no).append(", dong=").append(dong).append(", aptName=")
+				.append(aptName).append(", dongcode=").append(dongcode).append(", guguncode=").append(guguncode)
+				.append(", dealAmount=").append(dealAmount).append(", buildYear=").append(buildYear)
+				.append(", dealYear=").append(dealYear).append(", dealMonth=").append(dealMonth).append(", dealDay=")
+				.append(dealDay).append(", area=").append(area).append(", floor=").append(floor).append(", jibun=")
+				.append(jibun).append(", type=").append(type).append(", rentMoney=").append(rentMoney).append(", img=")
+				.append(img).append(", lat=").append(lat).append(", lng=").append(lng).append("]");
+		return builder.toString();
+	}
 	
 
 }
