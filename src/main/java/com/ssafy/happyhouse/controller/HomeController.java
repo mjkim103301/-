@@ -56,15 +56,10 @@ public class HomeController {
 		return user.isAdmin() ?  "admin/admin" : "index";
 	}
 	
-	@GetMapping("shop")
+	@GetMapping("interested")
 	public String shop() {
-		System.out.println("move shop");
-		return "shop_info";
+		System.out.println("move interested");
+		return "interested/interested_info";
 	}
-	
-	@GetMapping("pollution")
-	public String pollution() {
-		System.out.println("move pollution");
-		return "pollution_info";
-	}
+
 }
