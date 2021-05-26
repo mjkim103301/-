@@ -118,12 +118,12 @@ function getInterestedAreaListJson() {
     });
 }
 
-function showInterestedAreaList() {
-    console.log("showInterestedAreaList");
-    let html = ``;
-    interestedAreaList.forEach((item, index) => {
-        console.log("item ", item);
-        html += `
+
+function showInterestedAreaList(){
+	console.log('showInterestedAreaList')
+	let html=``
+	interestedAreaList.forEach((item, index)=>{
+		html+=`
 			<div class="dropdown-item"  onclick = "selectArea( ${index})" >  ${item.city}  ${item.gugun}  ${item.dong} </div >
 				`;
     });
@@ -135,32 +135,33 @@ function showInterestedAreaList() {
         $(".interested_area_menu_right").html(html);
     }
 }
-function selectArea() {
-    console.log("selectArea");
-}
 
-$(document).ready(function () {
-    $("");
-});
-function selectArea(index) {
-    let city = interestedAreaList[index].city;
-    let gugun = interestedAreaList[index].gugun;
-    let dong = interestedAreaList[index].dong;
-    let dongcode = interestedAreaList[index].dongcode;
-    let guguncode = interestedAreaList[index].dongcode.substring(0, 5);
-
-    let html = `
+function selectArea(index){
+	let city=interestedAreaList[index].city
+	let gugun=interestedAreaList[index].gugun
+	let dong=interestedAreaList[index].dong
+	let dongcode=interestedAreaList[index].dongcode
+	let guguncode=interestedAreaList[index].dongcode.substring(0, 5)
+	
+	let html=`
 	<div>${city} ${gugun} ${dong}</div>
-		
+	
 	`;
-    if (position == "left") {
-        $(".interested_area_select_left").empty();
-        $(".interested_area_select_left").html(html);
-    } else if (position == "right") {
-        $(".interested_area_select_right").empty();
-        $(".interested_area_select_right").html(html);
+	
+	console.log('selectArea dongcode ', dongcode)
+	if(position=='left'){
+		 $(".interested_area_select_left").empty();
+		$(".interested_area_select_left").html(html);
+		showShopInfoLeft(dongcode)
+		showInvironmentInfoLeft(dongcode)
+	}else if(position=='right'){
+		 $(".interested_area_select_right").empty();
+		$(".interested_area_select_right").html(html);
+		showShopInfoRight(dongcode)
+		showInvironmentInfoRight(dongcode)
     }
-
     getList(gugun, position, "center");
     getList(gugun, position, "hospital");
+	
 }
+
