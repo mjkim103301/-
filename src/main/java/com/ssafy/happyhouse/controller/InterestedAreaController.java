@@ -1,9 +1,6 @@
 package com.ssafy.happyhouse.controller;
 
-import com.ssafy.happyhouse.dto.areaDto.CommercialInfoDto;
-import com.ssafy.happyhouse.dto.areaDto.EnvironmentInfoDto;
-import com.ssafy.happyhouse.dto.areaDto.InterestedAreaDto;
-import com.ssafy.happyhouse.dto.areaDto.SafeHospitalInfoDto;
+import com.ssafy.happyhouse.dto.areaDto.*;
 import com.ssafy.happyhouse.service.InterestedAreaService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -65,6 +62,14 @@ public class InterestedAreaController {
 	public ResponseEntity<List<SafeHospitalInfoDto>> getSafeHospitalInfoList(@PathVariable String gugun) {
 		System.out.println("[Interested controller] => /interested/safehospital/" + gugun);
 		List<SafeHospitalInfoDto> list = interestedAreaService.getSafeHospitalInfoList(gugun);
+		return new ResponseEntity<>(list, HttpStatus.OK);
+	}
+
+	@ApiOperation(value = "진료소 정보 가져오기")
+	@GetMapping("/screeningcenter/{gugun}")
+	public ResponseEntity<List<ScreeningCenterInfoDto>> getScreeningCenterInfoList(@PathVariable String gugun) {
+		System.out.println("[Interested controller] => /interested/screeningcenter/" + gugun);
+		List<ScreeningCenterInfoDto> list = interestedAreaService.getScreeningCenterInfoList(gugun);
 		return new ResponseEntity<>(list, HttpStatus.OK);
 	}
 }
