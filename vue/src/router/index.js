@@ -7,7 +7,7 @@ import UpdateArticle from "@/components/article/UpdateArticle.vue";
 import ListReply from "@/components/reply/ListReply.vue";
 import RemoveArticle from "@/components/article/RemoveArticle.vue";
 import ListUser from "@/components/admin/ListUser.vue";
-import Interested from "@/components/interested/Interested.vue";
+//import Interested from "@/components/interested/Interested.vue";
 
 Vue.use(VueRouter);
 
@@ -54,14 +54,6 @@ const routes = [
         path: "/happyhouse/admin",
         name: "ListUser",
         component: ListUser,
-    },
-
-
-    //관심지역
-     {
-        path: "/happyhouse/interested",
-        name: "Interested",
-        component: Interested,
     },
 ];
 

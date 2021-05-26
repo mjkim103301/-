@@ -1,5 +1,9 @@
 package com.ssafy.happyhouse.controller;
 
+import com.ssafy.happyhouse.dto.UserDto;
+import com.ssafy.happyhouse.dto.areaDto.CommercialInfoDto;
+import com.ssafy.happyhouse.dto.areaDto.EnvironmentInfoDto;
+import com.ssafy.happyhouse.dto.areaDto.InterestedAreaDto;
 import com.ssafy.happyhouse.dto.areaDto.*;
 import com.ssafy.happyhouse.service.InterestedAreaService;
 import io.swagger.annotations.Api;
@@ -11,7 +15,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 
 @Api(value = "관심 지역 컨트롤러")
@@ -27,9 +35,27 @@ public class InterestedAreaController {
 
 	@ApiOperation(value = "관심지역 추가하기")
 	@PostMapping("/register")
-	public ResponseEntity<Void> addInterestArea(@RequestBody InterestedAreaDto interestedAreaDto) {
-		System.out.println("[Interested controller] => /interested/register, body : " + interestedAreaDto);
-		interestedAreaService.addInterestArea(interestedAreaDto);
+	public ResponseEntity<Void> addInterestArea(@RequestBody List<Map<String,Object>> params, HttpSession session) {
+		System.out.println("add interest area params: "+params);
+		
+		InterestedAreaDto interestedAreaDto;
+		UserDto userDto = (UserDto) session.getAttribute("user");
+		
+		
+		for(Map<String, Object> p:params) {
+			String dongcode=(String) p.get("dongcode");
+			System.out.println("dongcode "+dongcode);
+			if(dongcode==null||dongcode.length()==0) {
+				System.out.println("dongocde is null");
+				continue;
+			}
+			String dong=(String)p.get("dong");
+			
+			interestedAreaDto=new InterestedAreaDto(0, userDto.getUserId(), dongcode, dong);
+			System.out.println("[Interested controller] => /interested/register, body : " + interestedAreaDto);
+			interestedAreaService.addInterestArea(interestedAreaDto);
+		}
+		
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
