@@ -40,3 +40,4 @@ src/main/resources/static/vue/notice/css/chunk-vendors.css
 src/main/resources/static/vue/notice/js/chunk-vendors.js
 src/main/resources/static/vue/notice/favicon.ico
 src/main/resources/static/vue/notice/index.html
+vue/package-lock.json
