@@ -59,17 +59,19 @@
 					<div class="">
 
 
+						<div class="row">
 
-						<div class="dropdown">
-							<button type="button" class="btn btn-primary dropdown-toggle interested_area_select_left"
-								data-toggle="dropdown"  onclick="getInterestedAreaListLeft()">
-								관심지역 선택하기
-							</button>
-							<div class="dropdown-menu interested_area_menu_left">
-								<a class="dropdown-item" href="#">서울시 00구 00동 </a> 
+							<div class="dropdown col-6">
+								<button type="button" class="btn btn-primary dropdown-toggle"
+									data-toggle="dropdown" onclick="getInterestedAreaListLeft()">
+									관심지역 선택하기</button>
+								<div class="dropdown-menu interested_area_menu_left">
+									<a class="dropdown-item" href="#">서울시 00구 00동 </a>
+								</div>
 							</div>
-						</div>
 
+							<div class="col-6 interested_area_select_left">이거 선택함</div>
+						</div>
 
 						<div id="interested_map_left" style="width: 100%; height: 500px"></div>
 
@@ -159,19 +161,20 @@
 					<div class="">
 
 
-
-						<div class="dropdown">
-							<button type="button" class="btn btn-primary dropdown-toggle interested_area_select_right"
-								data-toggle="dropdown"  onclick="getInterestedAreaListRight()">
-								관심지역 선택하기
-								</button>
-							<div class="dropdown-menu interested_area_menu_right" >
-								<a class="dropdown-item" href="#">서울시 00구 00동</a> <a
-									class="dropdown-item" href="#">용인시 00구 00동</a>
+						<div class="row">
+							<div class="dropdown col-6">
+								<button type="button" class="btn btn-primary dropdown-toggle "
+									data-toggle="dropdown" onclick="getInterestedAreaListRight()">
+									관심지역 선택하기</button>
+								<div class="dropdown-menu interested_area_menu_right">
+									<a class="dropdown-item" href="#">서울시 00구 00동</a> <a
+										class="dropdown-item" href="#">용인시 00구 00동</a>
+								</div>
 							</div>
+
+							<div class="col-6 interested_area_select_right"> 이거 선택함</div>
+
 						</div>
-
-
 						<div id="interested_map_right" style="width: 100%; height: 500px"></div>
 
 
