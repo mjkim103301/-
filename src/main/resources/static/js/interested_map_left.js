@@ -2,7 +2,7 @@ var container = document.getElementById('interested_map_left'); // 지도를 담
 																// DOM 레퍼런스
 var options = { // 지도를 생성할 때 필요한 기본 옵션
 		center: new kakao.maps.LatLng(37.5042135, 127.0216985), // 지도의 중심좌표
-        level: 7, // 지도의 확대 레벨
+        level: 5, // 지도의 확대 레벨
 };
 
 // 지도 생성 및 객체 리턴
