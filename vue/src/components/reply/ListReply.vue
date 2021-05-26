@@ -76,7 +76,7 @@
                     >
                         <textarea
                             rows="2"
-                            class="form-control col-sm-10"
+                            class="form-control col-sm-9 ml-3"
                             ref="content"
                             id="content"
                             v-model="content"
@@ -85,7 +85,7 @@
                         ></textarea>
                         <button
                             type="button"
-                            class="btn btn-info pull-right ml-1 col-sm-2"
+                            class="btn btn-info pull-right ml-2 col-sm-2"
                             @click="createReplyHandler"
                         >
                             댓글 작성

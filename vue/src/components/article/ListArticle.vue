@@ -235,7 +235,7 @@ export default {
                     idx = 3;
                     break;
             }
-            html = `<div> <`;
+            // let html = `<div> <`;
             params.key =
                 document.getElementsByClassName("selectOption")[idx].value;
             params.word =
