@@ -1,30 +1,29 @@
 <template>
     <div>
         <div class="text-right">
-            <router-link class="btn btn-primary" :to="`/happyhouse/article`"
+            <router-link class="btn btn-info" :to="`/happyhouse/article`"
                 >목록</router-link
             >
             <router-link
                 v-if="session.userId == article.userId || session.admin == 1"
-                class="btn btn-primary"
+                class="btn btn-info ml-2"
                 :to="`/happyhouse/article/update/${article.articleId}`"
                 >수정</router-link
             >
             <router-link
                 v-if="session.userId == article.userId || session.admin == 1"
-                class="btn btn-primary"
+                class="btn btn-info ml-2"
                 :to="`/happyhouse/article/remove/${article.articleId}`"
                 >삭제</router-link
             >
         </div>
-        <table class="table table-condensed w-25" v-if="article">
-            <tr>
-                <th>글번호</th>
-                <td v-text="article.articleId"></td>
-            </tr>
-            <tr>
-                <th>작성자</th>
-                <td>
+        <div class="" v-if="article">
+            <div v-if="article.articleType == 'QNA'">QnA 게시판</div>
+            <div v-if="article.articleType == 'NOTICE'">공지사항</div>
+            <div v-if="article.articleType == 'FREE'">자유 게시판</div>
+            <h2 v-text="article.subject" class="mt-2"></h2>
+            <div class="row">
+                <div class="col-sm-6">
                     <span
                         v-if="article.userCampus == 'ADMIN'"
                         class="badge badge-danger"
@@ -59,28 +58,17 @@
                         >손님</span
                     >
                     {{ article.userId }}
-                </td>
-
-                <td></td>
-            </tr>
-            <tr>
-                <th>제목</th>
-                <td v-text="article.subject"></td>
-            </tr>
-            <tr>
-                <th>날짜</th>
-                <td>{{ article.registerTime | toDate }}</td>
-            </tr>
-
-            <tr>
-                <th>내용</th>
-                <td colspan="2" v-text="article.content"></td>
-            </tr>
-            <tr>
-                <th>조회수</th>
-                <td>{{ article.hit }}</td>
-            </tr>
-        </table>
+                    <span class="ml-3">
+                        {{ article.registerTime | toDate }}</span
+                    >
+                </div>
+                <div class="col-sm-6 text-right" style="text-align: center">
+                    👀 {{ article.hit }}
+                </div>
+            </div>
+            <hr />
+            <div v-text="article.content" class="mb-4"></div>
+        </div>
 
         <router-view></router-view>
     </div>
@@ -95,7 +83,7 @@ export default {
     },
     filters: {
         toDate: function (regtime) {
-            return moment(new Date(regtime)).format("YYYY.MM.DD");
+            return moment(new Date(regtime)).format("YYYY.MM.DD HH:MM");
         },
     },
     created() {
