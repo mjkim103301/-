@@ -6,7 +6,7 @@ var options = { // 지도를 생성할 때 필요한 기본 옵션
 };
 
 // 지도 생성 및 객체 리턴
-var map = new kakao.maps.Map(container, options); 
+var mapLeft = new kakao.maps.Map(container, options); 
 
 // 주소-좌표 변환 객체를 생성합니다
 var geocoder = new kakao.maps.services.Geocoder();
@@ -84,7 +84,7 @@ function makeShopMarkerLeft(infoDataList, type){
 
 		        // 결과값으로 받은 위치를 마커로 표시합니다
 		        var marker = new kakao.maps.Marker({
-		            map: map,
+		            map: mapLeft,
 		            position: coords,
 		            image : markerImage // 마커 이미지
 		        });
@@ -93,10 +93,10 @@ function makeShopMarkerLeft(infoDataList, type){
 		        var infowindow = new kakao.maps.InfoWindow({
 		            content: `<div style="width:150px;text-align:center;padding:6px 0;">${item.shopName}</div>`
 		        });
-		        infowindow.open(map, marker);
+		        infowindow.open(mapLeft, marker);
 
 		        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-		        map.setCenter(coords);
+		        mapLeft.setCenter(coords);
 		    } 
 		});    
 	})
@@ -116,7 +116,7 @@ function makeInvironmentMarkerLeft(infoDataList, type){
 
 		        // 결과값으로 받은 위치를 마커로 표시합니다
 		        var marker = new kakao.maps.Marker({
-		            map: map,
+		            map: mapLeft,
 		            position: coords
 		        });
 
@@ -124,10 +124,10 @@ function makeInvironmentMarkerLeft(infoDataList, type){
 		        var infowindow = new kakao.maps.InfoWindow({
 		            content: `<div style="width:150px;text-align:center;padding:6px 0;">${item.name}</div>`
 		        });
-		        infowindow.open(map, marker);
+		        infowindow.open(mapLeft, marker);
 
 		        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-		        map.setCenter(coords);
+		        mapLeft.setCenter(coords);
 		    } 
 		});    
 	})

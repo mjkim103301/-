@@ -288,8 +288,11 @@
 	<!-- 카카오 맵 js -->
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c4c8e04658a5aa22ab7e8258713d9b0e&libraries=services"></script>
+		<script src="js/interested_map_right.js"></script>
 	<script src="js/interested_map_left.js"></script>
-	<script src="js/interested_map_right.js"></script>
+	
+	
+	
 
 </body>
 
