@@ -87,9 +87,9 @@ public class UserController {
 	}
 
 	@PostMapping("/register")
-	public ResponseEntity<Void> registerMember(@RequestBody UserDto member) {
+	public ResponseEntity<Void> registerMember(@RequestBody UserDto user) {
 		System.out.println("/register => POST >>>>>>>>>>>>>>");
-		userService.registerUser(member);
+		userService.registerUser(user);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 

@@ -31,39 +31,19 @@
 
 <!-- Template Main CSS File -->
 <link href="assets/css/style.css" rel="stylesheet">
-</head>
-<body>
-<header id="header" class="fixed-top">
-		<div class="container d-flex">
-			<div class="logo mr-auto">
-				<h1 class="text-light d-inline-block">
-					<a href="index.html">HappyHouse</a>
-				</h1>
-				<span class="ml-1"><a href="notice.html">공지사항</a></span>
-			</div>
-			<nav class="nav-menu d-none d-lg-block">
-				<ul>
-					<li class="active"><a href="index.html">Home</a></li>
-					<li><a href="#about">About Us</a></li>
-					<li><a href="#services">Services</a></li>
-					<li><a href="#team">Team</a></li>
-
-					<li><a id="login-nav" href=""
-						class="login-nav font-weight-bold" data-toggle="modal"
-						data-target="#loginModal">Login</a></li>
-					<li><a id="signup-nav" href="register.jsp"
-						class="signup-nav font-weight-bold" data-toggle="modal">SignUp</a></li>
-					<li><a id="logout-nav" href=""
-						class="logout-nav font-weight-bold d-none">Logout</a></li>
-					<li><a id="mypage-nav" href="mypage.html"
-						class="mypage-nav font-weight-bold d-none">MyPage</a></li>
-					<!-- 관리자가 로그인했을 때만 -->
-					<li><a id="admin-nav" href="userAdmin.html"
-						class="admin-nav font-weight-bold d-none">Admin</a></li>
-				</ul>
-			</nav>
+<jsp:include page="/WEB-INF/views/include/header.jsp" />
+<!-- End Header -->
+<div class="jumbotron jumbotron-fluid">
+    <picture>
+        <img src="img/house.jpeg" class="jumbotron__background" />
+    </picture>
+    <div class="container text-white text-center">
+        <h1 class="display-4">My Page</h1>
+        <p class="lead"></p>
+    </div>
+</div>
 			<!-- .nav-menu -->
-			  <h2 class="mt-4 mb-4">내 정보 수정</h2>
+<h2 class="mt-4 mb-4">내 정보 수정</h2>
   <form action="modify_do.jsp" class="needs-validation" method="post" novalidate>
     <div class="form-group">
       <label class=" "for="uid">아이디 :</label>
@@ -87,7 +67,7 @@
       <label class=" "for="uadd">주소 :</label>
       <input type="text" class="form-control" id="uadd" placeholder="주소 입력" name="uadd" maxlength="80" required>
       <div class="valid-feedback">Valid.</div>
-      <div class="invalid-feedback">주를 입력하세요!</div>
+      <div class="invalid-feedback">주소를 입력하세요!</div>
     </div>
     <div class="form-group">
       <label class=""for="utel">전화번호 :</label>
@@ -106,21 +86,5 @@
     <button type="submit" class="btn btn-primary">수정</button>
     <button type="button" class="btn btn-secondary ml-2" onclick="location.href='index.jsp'" >취소</button>
 		</div>
-</header>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>

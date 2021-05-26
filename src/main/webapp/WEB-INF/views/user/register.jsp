@@ -71,6 +71,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                 let email = document.getElementById("email").value;
                 let userpwd = document.getElementById("userpwd").value;
                 let address = document.getElementById("address").value;
+                let campus = document.getElementById("campus").value;
                 console.log(userpwd + email + address + username);
                 let data = {
                     userId: userid,
@@ -78,6 +79,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                     userPwd: userpwd,
                     email: email,
                     address: address,
+                    campus: campus,
                 };
                 $.ajax({
                     url: "${root}/register",
@@ -147,7 +149,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                         <!-- <input type="text" class="form-control col-sm-8 mr-3" id="userid" placeholder="아이디 입력" name="userid" onkeydown="idChange()"> -->
                         <input
                             type="text"
-                            class="form-control col-sm-8 mr-3"
+                            class="form-control col-sm-9 mr-5"
                             id="userid"
                             placeholder="아이디 입력"
                             name="userid"
@@ -155,7 +157,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                         <button
                             type="button"
                             id="idcheck"
-                            class="btn btn-primary col-sm-3"
+                            class="btn btn-primary col-sm-2"
                             onclick="javascript:idValid();"
                         >
                             중복 검사
@@ -217,7 +219,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                     <div class="valid-feedback">Valid.</div>
                     <div class="invalid-feedback">주소를 입력하세요!</div>
                 </div>
-                <div class="form-group">
+                <div class="form-group mb-4">
                     <label class="" for="email">이메일 :</label>
                     <input
                         type="text"
@@ -228,6 +230,16 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                     />
                     <div class="valid-feedback">Valid.</div>
                     <div class="invalid-feedback">이메일을 입력하세요!</div>
+                </div>
+                <div class="form=group row mb-5">
+                    <label class="col-sm-3" for="campus">SSAFY 캠퍼스 : </label>
+                    <select class="col-sm-3 form-control" id="campus">
+                        <option selected value="">없음</option>
+                        <option value="seoul">서울</option>
+                        <option value="dageon">대전</option>
+                        <option value="gwangju">광주</option>
+                        <option value="gumi">구미</option>
+                    </select>
                 </div>
                 <div class="mb-4">
                     <button
