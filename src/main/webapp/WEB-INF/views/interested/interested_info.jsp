@@ -44,7 +44,7 @@
 		<h3 class="text-white">관심지역</h3>
 		<button type="button" class="btn btn-outline-warning">상권정보</button>
 		<button type="button" class="btn btn-outline-light">환경정보</button>
-		
+
 	</div>
 	<!-- End Header -->
 
@@ -59,20 +59,19 @@
 					<div class="">
 
 
-						<form id="search-using-word"
-							onsubmit="searchPlaces(); return false;">
-							<div class="dropdown">
-								<button type="button" class="btn btn-primary dropdown-toggle"
-									data-toggle="dropdown">관심지역 선택하기</button>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="#">서울시 00구 00동</a> <a
-										class="dropdown-item" href="#">용인시 00구 00동</a>
-								</div>
-							</div>
-						</form>
 
-						<div id="interested_map_left"
-							style="width: 100%; height: 500px"></div>
+						<div class="dropdown">
+							<button type="button" class="btn btn-primary dropdown-toggle interested_area_select_left"
+								data-toggle="dropdown"  onclick="getInterestedAreaListLeft()">
+								관심지역 선택하기
+							</button>
+							<div class="dropdown-menu interested_area_menu_left">
+								<a class="dropdown-item" href="#">서울시 00구 00동 </a> 
+							</div>
+						</div>
+
+
+						<div id="interested_map_left" style="width: 100%; height: 500px"></div>
 
 
 
@@ -160,20 +159,20 @@
 					<div class="">
 
 
-						<form id="search-using-word"
-							onsubmit="searchPlaces(); return false;">
-							<div class="dropdown">
-								<button type="button" class="btn btn-primary dropdown-toggle"
-									data-toggle="dropdown">관심지역 선택하기</button>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="#">서울시 00구 00동</a> <a
-										class="dropdown-item" href="#">용인시 00구 00동</a>
-								</div>
-							</div>
-						</form>
 
-						<div id="interested_map_right"
-							style="width: 100%; height: 500px"></div>
+						<div class="dropdown">
+							<button type="button" class="btn btn-primary dropdown-toggle interested_area_select_right"
+								data-toggle="dropdown"  onclick="getInterestedAreaListRight()">
+								관심지역 선택하기
+								</button>
+							<div class="dropdown-menu interested_area_menu_right" >
+								<a class="dropdown-item" href="#">서울시 00구 00동</a> <a
+									class="dropdown-item" href="#">용인시 00구 00동</a>
+							</div>
+						</div>
+
+
+						<div id="interested_map_right" style="width: 100%; height: 500px"></div>
 
 
 
@@ -255,14 +254,7 @@
 					</div>
 
 				</div>
-
-
-
 			</div>
-
-
-
-
 
 		</section>
 		<!-- End About Section  -->
@@ -289,6 +281,7 @@
 	<!-- Template Main JS File -->
 	<script src="js/main.js"></script>
 	<script src="js/user.js"></script>
+	<script src="js/interested_area.js"></script>
 
 	<!-- 카카오 맵 js -->
 	<script type="text/javascript"

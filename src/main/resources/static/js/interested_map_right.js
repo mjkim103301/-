@@ -5,3 +5,8 @@ var options = { //지도를 생성할 때 필요한 기본 옵션
 };
 
 var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+
+//관심지역 목록 가져오기
+function getInterestedAreaListRight(){
+	getInterestedAreaList('right')
+}

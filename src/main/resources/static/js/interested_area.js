@@ -2,6 +2,11 @@
 //동이름, 동코드 배열
 var addressInformData = [];
 
+//로그인한 사용자 아이디
+var userId='';
+
+var interestedAreaList=[];
+
 //관심지역 등록
 function interestedAreaRegister(){
 	console.log('interestedAreaRegister')
@@ -76,5 +81,65 @@ function registerRequest(){
 	            console.log("interestedAreaRegister error", err);
 	        },
 	    });
+	
+}
+
+//관심지역 페이지 - 관심지역 목록 가져오기
+let position=''
+function getInterestedAreaList(requestPosition){
+	console.log('getInterestedAreaList click')
+	position=requestPosition
+	 $.ajax({
+	        url: "getSession",
+	        type: "GET",
+	        dataType: "json",
+	        success: function (data) {
+	           userId=data.userId;
+	           console.log('interestedAreaRegister userId ', userId)
+	           getInterestedAreaListJson();
+	        },
+	        error: function (err) {
+	            console.log("interestedAreaRegister error", err);
+	        },
+	    });
+	
+}
+
+function getInterestedAreaListJson(){	
+	 $.ajax({
+	        url: `interested/list/${userId}`,
+	        type: "GET",
+	        dataType: "json",
+	        success: function (data) {
+	           console.log('getInterestedAreaList result ', data)
+	           interestedAreaList=[]
+	           data.forEach(el=>{
+	        	   interestedAreaList.push(el);
+	           })
+	           showInterestedAreaList()
+	        },
+	        error: function (err) {
+	            console.log("getInterestedAreaList error", err);
+	        },
+	    });
+}
+
+
+function showInterestedAreaList(){
+	console.log('showInterestedAreaList')
+	let html=``;
+	interestedAreaList.forEach(item=>{
+		html+=`
+			<a class="dropdown-item" href="#">${item.dongcode} - ${item.dong} </a>
+		`
+	})
+	if(position=='left'){
+		 $(".interested_area_menu_left").empty();
+		$(".interested_area_menu_left").html(html);
+	}else if(position=='right'){
+		 $(".interested_area_menu_right").empty();
+		$(".interested_area_menu_right").html(html);
+	}
+	
 	
 }
