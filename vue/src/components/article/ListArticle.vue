@@ -7,12 +7,12 @@
                         v-if="session.userId != null && session.userId != ''"
                         type="button"
                         id="write-notice"
-                        class="btn btn-primary"
+                        class="btn btn-info"
                         @click="moveWritePage"
                     >
                         글쓰기
                     </button>
-                    <form class="form-inline float-right">
+                    <form class="form-inline float-right mb-2">
                         <div class="form-group mr-sm-2">
                             <select
                                 class="form-control selectOption"
@@ -45,11 +45,21 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>글번호</th>
-                                <th>제목</th>
-                                <th>작성자</th>
-                                <th>조회수</th>
-                                <th>작성일</th>
+                                <th style="text-align: center; width: 10%">
+                                    글번호
+                                </th>
+                                <th style="text-align: center; width: 47.5%">
+                                    제목
+                                </th>
+                                <th style="text-align: center; width: 15%">
+                                    작성자
+                                </th>
+                                <th style="text-align: center; width: 10%">
+                                    조회수
+                                </th>
+                                <th style="text-align: center; width: 22.5%">
+                                    작성일
+                                </th>
                             </tr>
                         </thead>
                         <tbody v-if="articles.length > 0">
@@ -57,7 +67,9 @@
                                 v-for="(article, index) in articles"
                                 :key="index"
                             >
-                                <td>{{ article.articleId }}</td>
+                                <td class="text-center">
+                                    {{ article.articleId }}
+                                </td>
                                 <td class="selectPost">
                                     <router-link
                                         :to="`/happyhouse/article/${article.articleId}`"
@@ -69,13 +81,45 @@
                                     v-html=""
                                 > -->
                                 <td>
-                                    <span class="badge badge-primary"
-                                        >test</span
+                                    <span
+                                        v-if="article.userCampus == 'ADMIN'"
+                                        class="badge badge-danger"
+                                        >프로</span
+                                    >
+                                    <span
+                                        v-if="article.userCampus == '서울'"
+                                        class="badge badge-warning"
+                                        >서울</span
+                                    >
+                                    <span
+                                        v-if="article.userCampus == '대전'"
+                                        class="badge badge-success"
+                                        >대전</span
+                                    >
+                                    <span
+                                        v-if="article.userCampus == '광주'"
+                                        class="badge badge-info"
+                                        >광주</span
+                                    >
+                                    <span
+                                        v-if="article.userCampus == '구미'"
+                                        class="badge badge-primary"
+                                        >구미</span
+                                    >
+                                    <span
+                                        v-if="
+                                            !article.userCampus ||
+                                            article.userCampus.length == 0
+                                        "
+                                        class="badge badge-secondary"
+                                        >손님</span
                                     >
                                     {{ article.userId }}
                                 </td>
-                                <td>{{ article.hit }}</td>
-                                <td>{{ article.registerTime }}</td>
+                                <td class="text-center">{{ article.hit }}</td>
+                                <td class="text-right">
+                                    {{ article.registerTime | toDate }}
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -83,13 +127,15 @@
                 <div class="mt-3">
                     <ul class="pagination justify-content-center">
                         <li class="page-item">
-                            <a class="page-link" @click="movePageHandler(1)"
+                            <a
+                                class="page-link text-info"
+                                @click="movePageHandler(1)"
                                 >최신</a
                             >
                         </li>
                         <li class="page-item">
                             <a
-                                class="page-link"
+                                class="page-link text-info"
                                 @click="movePageHandler(page - 5)"
                                 >이전</a
                             >
@@ -101,13 +147,13 @@
                         >
                             <a
                                 v-if="nav == page"
-                                class="page-link bg-primary text-light"
+                                class="page-link bg-info text-light"
                                 @click="movePageHandler(nav)"
                                 >{{ nav }}</a
                             >
                             <a
                                 v-else
-                                class="page-link"
+                                class="page-link text-info"
                                 @click="movePageHandler(nav)"
                                 >{{ nav }}</a
                             >
@@ -115,14 +161,14 @@
 
                         <li class="page-item">
                             <a
-                                class="page-link"
+                                class="page-link text-info"
                                 @click="movePageHandler(page + 5)"
                                 >다음</a
                             >
                         </li>
                         <li class="page-item">
                             <a
-                                class="page-link"
+                                class="page-link text-info"
                                 @click="movePageHandler(lastPage)"
                                 >마지막</a
                             >
@@ -170,7 +216,7 @@ export default {
     },
     filters: {
         toDate: function (regtime) {
-            return moment(new Date(regtime)).format("YY.M.D H시 mm분");
+            return moment(new Date(regtime)).format("YY-M-D H:mm");
         },
     },
     methods: {
