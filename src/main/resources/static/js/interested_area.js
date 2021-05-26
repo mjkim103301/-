@@ -1,4 +1,3 @@
-
 //동이름, 동코드 배열
 var addressInformData = [];
 
@@ -127,11 +126,12 @@ function getInterestedAreaListJson(){
 
 function showInterestedAreaList(){
 	console.log('showInterestedAreaList')
-	let html=``;
-	interestedAreaList.forEach(item=>{
+	let html=``
+	interestedAreaList.forEach((item, index)=>{
+		console.log('item ', item)
 		html+=`
-			<a class="dropdown-item" href="#">${item.dongcode} - ${item.dong} </a>
-		`
+			<div class="dropdown-item"  onclick = "selectArea( ${index})" >  ${item.dongcode} - ${item.dong} </div >
+				`
 	})
 	if(position=='left'){
 		 $(".interested_area_menu_left").empty();
@@ -141,5 +141,31 @@ function showInterestedAreaList(){
 		$(".interested_area_menu_right").html(html);
 	}
 	
+	
+}
+ function selectArea() {
+ 	console.log('selectArea')
+ }
+ 
+ $(document).ready(function(){
+	 
+	 $('')
+ })
+function selectArea(index){
+	let dong=interestedAreaList[index].dong
+	let dongcode=interestedAreaList[index].dongcode
+	let guguncode=interestedAreaList[index].dongcode.substring(0, 5)
+	
+	let html=`
+	<h4 class="select_dong">${dong}-${dongcode}-${guguncode}</h4>
+		
+	`;
+	if(position=='left'){
+		 $(".interested_area_select_left").empty();
+		$(".interested_area_select_left").html(html);
+	}else if(position=='right'){
+		 $(".interested_area_select_right").empty();
+		$(".interested_area_select_right").html(html);
+	}
 	
 }
