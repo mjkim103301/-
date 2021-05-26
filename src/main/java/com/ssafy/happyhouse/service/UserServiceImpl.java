@@ -57,6 +57,11 @@ public class UserServiceImpl implements UserService {
 		}
 		return true;
 	}
+
+	@Override
+	public void removeUser(String userId) {
+		userDao.removeUser(userId);
+	}
 	
 
 }

@@ -8,6 +8,7 @@ public class ArticleDto {
 	private String registerTime;
 	private int hit;
 	private String articleType;
+	private String userCampus;
 
 	public int getArticleId() {
 		return articleId;
@@ -65,13 +66,26 @@ public class ArticleDto {
 		this.articleType = articleType;
 	}
 
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("GuestBookDto [articleNo=").append(articleId).append(", userId=").append(userId)
-				.append(", subject=").append(subject).append(", content=").append(content).append(", regtime=")
-				.append(registerTime).append("]");
-		return builder.toString();
+	public String getUserCampus() {
+		return userCampus;
 	}
 
+	public void setUserCampus(String userCampus) {
+		this.userCampus = userCampus;
+	}
+
+	@Override
+	public String toString() {
+		final StringBuilder sb = new StringBuilder("ArticleDto{");
+		sb.append("articleId=").append(articleId);
+		sb.append(", userId='").append(userId).append('\'');
+		sb.append(", subject='").append(subject).append('\'');
+		sb.append(", content='").append(content).append('\'');
+		sb.append(", registerTime='").append(registerTime).append('\'');
+		sb.append(", hit=").append(hit);
+		sb.append(", articleType='").append(articleType).append('\'');
+		sb.append(", userCampus='").append(userCampus).append('\'');
+		sb.append('}');
+		return sb.toString();
+	}
 }

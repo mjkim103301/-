@@ -65,7 +65,15 @@
                                         >{{ article.subject }}</router-link
                                     >
                                 </td>
-                                <td>{{ article.userId }}</td>
+                                <!-- <td
+                                    v-html=""
+                                > -->
+                                <td>
+                                    <span class="badge badge-primary"
+                                        >test</span
+                                    >
+                                    {{ article.userId }}
+                                </td>
                                 <td>{{ article.hit }}</td>
                                 <td>{{ article.registerTime }}</td>
                             </tr>

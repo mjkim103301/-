@@ -29,13 +29,13 @@
          
           <li><a href="#team">Team</a></li>
      <c:choose>
-     	  <c:when test="${not empty user && user.admin}">
+     	  <c:when test="${not empty user}">
           <li><a id="logout-nav" href="javascript:void(0);" onclick="javascript:logout();" class="logout-nav font-weight-bold">Logout</a></li>
               <!-- 관리자가 로그인했을 때만 -->
               <c:if test="${not empty user.admin && user.admin eq true}">
                 <li><a id="admin-nav" href="/happyhouse/admin" class="admin-nav font-weight-bold">Admin</a></li> 
               </c:if>
-              <c:if test="${empty user.admin && user.admin != true}">
+              <c:if test="${empty user.admin || user.admin == false}">
                 <li><a id="mypage-nav" href="/happyhouse/mypage" class="mypage-nav font-weight-bold">MyPage</a></li>
               </c:if>
         </c:when>

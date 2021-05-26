@@ -20,10 +20,11 @@
 	
 	<update id="updateUser" parameterType="userDto" >
 		update	user 
-		set 	user_name = #{userName},
-				user_pwd = #{userPwd},
-		        email = #{email},
-		        address = #{address}
+		set 	user_name = #{userName}
+				, user_pwd = #{userPwd}
+		        , email = #{email}
+		        , address = #{address}
+				, campus = #{campus}
 		where	user_id = #{userId}
 	</update>
 	
@@ -36,6 +37,13 @@
                 , #{email}
                 , #{address}
                 , now()
-                , #{admin});
+                , #{admin}
+				, #{campus});
 	</insert>
+
+	<delete id="removeUser"		parameterType="string">
+		delete
+		from	user
+		where	user_id = #{userId}
+	</delete>
 </mapper>

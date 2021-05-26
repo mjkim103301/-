@@ -8,4 +8,5 @@ public interface UserService {
 	void updateUser(UserDto userDto);
 	void registerUser(UserDto userDto);
 	boolean duplicatedIdCheck(String userDto);
+	void removeUser(String userId);
 }
