@@ -130,7 +130,7 @@ function showInterestedAreaList(){
 	interestedAreaList.forEach((item, index)=>{
 		console.log('item ', item)
 		html+=`
-			<div class="dropdown-item" id="select_${index}" onclick = "selectArea(` + item + `)" >  ${item.dongcode} - ${item.dong} </div >
+			<div class="dropdown-item"  onclick = "selectArea( ${index})" >  ${item.dongcode} - ${item.dong} </div >
 				`
 	})
 	if(position=='left'){
@@ -151,8 +151,15 @@ function showInterestedAreaList(){
 	 
 	 $('')
  })
-function selectArea(selected){
-	let html=`<h3>${selected.dong}</h3>`;
+function selectArea(index){
+	let dong=interestedAreaList[index].dong
+	let dongcode=interestedAreaList[index].dongcode
+	let guguncode=interestedAreaList[index].dongcode.substring(0, 5)
+	
+	let html=`
+	<h4 class="select_dong">${dong}-${dongcode}-${guguncode}</h4>
+		
+	`;
 	if(position=='left'){
 		 $(".interested_area_select_left").empty();
 		$(".interested_area_select_left").html(html);
