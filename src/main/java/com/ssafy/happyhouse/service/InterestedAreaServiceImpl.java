@@ -14,7 +14,14 @@ public class InterestedAreaServiceImpl implements InterestedAreaService {
 
 	@Override
 	public void addInterestArea(InterestedAreaDto interestedAreaDto) {
-		interestedAreaDao.addInterestedArea(interestedAreaDto);
+		//이미 등록됐으면 return
+		if(getInterestArea(interestedAreaDto)!=null) {
+			System.out.println("addInterestArea 이미 등록된 관심정보입니다.");
+			return;
+		}else {
+			interestedAreaDao.addInterestedArea(interestedAreaDto);
+		}
+		
 	}
 
 	@Override
@@ -39,6 +46,12 @@ public class InterestedAreaServiceImpl implements InterestedAreaService {
 
 	@Override
 	public List<ScreeningCenterInfoDto> getScreeningCenterInfoList(String gugun) {
+		
 		return interestedAreaDao.getScreeningCenterInfoList(gugun);
+	}
+
+	@Override
+	public InterestedAreaDto getInterestArea(InterestedAreaDto interestedAreaDto) {
+		return interestedAreaDao.getInterestedArea(interestedAreaDto);
 	}
 }

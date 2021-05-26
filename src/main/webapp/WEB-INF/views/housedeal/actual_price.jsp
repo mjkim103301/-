@@ -55,7 +55,7 @@
 		<div class="container">
 			<h4>아파트/주택 실거래가 검색</h4>
 			<!-- onsubmit="searchPlaces(); return false;" -->
-			<form id="search-using-word" >
+			<form id="search-using-word" onsubmit="searchPlaces(); return false;" >
 				<!-- <input type="hidden" name="action" id="action" value="listHouseDeal"> -->
 				<div class="row mb-4">
 

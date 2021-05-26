@@ -13,4 +13,5 @@ public interface InterestedAreaDao {
 	List<EnvironmentInfoDto> getEnvironmentInfoList(String dongcode);
 	List<SafeHospitalInfoDto> getSafeHospitalInfoList(String gugun);
 	List<ScreeningCenterInfoDto> getScreeningCenterInfoList(String gugun);
+	InterestedAreaDto getInterestedArea(InterestedAreaDto interestedAreaDto);
 }

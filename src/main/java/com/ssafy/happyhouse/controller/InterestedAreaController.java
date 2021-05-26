@@ -50,7 +50,7 @@ public class InterestedAreaController {
 				continue;
 			}
 			String dong=(String)p.get("dong");
-			
+			System.out.println("dong "+dong);
 			interestedAreaDto=new InterestedAreaDto(0, userDto.getUserId(), dongcode, dong);
 			System.out.println("[Interested controller] => /interested/register, body : " + interestedAreaDto);
 			interestedAreaService.addInterestArea(interestedAreaDto);

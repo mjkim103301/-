@@ -24,6 +24,18 @@
 		where	i.user_id = #{userId}
 		order 	by	i.interested_area_id
 	</select>
+	
+	<select id="getInterestedArea"	parameterType="interestedAreaDto"	resultType="interestedAreaDto">
+		select	i.interested_area_id
+			 , i.user_id
+			 , i.dongcode
+			 , d.dong
+		from	interested_area as i
+		left	outer	join	dongcode as d
+		on		i.dongcode = d.dongcode
+		where	i.user_id = #{userId} and i.dongcode = #{dongcode}
+		limit 1
+	</select>
 
 	<select id="getCommercialInfoList"	parameterType="string"	resultType="commercialInfoDto">
 		select	commercial_info_id
