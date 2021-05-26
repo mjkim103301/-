@@ -10,14 +10,16 @@
 		        	null
 		        	, #{userId}
 		        	, #{dongcode}
-				  )
+				)
 	</insert>
 
 	<select id="getInterestedAreaList"	parameterType="string"	resultType="interestedAreaDto">
 		select	i.interested_area_id
-			 , i.user_id
-			 , i.dongcode
-			 , d.dong
+			 	, i.user_id
+			 	, i.dongcode
+			 	, d.dong
+			 	, d.gugun
+			 	, d.city
 		from	interested_area as i
 		left	outer	join	dongcode as d
 		on		i.dongcode = d.dongcode
