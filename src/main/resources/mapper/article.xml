@@ -4,8 +4,10 @@
 	
 <mapper namespace="com.ssafy.happyhouse.dao.ArticleDao">
 	<select id="listArticle"	parameterType="articlePageBean"		resultType="articleDto">
-		select 	*
-		from 	article
+		select 	a.*, u.campus as user_campus
+		from 	article as a
+		left	outer 	join	user as u
+		ON 		a.user_id = u.user_id
 		where 	1 = 1
 		<if test = "key != null and key != '' and word != null">
 			and ${key} like CONCAT('%', #{word}, '%')

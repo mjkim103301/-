@@ -21,8 +21,8 @@
 		from	interested_area as i
 		left	outer	join	dongcode as d
 		on		i.dongcode = d.dongcode
-		and		i.user_id = #{userId}
-		order 	by	i.intersted_area_id
+		where	i.user_id = #{userId}
+		order 	by	i.interested_area_id
 	</select>
 
 	<select id="getCommercialInfoList"	parameterType="string"	resultType="commercialInfoDto">

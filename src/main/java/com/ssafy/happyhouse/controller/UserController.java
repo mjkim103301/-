@@ -96,7 +96,6 @@ public class UserController {
 
 	@GetMapping("/getSession")
 	public ResponseEntity<UserDto> getSession(HttpSession session) {
-
 		UserDto userDto = (UserDto) session.getAttribute("user");
 		System.out.println(">>>move GET /getSession" + userDto);
 		if (userDto == null) {
