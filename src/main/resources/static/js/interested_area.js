@@ -128,7 +128,6 @@ function showInterestedAreaList(){
 	console.log('showInterestedAreaList')
 	let html=``
 	interestedAreaList.forEach((item, index)=>{
-		console.log('item ', item)
 		html+=`
 			<div class="dropdown-item"  onclick = "selectArea( ${index})" >  ${item.city}  ${item.gugun}  ${item.dong} </div >
 				`
@@ -143,14 +142,7 @@ function showInterestedAreaList(){
 	
 	
 }
- function selectArea() {
- 	console.log('selectArea')
- }
- 
- $(document).ready(function(){
-	 
-	 $('')
- })
+
 function selectArea(index){
 	let city=interestedAreaList[index].city
 	let gugun=interestedAreaList[index].gugun
@@ -160,14 +152,21 @@ function selectArea(index){
 	
 	let html=`
 	<div>${city} ${gugun} ${dong}</div>
-		
+	
 	`;
+	
+	console.log('selectArea dongcode ', dongcode)
 	if(position=='left'){
 		 $(".interested_area_select_left").empty();
 		$(".interested_area_select_left").html(html);
+		showShopInfoLeft(dongcode)
+		showInvironmentInfoLeft(dongcode)
 	}else if(position=='right'){
 		 $(".interested_area_select_right").empty();
 		$(".interested_area_select_right").html(html);
+		showShopInfoRight(dongcode)
+		showInvironmentInfoRight(dongcode)
 	}
 	
 }
+
