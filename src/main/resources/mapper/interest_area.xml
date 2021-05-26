@@ -21,7 +21,8 @@
 		from	interested_area as i
 		left	outer	join	dongcode as d
 		on		i.dongcode = d.dongcode
-		and		i.user_id = #{userId};
+		and		i.user_id = #{userId}
+		order 	by	i.intersted_area_id
 	</select>
 
 	<select id="getCommercialInfoList"	parameterType="string"	resultType="commercialInfoDto">
@@ -34,7 +35,8 @@
 				, codename1 as large_category
 				, codename2 as small_category
 		from	commercial_info
-		where	dongcode = #{dongcode};
+		where	dongcode = #{dongcode}
+		order 	by	commercial_info_id
 	</select>
 
 	<select id="getEnvironmentInfoList"	parameterType="string"	resultType="environmentInfoDto">
@@ -47,6 +49,30 @@
 			select 	dong
 			from	dongcode as d
 			where 	d.dongcode = ${dongcode}
-		), '%');
+		), '%')
+		order 	by	environment_info_id;
+	</select>
+
+	<select id="getSafeHospitalInfoList" parameterType="string"	resultType="environmentInfoDto">
+		select	safe_hospital_info_id
+				, name
+				, road_address as address
+				, phone
+		from	safe_hospital_info
+		where	gugun = #{gugun}
+		order 	by	safe_hospital_info_id
+	</select>
+
+	<select id="getScreeningCenterInfoList"	parameterType="string"	resultType="screeningCenterInfoDto">
+		select	screening_center_info_id
+				, name
+				, road_address as address
+				, operating_hour_weekday
+				, operating_hour_saturday
+				, operating_hour_holiday
+		from	screening_center_info
+		where	gugun = #{gugun}
+		order 	by	screening_center_info_id
+
 	</select>
 </mapper>

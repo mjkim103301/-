@@ -20,7 +20,6 @@ public interface ArticleDao {
 	void removeArticle(int articleNo);
 	void updateArticle(ArticleDto articleDto);
 
-
 	void writeReply(ReplyDto replyDto);
 	List<ReplyDto> listReply(int articleNo);
 	void removeReply(int id);
