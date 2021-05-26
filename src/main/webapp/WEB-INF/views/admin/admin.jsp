@@ -46,7 +46,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
     <body>
         <div class="jumbotron jumbotron-fluid">
             <picture>
-                <img src="img/bg-index.jpg" class="jumbotron__background" />
+                <img src="img/background/page.jpg" class="jumbotron__background" />
             </picture>
             <div class="container text-white text-center">
                 <h1 class="display-4">회원 관리</h1>

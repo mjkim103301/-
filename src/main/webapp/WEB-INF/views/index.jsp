@@ -75,7 +75,7 @@
 
 				</div>
 
-				<div class="col-md-4 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="50">
+				<div class="col-md-4 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="20">
 
 					<div class="icon-box icon-box-cyan">
 						<a href="interested" class="text-dark">
@@ -89,7 +89,7 @@
 
 				</div>
 
-				<div class="col-md-4 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+				<div class="col-md-4 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="40">
 
 					<div class="icon-box icon-box-blue">
 						<a href="article" class="text-dark">
@@ -113,18 +113,18 @@
 
 			<div class="row">
 				<div class="col-xl-6 col-lg-7" data-aos="fade-right">
-					<img src="img/about-bg.jpeg" class="img-fluid" alt="">
+					<img src="img/background/kitchen-living-room.jpg" class="img-fluid" alt="">
 				</div>
 				<div class="col-xl-6 col-lg-5 pt-5 pt-lg-0">
 					<h3 data-aos="fade-up">About Happy House</h3>
-					<p data-aos="fade-up">SSAFY 5기 8반 김민지 박재준 진미령 Backend Project 입니다.</p>
+					<p data-aos="fade-up">SSAFY 5기 8반 김민기 김민지 최종 PJT Project 입니다.</p>
 					<div class="icon-box" data-aos="fade-up">
 						<i class="bx bx-receipt"></i>
 						<h4>관리자 아이디와 비밀번호</h4>
 						<p>관리자 아이디는 'admin'이고 비밀번호도 'admin'입니다.</p>
 					</div>
 
-					<div class="icon-box" data-aos="fade-up" data-aos-delay="50">
+					<div class="icon-box" data-aos="fade-up" data-aos-delay="20">
 						<i class="bx bx-cube-alt"></i>
 						<h4>Servlet과 JSP</h4>
 						<p>Servlet과 JSP를 사용한 웹 백엔드 프로젝트입니다.</p>
@@ -147,7 +147,7 @@
 
 				<div class="col" data-aos="fade-up">
 					<div class="member">
-						<img src="img/team/temp.jpg" class="img-fluid" alt="">
+						<img src="img/team/김민기.jpg" class="img-fluid" alt="" >
 						<div class="member-info">
 							<div class="member-info-content">
 								<h4>김민기</h4>
@@ -159,9 +159,9 @@
 					</div>
 				</div>
 
-				<div class="col" data-aos="fade-up" data-aos-delay="50">
+				<div class="col" data-aos="fade-up" data-aos-delay="20">
 					<div class="member">
-						<img src="img/team/temp.jpg" class="img-fluid" alt="">
+						<img src="img/team/김민지_2.jpg" class="img-fluid" alt="">
 						<div class="member-info">
 							<div class="member-info-content">
 								<h4>김민지</h4>

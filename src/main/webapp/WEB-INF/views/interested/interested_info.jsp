@@ -84,27 +84,13 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th>병원 이름</th>
+                          <th>이름</th>
                           <th>주소</th>
                           <th>연락처</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>John</td>
-                          <td>Doe</td>
-                          <td>john@example.com</td>
-                        </tr>
-                        <tr>
-                          <td>Mary</td>
-                          <td>Moe</td>
-                          <td>mary@example.com</td>
-                        </tr>
-                        <tr>
-                          <td>July</td>
-                          <td>Dooley</td>
-                          <td>july@example.com</td>
-                        </tr>
+                       
                       </tbody>
                     </table>
                   </div>
@@ -112,31 +98,14 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th>진료소 이름</th>
+                          <th>이름</th>
                           <th>주소</th>
                           <th>운영시간</th>
                           <th>연락처</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>John</td>
-                          <td>Doe</td>
-                          <td>john@example.com</td>
-                          <td>john@example.com</td>
-                        </tr>
-                        <tr>
-                          <td>Mary</td>
-                          <td>Moe</td>
-                          <td>mary@example.com</td>
-                          <td>john@example.com</td>
-                        </tr>
-                        <tr>
-                          <td>July</td>
-                          <td>Dooley</td>
-                          <td>july@example.com</td>
-                          <td>john@example.com</td>
-                        </tr>
+                       
                       </tbody>
                     </table>
                   </div>
@@ -184,27 +153,13 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th>병원 이름</th>
+                          <th>이름</th>
                           <th>주소</th>
                           <th>연락처</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>John</td>
-                          <td>Doe</td>
-                          <td>john@example.com</td>
-                        </tr>
-                        <tr>
-                          <td>Mary</td>
-                          <td>Moe</td>
-                          <td>mary@example.com</td>
-                        </tr>
-                        <tr>
-                          <td>July</td>
-                          <td>Dooley</td>
-                          <td>july@example.com</td>
-                        </tr>
+                       
                       </tbody>
                     </table>
                   </div>
@@ -212,31 +167,14 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th>진료소 이름</th>
+                          <th>이름</th>
                           <th>주소</th>
                           <th>운영시간</th>
                           <th>연락처</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>John</td>
-                          <td>Doe</td>
-                          <td>john@example.com</td>
-                          <td>john@example.com</td>
-                        </tr>
-                        <tr>
-                          <td>Mary</td>
-                          <td>Moe</td>
-                          <td>mary@example.com</td>
-                          <td>john@example.com</td>
-                        </tr>
-                        <tr>
-                          <td>July</td>
-                          <td>Dooley</td>
-                          <td>july@example.com</td>
-                          <td>john@example.com</td>
-                        </tr>
+                        
                       </tbody>
                     </table>
                   </div>
