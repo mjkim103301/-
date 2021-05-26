@@ -2,17 +2,15 @@
 var addressInformData = [];
 
 //로그인한 사용자 아이디
-var userId='';
+var userId = "";
 
-var interestedAreaList=[];
+var interestedAreaList = [];
 
 //관심지역 등록
-function interestedAreaRegister(){
-	console.log('interestedAreaRegister')
-	searchInterestedPlaces();
-	 
+function interestedAreaRegister() {
+    console.log("interestedAreaRegister");
+    searchInterestedPlaces();
 }
-
 
 //키워드 검색을 요청하는 함수입니다
 function searchInterestedPlaces() {
@@ -21,13 +19,10 @@ function searchInterestedPlaces() {
     keyword = document.getElementById("keyword").value;
     console.log("interestedAreaRegister keyword: ", keyword);
 
-   
     if (!keyword.replace(/^\s+|\s+$/g, "")) {
         return false;
     }
     getInterestedAddressInform(keyword);
-
-
 }
 
 function getInterestedAddressInform(keyword) {
@@ -56,8 +51,11 @@ function getInterestedAddressInform(keyword) {
                 });
             }
 
-            console.log("interestedAreaRegister addressInformData: ", addressInformData);
-            registerRequest()
+            console.log(
+                "interestedAreaRegister addressInformData: ",
+                addressInformData
+            );
+            registerRequest();
         },
         error: function (err) {
             console.log("interestedAreaRegister getAddressInform error: ", err);
@@ -65,109 +63,104 @@ function getInterestedAddressInform(keyword) {
     });
 }
 
-
-function registerRequest(){
-	 $.ajax({
-	        url: "interested/register",
-	        type: "POST",
-	        contentType: "application/json; charset=UTF-8",
-	        data: JSON.stringify(addressInformData),
-	        dataType: "json",
-	        success: function (data) {
-	           console.log('interestedAreaRegister result ', data)
-	        },
-	        error: function (err) {
-	            console.log("interestedAreaRegister error", err);
-	        },
-	    });
-	
+function registerRequest() {
+    $.ajax({
+        url: "interested/register",
+        type: "POST",
+        contentType: "application/json; charset=UTF-8",
+        data: JSON.stringify(addressInformData),
+        dataType: "json",
+        success: function (data) {
+            console.log("interestedAreaRegister result ", data);
+        },
+        error: function (err) {
+            console.log("interestedAreaRegister error", err);
+        },
+    });
 }
 
 //관심지역 페이지 - 관심지역 목록 가져오기
-let position=''
-function getInterestedAreaList(requestPosition){
-	console.log('getInterestedAreaList click')
-	position=requestPosition
-	 $.ajax({
-	        url: "getSession",
-	        type: "GET",
-	        dataType: "json",
-	        success: function (data) {
-	           userId=data.userId;
-	           console.log('interestedAreaRegister userId ', userId)
-	           getInterestedAreaListJson();
-	        },
-	        error: function (err) {
-	            console.log("interestedAreaRegister error", err);
-	        },
-	    });
-	
+let position = "";
+function getInterestedAreaList(requestPosition) {
+    console.log("getInterestedAreaList click");
+    position = requestPosition;
+    $.ajax({
+        url: "getSession",
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            userId = data.userId;
+            console.log("interestedAreaRegister userId ", userId);
+            getInterestedAreaListJson();
+        },
+        error: function (err) {
+            console.log("interestedAreaRegister error", err);
+        },
+    });
 }
 
-function getInterestedAreaListJson(){	
-	 $.ajax({
-	        url: `interested/list/${userId}`,
-	        type: "GET",
-	        dataType: "json",
-	        success: function (data) {
-	           console.log('getInterestedAreaList result ', data)
-	           interestedAreaList=[]
-	           data.forEach(el=>{
-	        	   interestedAreaList.push(el);
-	           })
-	           showInterestedAreaList()
-	        },
-	        error: function (err) {
-	            console.log("getInterestedAreaList error", err);
-	        },
-	    });
+function getInterestedAreaListJson() {
+    $.ajax({
+        url: `interested/list/${userId}`,
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            console.log("getInterestedAreaList result ", data);
+            interestedAreaList = [];
+            data.forEach((el) => {
+                interestedAreaList.push(el);
+            });
+            showInterestedAreaList();
+        },
+        error: function (err) {
+            console.log("getInterestedAreaList error", err);
+        },
+    });
 }
 
-
-function showInterestedAreaList(){
-	console.log('showInterestedAreaList')
-	let html=``
-	interestedAreaList.forEach((item, index)=>{
-		console.log('item ', item)
-		html+=`
+function showInterestedAreaList() {
+    console.log("showInterestedAreaList");
+    let html = ``;
+    interestedAreaList.forEach((item, index) => {
+        console.log("item ", item);
+        html += `
 			<div class="dropdown-item"  onclick = "selectArea( ${index})" >  ${item.city}  ${item.gugun}  ${item.dong} </div >
-				`
-	})
-	if(position=='left'){
-		 $(".interested_area_menu_left").empty();
-		$(".interested_area_menu_left").html(html);
-	}else if(position=='right'){
-		 $(".interested_area_menu_right").empty();
-		$(".interested_area_menu_right").html(html);
-	}
-	
-	
+				`;
+    });
+    if (position == "left") {
+        $(".interested_area_menu_left").empty();
+        $(".interested_area_menu_left").html(html);
+    } else if (position == "right") {
+        $(".interested_area_menu_right").empty();
+        $(".interested_area_menu_right").html(html);
+    }
 }
- function selectArea() {
- 	console.log('selectArea')
- }
- 
- $(document).ready(function(){
-	 
-	 $('')
- })
-function selectArea(index){
-	let city=interestedAreaList[index].city
-	let gugun=interestedAreaList[index].gugun
-	let dong=interestedAreaList[index].dong
-	let dongcode=interestedAreaList[index].dongcode
-	let guguncode=interestedAreaList[index].dongcode.substring(0, 5)
-	
-	let html=`
+function selectArea() {
+    console.log("selectArea");
+}
+
+$(document).ready(function () {
+    $("");
+});
+function selectArea(index) {
+    let city = interestedAreaList[index].city;
+    let gugun = interestedAreaList[index].gugun;
+    let dong = interestedAreaList[index].dong;
+    let dongcode = interestedAreaList[index].dongcode;
+    let guguncode = interestedAreaList[index].dongcode.substring(0, 5);
+
+    let html = `
 	<div>${city} ${gugun} ${dong}</div>
 		
 	`;
-	if(position=='left'){
-		 $(".interested_area_select_left").empty();
-		$(".interested_area_select_left").html(html);
-	}else if(position=='right'){
-		 $(".interested_area_select_right").empty();
-		$(".interested_area_select_right").html(html);
-	}
-	
+    if (position == "left") {
+        $(".interested_area_select_left").empty();
+        $(".interested_area_select_left").html(html);
+    } else if (position == "right") {
+        $(".interested_area_select_right").empty();
+        $(".interested_area_select_right").html(html);
+    }
+
+    getList(gugun, position, "center");
+    getList(gugun, position, "hospital");
 }
