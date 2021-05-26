@@ -235,10 +235,10 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                     <label class="col-sm-3" for="campus">SSAFY 캠퍼스 : </label>
                     <select class="col-sm-3 form-control" id="campus">
                         <option selected value="">없음</option>
-                        <option value="seoul">서울</option>
-                        <option value="dageon">대전</option>
-                        <option value="gwangju">광주</option>
-                        <option value="gumi">구미</option>
+                        <option value="서울">서울</option>
+                        <option value="대전">대전</option>
+                        <option value="광주">광주</option>
+                        <option value="구미">구미</option>
                     </select>
                 </div>
                 <div class="mb-4">
@@ -261,5 +261,8 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                 </div>
             </form>
         </div>
+        <!-- ======= Footer ======= -->
+        <jsp:include page="../include/footer.jsp" />
+        <!-- End Footer -->
     </body>
 </html>

@@ -55,6 +55,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 let email = document.getElementById("useremail").value;
                 let userpwd = document.getElementById("userpwd").value;
                 let address = document.getElementById("useraddress").value;
+                let campus = document.getElementById("campus").value;
                 console.log(userpwd + email + address + username);
                 let data = {
                     userId: userid,
@@ -62,6 +63,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     userPwd: userpwd,
                     email: email,
                     address: address,
+                    campus: campus,
                 };
 
                 $.ajax({
@@ -82,6 +84,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 });
             }
         }
+    
     </script>
 
     <body>
@@ -125,6 +128,10 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                                 <th>주소</th>
                                 <td>${user.address}</td>
                             </tr>
+                            <tr>
+                                <th>SSAFY 캠퍼스</th>
+                                <td>${user.campus}</td>
+                            </tr>
                         </tbody>
                     </table>
                     <hr />
@@ -153,50 +160,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         <!-- End #main -->
 
         <!-- ======= Footer ======= -->
-        <footer id="footer">
-            <div class="footer-top">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-6">
-                            <div class="footer-info">
-                                <h3>HappyHouse</h3>
-                                <h5>ssafy 5th 서울 8반</h5>
-                                <h5>박재준 이서영</h5>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-2 col-md-6 footer-links">
-                            <h4>Links</h4>
-                            <ul>
-                                <li>
-                                    <i class="bx bx-chevron-right"></i>
-                                    <a href="#">Home</a>
-                                </li>
-                                <li>
-                                    <i class="bx bx-chevron-right"></i>
-                                    <a href="#">About us</a>
-                                </li>
-                                <li>
-                                    <i class="bx bx-chevron-right"></i>
-                                    <a href="#">Terms of service</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="copyright">
-                    &copy; Copyright <strong><span>Maxim</span></strong
-                    >. All Rights Reserved
-                </div>
-                <div class="credits">
-                    Designed by
-                    <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                </div>
-            </div>
-        </footer>
+        <jsp:include page="../include/footer.jsp" />
         <!-- End Footer -->
 
         <!-- Update user info Modal -->
@@ -295,6 +259,23 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                                         value="${user.address }"
                                         type="address2"
                                     />
+                                </div>
+                                <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"
+                                            ><i
+                                                class="fas fa-map-marker-alt"
+                                            ></i
+                                        ></span>
+                                    </div>
+                                    <select class="form-control" id="campus">
+                                        <option selected value="">없음</option>
+                                        <option value="서울">서울</option>
+                                        <option value="대전">대전</option>
+                                        <option value="광주">광주</option>
+                                        <option value="구미">구미</option>
+                                    </select>
+                                </select>
                                 </div>
                                 <!-- form-group// -->
                                 <div class="form-group">
