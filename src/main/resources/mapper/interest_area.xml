@@ -49,4 +49,14 @@
 			where 	d.dongcode = ${dongcode}
 		), '%');
 	</select>
+
+	<select id="getSafeHospitalInfoList" parameterType="string"	resultType="environmentInfoDto">
+		select	safe_hospital_info_id
+				, name
+				, road_address as address
+				, phone
+		from	safe_hospital_info
+		where	gugun = #{gugun}
+
+	</select>
 </mapper>
