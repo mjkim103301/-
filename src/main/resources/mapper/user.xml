@@ -40,4 +40,10 @@
                 , #{admin}
 				, #{campus});
 	</insert>
+
+	<delete id="removeUser"		parameterType="string">
+		delete
+		from	user
+		where	user_id = #{userId}
+	</delete>
 </mapper>

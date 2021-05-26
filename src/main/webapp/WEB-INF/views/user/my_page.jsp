@@ -84,6 +84,24 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 });
             }
         }
+        function removeUser() {
+            console.log("${root}");
+            let userId = document.getElementById("userid_mypage").value;
+            $.ajax({
+                url: "${root}/remove/" + userId,
+                type: "DELETE",
+                success: function (status) {
+                    alert("탈퇴 성공 !");
+                    location.href = `${root}`;
+                },
+                error: function (request, status, error) {
+                    console.log(error + status);
+
+                    alert("탈퇴 실패 !");
+                },
+            });
+        }
+
     
     </script>
 
@@ -109,7 +127,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     <table class="table mx-auto mb-5" style="width: 70%">
                         <tbody>
                             <tr>
-                                <th>아이디</th>
+                                <th id="userid_mypage">아이디</th>
                                 <td>${user.userId}</td>
                             </tr>
                             <tr>
@@ -306,7 +324,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                         <button
                             type="button"
                             class="btn btn-danger logout-nav"
-                            onclick="location.href='index.html'"
+                            onclick="javascript:removeUser();"
                         >
                             확인
                         </button>
