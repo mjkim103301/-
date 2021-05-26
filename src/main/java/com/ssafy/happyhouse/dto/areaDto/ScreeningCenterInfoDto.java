@@ -7,6 +7,7 @@ public class ScreeningCenterInfoDto {
 	private String operatingHourWeekday;
 	private String operatingHourSaturday;
 	private String operatingHourHoliday;
+	private String phone;
 
 	public ScreeningCenterInfoDto() {
 	}
@@ -66,5 +67,13 @@ public class ScreeningCenterInfoDto {
 
 	public void setOperatingHourHoliday(String operatingHourHoliday) {
 		this.operatingHourHoliday = operatingHourHoliday;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 }

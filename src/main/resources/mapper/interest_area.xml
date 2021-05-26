@@ -67,7 +67,7 @@
 		order 	by	environment_info_id;
 	</select>
 
-	<select id="getSafeHospitalInfoList" parameterType="string"	resultType="environmentInfoDto">
+	<select id="getSafeHospitalInfoList" parameterType="string"	resultType="safeHospitalInfoDto">
 		select	safe_hospital_info_id
 				, name
 				, road_address as address
@@ -84,6 +84,7 @@
 				, operating_hour_weekday
 				, operating_hour_saturday
 				, operating_hour_holiday
+				, phone
 		from	screening_center_info
 		where	gugun = #{gugun}
 		order 	by	screening_center_info_id

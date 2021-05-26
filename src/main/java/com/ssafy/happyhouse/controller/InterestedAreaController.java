@@ -84,7 +84,7 @@ public class InterestedAreaController {
 	}
 
 	@ApiOperation(value = "병원 정보 가져오기")
-	@GetMapping("/safehospital/{gugun}")
+	@GetMapping("/hospital/{gugun}")
 	public ResponseEntity<List<SafeHospitalInfoDto>> getSafeHospitalInfoList(@PathVariable String gugun) {
 		System.out.println("[Interested controller] => /interested/safehospital/" + gugun);
 		List<SafeHospitalInfoDto> list = interestedAreaService.getSafeHospitalInfoList(gugun);
@@ -92,7 +92,7 @@ public class InterestedAreaController {
 	}
 
 	@ApiOperation(value = "진료소 정보 가져오기")
-	@GetMapping("/screeningcenter/{gugun}")
+	@GetMapping("/center/{gugun}")
 	public ResponseEntity<List<ScreeningCenterInfoDto>> getScreeningCenterInfoList(@PathVariable String gugun) {
 		System.out.println("[Interested controller] => /interested/screeningcenter/" + gugun);
 		List<ScreeningCenterInfoDto> list = interestedAreaService.getScreeningCenterInfoList(gugun);
