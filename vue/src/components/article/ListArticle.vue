@@ -69,8 +69,38 @@
                                     v-html=""
                                 > -->
                                 <td>
-                                    <span class="badge badge-primary"
-                                        >test</span
+                                    <span
+                                        v-if="article.userCampus == 'ADMIN'"
+                                        class="badge badge-danger"
+                                        >프로</span
+                                    >
+                                    <span
+                                        v-if="article.userCampus == '서울'"
+                                        class="badge badge-warning"
+                                        >서울</span
+                                    >
+                                    <span
+                                        v-if="article.userCampus == '대전'"
+                                        class="badge badge-success"
+                                        >대전</span
+                                    >
+                                    <span
+                                        v-if="article.userCampus == '광주'"
+                                        class="badge badge-info"
+                                        >광주</span
+                                    >
+                                    <span
+                                        v-if="article.userCampus == '구미'"
+                                        class="badge badge-primary"
+                                        >구미</span
+                                    >
+                                    <span
+                                        v-if="
+                                            !article.userCampus ||
+                                            article.userCampus.length == 0
+                                        "
+                                        class="badge badge-secondary"
+                                        >손님</span
                                     >
                                     {{ article.userId }}
                                 </td>

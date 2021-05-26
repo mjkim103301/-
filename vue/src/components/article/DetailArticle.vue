@@ -24,7 +24,44 @@
             </tr>
             <tr>
                 <th>작성자</th>
-                <td v-text="article.userId"></td>
+                <td>
+                    <span
+                        v-if="article.userCampus == 'ADMIN'"
+                        class="badge badge-danger"
+                        >프로</span
+                    >
+                    <span
+                        v-if="article.userCampus == '서울'"
+                        class="badge badge-warning"
+                        >서울</span
+                    >
+                    <span
+                        v-if="article.userCampus == '대전'"
+                        class="badge badge-success"
+                        >대전</span
+                    >
+                    <span
+                        v-if="article.userCampus == '광주'"
+                        class="badge badge-info"
+                        >광주</span
+                    >
+                    <span
+                        v-if="article.userCampus == '구미'"
+                        class="badge badge-primary"
+                        >구미</span
+                    >
+                    <span
+                        v-if="
+                            !article.userCampus ||
+                            article.userCampus.length == 0
+                        "
+                        class="badge badge-secondary"
+                        >손님</span
+                    >
+                    {{ article.userId }}
+                </td>
+
+                <td></td>
             </tr>
             <tr>
                 <th>제목</th>
@@ -42,34 +79,6 @@
             <tr>
                 <th>조회수</th>
                 <td>{{ article.hit }}</td>
-            </tr>
-        </table>
-
-        <table v-else>
-            <tr>
-                <th>글번호</th>
-                <td v-text="1"></td>
-            </tr>
-            <tr>
-                <th>작성자</th>
-                <td v-text="김싸피"></td>
-            </tr>
-            <tr>
-                <th>제목</th>
-                <td>default</td>
-            </tr>
-            <tr>
-                <th>날짜</th>
-                <td>2020-05-18</td>
-            </tr>
-
-            <tr>
-                <th>내용</th>
-                <td colspan="2">default</td>
-            </tr>
-            <tr>
-                <th>조회수</th>
-                <td>1</td>
             </tr>
         </table>
 

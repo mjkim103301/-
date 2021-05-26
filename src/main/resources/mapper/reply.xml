@@ -15,8 +15,8 @@
 	</insert>
 
 	<select id="listReply"		parameterType="replyPageBean"		resultType="replyDto">
-		select 	*
-		from 	reply
+		select 	r.*
+		from 	reply as r
 		where 	article_id = #{articleId}
         order 	by	reply_id
 		limit	#{startReplyId},	#{replyInterval}

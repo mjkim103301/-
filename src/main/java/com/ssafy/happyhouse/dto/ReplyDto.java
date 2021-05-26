@@ -6,6 +6,7 @@ public class ReplyDto {
 	private int articleId;
 	private String content;
 	private String registerTime;
+	private String userCampus;
 
 	public int getReplyId() {
 		return replyId;
@@ -47,4 +48,11 @@ public class ReplyDto {
 		this.registerTime = registerTime;
 	}
 
+	public String getUserCampus() {
+		return userCampus;
+	}
+
+	public void setUserCampus(String userCampus) {
+		this.userCampus = userCampus;
+	}
 }
