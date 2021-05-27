@@ -1,17 +1,18 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Article from "@/components/article/Article.vue";
-//import List from "@/components/List.vue";
 import WriteArticle from "@/components/article/WriteArticle.vue";
 import DetailArticle from "@/components/article/DetailArticle.vue";
 import UpdateArticle from "@/components/article/UpdateArticle.vue";
 import ListReply from "@/components/reply/ListReply.vue";
 import RemoveArticle from "@/components/article/RemoveArticle.vue";
 import ListUser from "@/components/admin/ListUser.vue";
+//import Interested from "@/components/interested/Interested.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
+    //게시글
     {
         path: "/happyhouse/article",
         name: "Article",
@@ -47,6 +48,8 @@ const routes = [
         name: "RemoveArticle",
         component: RemoveArticle,
     },
+
+    //user 관리
     {
         path: "/happyhouse/admin",
         name: "ListUser",

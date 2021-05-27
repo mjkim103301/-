@@ -9,6 +9,7 @@ public class UserDto {
 	private String address;
 	private String registerTime;
 	private boolean isAdmin;
+	private String campus;
 	
 	public UserDto() {}
 
@@ -19,6 +20,17 @@ public class UserDto {
 		this.userPwd = userPwd;
 		this.email = email;
 		this.address = address;
+	}
+
+	public UserDto(String userId, String userName, String userPwd, String email, String address, String registerTime, boolean isAdmin, String campus) {
+		this.userId = userId;
+		this.userName = userName;
+		this.userPwd = userPwd;
+		this.email = email;
+		this.address = address;
+		this.registerTime = registerTime;
+		this.isAdmin = isAdmin;
+		this.campus = campus;
 	}
 
 	public boolean isAdmin() {
@@ -81,6 +93,14 @@ public class UserDto {
 		this.registerTime = registerTime;
 	}
 
+	public String getCampus() {
+		return campus;
+	}
+
+	public void setCampus(String campus) {
+		this.campus = campus;
+	}
+
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("UserDto{");
@@ -91,9 +111,9 @@ public class UserDto {
 		sb.append(", address='").append(address).append('\'');
 		sb.append(", registerTime='").append(registerTime).append('\'');
 		sb.append(", isAdmin=").append(isAdmin);
+		sb.append(", campus='").append(campus).append('\'');
 		sb.append('}');
 		return sb.toString();
 	}
-
 }
 

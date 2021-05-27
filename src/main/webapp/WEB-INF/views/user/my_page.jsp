@@ -55,6 +55,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 let email = document.getElementById("useremail").value;
                 let userpwd = document.getElementById("userpwd").value;
                 let address = document.getElementById("useraddress").value;
+                let campus = document.getElementById("campus").value;
                 console.log(userpwd + email + address + username);
                 let data = {
                     userId: userid,
@@ -62,6 +63,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     userPwd: userpwd,
                     email: email,
                     address: address,
+                    campus: campus,
                 };
 
                 $.ajax({
@@ -82,6 +84,25 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 });
             }
         }
+        function removeUser() {
+            console.log("${root}");
+            let userId = document.getElementById("userid_mypage").value;
+            $.ajax({
+                url: "${root}/remove/" + userId,
+                type: "DELETE",
+                success: function (status) {
+                    alert("탈퇴 성공 !");
+                    location.href = `${root}`;
+                },
+                error: function (request, status, error) {
+                    console.log(error + status);
+
+                    alert("탈퇴 실패 !");
+                },
+            });
+        }
+
+    
     </script>
 
     <body>
@@ -90,7 +111,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         <!-- End Header -->
         <div class="jumbotron jumbotron-fluid">
             <picture>
-                <img src="img/house.jpeg" class="jumbotron__background" />
+                <img src="img/background/teddy-bear.jpg" class="jumbotron__background" />
             </picture>
             <div class="container text-white text-center">
                 <h1 class="display-4">My Page</h1>
@@ -106,7 +127,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     <table class="table mx-auto mb-5" style="width: 70%">
                         <tbody>
                             <tr>
-                                <th>아이디</th>
+                                <th id="userid_mypage">아이디</th>
                                 <td>${user.userId}</td>
                             </tr>
                             <tr>
@@ -124,6 +145,10 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                             <tr>
                                 <th>주소</th>
                                 <td>${user.address}</td>
+                            </tr>
+                            <tr>
+                                <th>SSAFY 캠퍼스</th>
+                                <td>${user.campus}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -153,50 +178,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         <!-- End #main -->
 
         <!-- ======= Footer ======= -->
-        <footer id="footer">
-            <div class="footer-top">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-6">
-                            <div class="footer-info">
-                                <h3>HappyHouse</h3>
-                                <h5>ssafy 5th 서울 8반</h5>
-                                <h5>박재준 이서영</h5>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-2 col-md-6 footer-links">
-                            <h4>Links</h4>
-                            <ul>
-                                <li>
-                                    <i class="bx bx-chevron-right"></i>
-                                    <a href="#">Home</a>
-                                </li>
-                                <li>
-                                    <i class="bx bx-chevron-right"></i>
-                                    <a href="#">About us</a>
-                                </li>
-                                <li>
-                                    <i class="bx bx-chevron-right"></i>
-                                    <a href="#">Terms of service</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="copyright">
-                    &copy; Copyright <strong><span>Maxim</span></strong
-                    >. All Rights Reserved
-                </div>
-                <div class="credits">
-                    Designed by
-                    <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                </div>
-            </div>
-        </footer>
+        <jsp:include page="../include/footer.jsp" />
         <!-- End Footer -->
 
         <!-- Update user info Modal -->
@@ -296,6 +278,23 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                                         type="address2"
                                     />
                                 </div>
+                                <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"
+                                            ><i
+                                                class="fas fa-map-marker-alt"
+                                            ></i
+                                        ></span>
+                                    </div>
+                                    <select class="form-control" id="campus">
+                                        <option selected value="">없음</option>
+                                        <option value="서울">서울</option>
+                                        <option value="대전">대전</option>
+                                        <option value="광주">광주</option>
+                                        <option value="구미">구미</option>
+                                    </select>
+                                </select>
+                                </div>
                                 <!-- form-group// -->
                                 <div class="form-group">
                                     <button
@@ -325,7 +324,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                         <button
                             type="button"
                             class="btn btn-danger logout-nav"
-                            onclick="location.href='index.html'"
+                            onclick="javascript:removeUser();"
                         >
                             확인
                         </button>

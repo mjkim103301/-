@@ -13,4 +13,6 @@ public interface UserDao {
 	void updateUser(UserDto userDto);
 
 	void registerUser(UserDto userDto);
+
+	void removeUser(String userId);
 }

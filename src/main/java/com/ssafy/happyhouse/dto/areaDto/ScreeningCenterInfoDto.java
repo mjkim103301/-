@@ -4,20 +4,21 @@ public class ScreeningCenterInfoDto {
 	private int screeningCenterInfoId;
 	private String name;
 	private String address;
-	private String opertingHourWeekday;
-	private String opertingHourSaturday;
-	private String opertingHourHoliday;
+	private String operatingHourWeekday;
+	private String operatingHourSaturday;
+	private String operatingHourHoliday;
+	private String phone;
 
 	public ScreeningCenterInfoDto() {
 	}
 
-	public ScreeningCenterInfoDto(int screeningCenterInfoId, String name, String address, String opertingHourWeekday, String opertingHourSaturday, String opertingHourHoliday) {
+	public ScreeningCenterInfoDto(int screeningCenterInfoId, String name, String address, String operatingHourWeekday, String operatingHourSaturday, String operatingHourHoliday) {
 		this.screeningCenterInfoId = screeningCenterInfoId;
 		this.name = name;
 		this.address = address;
-		this.opertingHourWeekday = opertingHourWeekday;
-		this.opertingHourSaturday = opertingHourSaturday;
-		this.opertingHourHoliday = opertingHourHoliday;
+		this.operatingHourWeekday = operatingHourWeekday;
+		this.operatingHourSaturday = operatingHourSaturday;
+		this.operatingHourHoliday = operatingHourHoliday;
 	}
 
 	public int getScreeningCenterInfoId() {
@@ -44,27 +45,35 @@ public class ScreeningCenterInfoDto {
 		this.address = address;
 	}
 
-	public String getOpertingHourWeekday() {
-		return opertingHourWeekday;
+	public String getOperatingHourWeekday() {
+		return operatingHourWeekday;
 	}
 
-	public void setOpertingHourWeekday(String opertingHourWeekday) {
-		this.opertingHourWeekday = opertingHourWeekday;
+	public void setOperatingHourWeekday(String operatingHourWeekday) {
+		this.operatingHourWeekday = operatingHourWeekday;
 	}
 
-	public String getOpertingHourSaturday() {
-		return opertingHourSaturday;
+	public String getOperatingHourSaturday() {
+		return operatingHourSaturday;
 	}
 
-	public void setOpertingHourSaturday(String opertingHourSaturday) {
-		this.opertingHourSaturday = opertingHourSaturday;
+	public void setOperatingHourSaturday(String operatingHourSaturday) {
+		this.operatingHourSaturday = operatingHourSaturday;
 	}
 
-	public String getOpertingHourHoliday() {
-		return opertingHourHoliday;
+	public String getOperatingHourHoliday() {
+		return operatingHourHoliday;
 	}
 
-	public void setOpertingHourHoliday(String opertingHourHoliday) {
-		this.opertingHourHoliday = opertingHourHoliday;
+	public void setOperatingHourHoliday(String operatingHourHoliday) {
+		this.operatingHourHoliday = operatingHourHoliday;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 }

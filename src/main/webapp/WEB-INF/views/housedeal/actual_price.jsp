@@ -54,15 +54,16 @@
 	<section class="features section-bg">
 		<div class="container">
 			<h4>아파트/주택 실거래가 검색</h4>
-
-			<form id="search-using-word" onsubmit="searchPlaces(); return false;">
+			<!-- onsubmit="searchPlaces(); return false;" -->
+			<form id="search-using-word" onsubmit="searchPlaces(); return false;" >
 				<!-- <input type="hidden" name="action" id="action" value="listHouseDeal"> -->
 				<div class="row mb-4">
 
 					<input id="keyword" type="text" class="form-control mr-2"
 						placeholder="지역, 아파트 검색" style="width: 200px;">
-					<button  class="btn btn-success" type="submit">검색</button>
-
+					<button class="btn btn-success" type="submit">검색</button>
+					<button class="btn btn-success" type="submit" style="visibility:hidden"></button>
+					<button class="btn btn-warning" type="button" onclick="interestedAreaRegister()">관심지역 등록</button>
 				</div>
 			</form>
 		</div>
@@ -78,182 +79,13 @@
 			<div class="row">
 				<!--===== 검색 결과 부분===== -->
 
-				<div id="list_wrap" class="col-sm-3" style="overflow: scroll; height: 650px;">
+				<div id="list_wrap" class="col-sm-3"
+					style="overflow: scroll; height: 650px;">
 					<article id="place_list">
 
-						<!-- =====검색결과 list===== -->
-						<%-- <c:if test="${!empty list}">
-						
-							<c:forEach var="item" items="${list}"> --%>
-								<div class="card border-left-primary shadow h-100 py-2">
-									<div class="card-body">
-										<div class="row no-gutters align-items-center">
-											<div class="col-sm-4">
-												<img class="img-fluid " src="img/apartment/apartimg01.jpg"
-													alt="" />
-											</div>
-											<div class="col-sm-7 ml-4">
-
-												<div
-													class="h5 mb-0 font-weight-bold text-primary text-gray-800">${item.aptName}</div>
-												<div class="text-xs mb-0 text-gray-800">거래금액 :
-													${item.dealAmount}</div>
-												<div class="text-xs mb-0  text-gray-800">면적:
-													${item['area']}</div>
-												<div class="text-xs mb-0  text-gray-800">
-													거래날짜:
-													${item['dealYear']}.${item['dealMonth']}.${item['dealDay']}
-													<img src="${root}//img/view-more-arrow.png"
-														class="btn-view-more" alt="btnImages"
-														style="width: 12%; height: 12%">
-												</div>
-
-											</div>
-										</div>
-
-									</div>
-								</div>
-
-						<%-- 	</c:forEach>
-						</c:if>
-
-						<!-- =====검색결과 list가 비어있을 때 가져오는 기본 값===== -->
-						<c:if test="${empty list}"> 
-							<div class="card border-left-primary shadow h-100 py-2">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col-sm-4">
-											<img class="img-fluid " src="img/apartment/apartimg01.jpg"
-												alt="" />
-										</div>
-										<div class="col-sm-7 ml-4">
-
-											<div
-												class="h5 mb-0 font-weight-bold text-primary text-gray-800">서초
-												트라움 아파트</div>
-											<div class="text-xs mb-0 text-gray-800">실거래가: 69억원</div>
-											<div class="text-xs mb-0  text-gray-800">면적: 344m^2</div>
-											<div class="text-xs mb-0  text-gray-800">
-												거래날짜: 2020.12 <img src="${root}//img/view-more-arrow.png"
-													class="btn-view-more" alt="btnImages"
-													style="width: 12%; height: 12%">
-											</div>
-										</div>
-
-										<!--  =====클릭하면 자세한 설명 나오게끔==== -->
-									</div>
-								</div>
-							</div>
-
-							<div class="card border-left-primary shadow h-100 py-2">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col-sm-4">
-											<img class="img-fluid " src="img/apartment/apartimg02.jpg"
-												alt="" />
-										</div>
-										<div class="col-sm-7 ml-4">
-
-											<div
-												class="h5 mb-0 font-weight-bold text-primary text-gray-800">강남
-												삼성아이파크</div>
-											<div class="text-xs mb-0 text-gray-800">실거래가: 51억원</div>
-											<div class="text-xs mb-0  text-gray-800">면적: 209m^2</div>
-											<div class="text-xs mb-0  text-gray-800">거래날짜: 2020.10</div>
-
-										</div>
-
-									</div>
-								</div>
-							</div>
-							<div class="card border-left-primary shadow h-100 py-2">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col-sm-4">
-											<img class="img-fluid " src="img/apartment/apartimg03.jpg"
-												alt="" />
-										</div>
-										<div class="col-sm-7 ml-4">
-
-											<div
-												class="h5 mb-0 font-weight-bold text-primary text-gray-800">서초
-												반포 아크로리버파크</div>
-											<div class="text-xs mb-0 text-gray-800">실거래가: 39억원</div>
-											<div class="text-xs mb-0  text-gray-800">면적: 149m^2</div>
-											<div class="text-xs mb-0  text-gray-800">거래날짜: 2021.02</div>
-
-										</div>
-
-									</div>
-								</div>
-							</div>
-							<div class="card border-left-primary shadow h-100 py-2">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col-sm-4">
-											<img class="img-fluid " src="img/apartment/apartimg03.jpg"
-												alt="" />
-										</div>
-										<div class="col-sm-7 ml-4">
-
-											<div
-												class="h5 mb-0 font-weight-bold text-primary text-gray-800">서초
-												반포 아크로리버파크</div>
-											<div class="text-xs mb-0 text-gray-800">실거래가: 39억원</div>
-											<div class="text-xs mb-0  text-gray-800">면적: 149m^2</div>
-											<div class="text-xs mb-0  text-gray-800">거래날짜: 2021.02</div>
-
-										</div>
-
-									</div>
-								</div>
-							</div>
-							<div class="card border-left-primary shadow h-100 py-2">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col-sm-4">
-											<img class="img-fluid " src="img/apartment/apartimg03.jpg"
-												alt="" />
-										</div>
-										<div class="col-sm-7 ml-4">
-
-											<div
-												class="h5 mb-0 font-weight-bold text-primary text-gray-800">서초
-												반포 아크로리버파크</div>
-											<div class="text-xs mb-0 text-gray-800">실거래가: 39억원</div>
-											<div class="text-xs mb-0  text-gray-800">면적: 149m^2</div>
-											<div class="text-xs mb-0  text-gray-800">거래날짜: 2021.02</div>
-
-										</div>
-
-									</div>
-								</div>
-							</div>
-							<div class="card border-left-primary shadow h-100 py-2">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col-sm-4">
-											<img class="img-fluid " src="img/apartment/apartimg03.jpg"
-												alt="" />
-										</div>
-										<div class="col-sm-7 ml-4">
-
-											<div
-												class="h5 mb-0 font-weight-bold text-primary text-gray-800">서초
-												반포 아크로리버파크</div>
-											<div class="text-xs mb-0 text-gray-800">실거래가: 39억원</div>
-											<div class="text-xs mb-0  text-gray-800">면적: 149m^2</div>
-											<div class="text-xs mb-0  text-gray-800">거래날짜: 2021.02</div>
-
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</c:if>
-						--%>
+						<!-- =====검색결과 list===== -->					
 					</article>
-					
+
 				</div>
 				<div id="actual_price_map" class="col-sm-9"
 					style="width: 100%; height: 650px"></div>
@@ -283,11 +115,13 @@
 	<!-- Template Main JS File -->
 	<script src="js/main.js"></script>
 	<script src="js/user.js"></script>
+	<script src="js/interested_area.js"></script>
 
 	<!-- 카카오 맵 js -->
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c4c8e04658a5aa22ab7e8258713d9b0e&libraries=services"></script>
-	<script src="js/kakao_map.js"></script>
-	
+	<script type="text/javascript"
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c4c8e04658a5aa22ab7e8258713d9b0e&libraries=services"></script>
+	<script src="js/actual_price_map.js"></script>
+
 
 </body>
 

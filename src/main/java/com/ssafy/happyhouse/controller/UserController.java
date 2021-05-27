@@ -9,13 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.ssafy.happyhouse.service.UserService;
 
@@ -86,16 +80,22 @@ public class UserController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
+	@DeleteMapping("/remove/{userid}")
+	public ResponseEntity<Void> removeUser(@PathVariable(value = "userid") String userid, HttpSession session) {
+		userService.removeUser(userid);
+		session.invalidate();
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+
 	@PostMapping("/register")
-	public ResponseEntity<Void> registerMember(@RequestBody UserDto member) {
+	public ResponseEntity<Void> registerMember(@RequestBody UserDto user) {
 		System.out.println("/register => POST >>>>>>>>>>>>>>");
-		userService.registerUser(member);
+		userService.registerUser(user);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	@GetMapping("/getSession")
 	public ResponseEntity<UserDto> getSession(HttpSession session) {
-
 		UserDto userDto = (UserDto) session.getAttribute("user");
 		System.out.println(">>>move GET /getSession" + userDto);
 		if (userDto == null) {

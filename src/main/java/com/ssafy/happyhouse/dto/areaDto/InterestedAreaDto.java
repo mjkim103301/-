@@ -4,6 +4,8 @@ public class InterestedAreaDto {
 	private int interestAreaId;
 	private String userId;
 	private String dongcode;
+	private String gugun;
+	private String city;
 	private String dong;
 
 	public InterestedAreaDto() {
@@ -46,6 +48,22 @@ public class InterestedAreaDto {
 
 	public void setDong(String dong) {
 		this.dong = dong;
+	}
+
+	public String getGugun() {
+		return gugun;
+	}
+
+	public void setGugun(String gugun) {
+		this.gugun = gugun;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
 	}
 
 	@Override
