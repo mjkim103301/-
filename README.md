@@ -6,6 +6,7 @@
 ### 개요
 * 서울 자치구별 부동산 실거래가 및 관심지역의 주변 환경을 비교하는 웹서비스
 * [🎥 youtube](https://www.youtube.com/watch?v=b5Cyi5uKPWE)
+* [최종 발표자료](https://github.com/mjkim103301/SendMeHome/blob/develop/210528_5%EA%B8%B0_%EC%84%9C%EC%9A%B8_8%EB%B0%98_%EA%B4%80%ED%86%B5PJT_%EA%B9%80%EB%AF%BC%EA%B8%B0_%EA%B9%80%EB%AF%BC%EC%A7%80.pdf)
 
 ### 주요 기능
 <img src="https://user-images.githubusercontent.com/39117025/132410718-73f51a1d-251c-497c-855e-fcf8e86158e6.png" width="700">
