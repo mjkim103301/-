@@ -8,7 +8,7 @@
 * [🎥 youtube](https://www.youtube.com/watch?v=b5Cyi5uKPWE)
 * [최종 발표자료](https://github.com/mjkim103301/SendMeHome/blob/develop/210528_5%EA%B8%B0_%EC%84%9C%EC%9A%B8_8%EB%B0%98_%EA%B4%80%ED%86%B5PJT_%EA%B9%80%EB%AF%BC%EA%B8%B0_%EA%B9%80%EB%AF%BC%EC%A7%80.pdf)
 
-### 🛠 기술 스택
+### 기술 스택
 <p>
 <a href="https://vuejs.org/v2/guide/index.html">
     <img src="https://img.shields.io/badge/Vue.js-4FC08D?style=flat-square&logo=vue.js&logoColor=white"/>
