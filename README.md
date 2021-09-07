@@ -1,23 +1,17 @@
 
-## 기본 - 게시글
-### 목록
-![image](https://user-images.githubusercontent.com/39117025/118675182-5b54e580-b835-11eb-91c1-95d2d5ba0076.png)
+## 집보내: 집을 보다, 집에 보내주다
+### 프로젝트 기간 
+* 2021.05.18 ~ 2021.05.27 (10일)
 
+### 개요
+* 서울 자치구별 부동산 실거래가 및 관심지역의 주변 환경을 비교하는 웹서비스
+* [🎥 youtube](https://www.youtube.com/watch?v=b5Cyi5uKPWE)
 
-## 기본 - 서버측 구현
-### 공지사항 컨트롤러
-<img width="1492" alt="스크린샷 2021-05-19 오전 12 03 33" src="https://user-images.githubusercontent.com/49678555/118675572-a838bc00-b835-11eb-85c6-fb64b763e4c1.png">
+### 주요 기능
+<img src="https://user-images.githubusercontent.com/39117025/132410718-73f51a1d-251c-497c-855e-fcf8e86158e6.png" width="700">
 
-### 상세 검색
-<img width="1472" alt="스크린샷 2021-05-19 오전 12 02 48" src="https://user-images.githubusercontent.com/49678555/118675410-8d664780-b835-11eb-8a38-8f43fac1f5a1.png">
-
-
-<img width="1463" alt="스크린샷 2021-05-19 오전 12 03 11" src="https://user-images.githubusercontent.com/49678555/118675493-9b1bcd00-b835-11eb-84cc-da4432863dcc.png">
-
-
-## 심화 - 메인페이지
-![image](https://user-images.githubusercontent.com/39117025/118675436-90613800-b835-11eb-8660-994586eb375c.png)
-
-
+### 서비스 구조
+<img src="https://user-images.githubusercontent.com/39117025/132410801-5a628bd4-cd53-4fcd-84ee-aca4238587df.png" width="700">
+<img src="https://user-images.githubusercontent.com/39117025/132410825-916304f6-812c-443b-b11f-4880f0cad3c2.png" width="700">
 
 
